@@ -28,6 +28,11 @@ function dueBox(o){
   if(d === 0) return `<div class="due soon"><b>Today</b><span>closes</span></div>`;
   return `<div class="due${d <= 7 ? ' soon' : ''}"><b>${d}</b><span>${d === 1 ? 'day left' : 'days left'}</span></div>`;
 }
+function host(u){ try{ return new URL(u).hostname.replace(/^www\d?\./, ''); }catch(e){ return ''; } }
+const EXT = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-1px"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+function srcLine(o){
+  return `<div class="srcline"><span>Source:</span> <a href="${esc(o.url)}" rel="noopener" target="_blank">${esc(host(o.url))} ${EXT}<span class="sr"> (official notice, opens in a new tab)</span></a>${o.docs ? ` · <a href="${esc(o.docs)}" rel="noopener" target="_blank">Documents ${EXT}</a>` : ''}${o.via ? ` <span class="muted">· found via <a href="${esc(o.via)}" rel="noopener" target="_blank">${esc(host(o.via))}</a></span>` : ''}</div>`;
+}
 function typeBadge(o){ return `<span class="badge b-${o.type}">${esc(D.TYPES[o.type].one)}</span>`; }
 function checkBadge(o){ return o.check === 'official' ? `<span class="badge b-official">Checked on official notice</span>` : `<span class="badge b-platform">Official link via platform</span>`; }
 
@@ -38,6 +43,7 @@ function row(o){
     <div class="row" style="gap:6px">${typeBadge(o)}${o.bd ? '<span class="badge b-bd">Open to Bangladesh</span>' : ''}${d !== null && d >= 0 && d <= 7 ? '<span class="badge b-soon">Closing soon</span>' : ''}</div>
     <h3><a href="#o/${esc(o.id)}">${esc(o.title)}</a></h3>
     <div class="meta"><span><b>${esc(o.issuer)}</b></span>${o.amount ? `<span>${esc(o.amount)}</span>` : ''}${o.location ? `<span>${esc(o.location)}</span>` : ''}<span>Deadline: ${esc(o.closeText)}</span></div>
+    ${srcLine(o)}
   </div></article>`;
 }
 function sortByClose(a, b){ const x = closeMs(a), y = closeMs(b); if(x === null) return 1; if(y === null) return -1; return x - y; }
@@ -70,7 +76,7 @@ V.home = () => {
       <div class="stat"><b>${OPEN.length}</b><span>open now</span></div>
       <div class="stat"><b>${week.length}</b><span>closing within 7 days</span></div>
       <div class="stat"><b>${bd}</b><span>open to Bangladesh</span></div>
-      <div class="stat"><b>${D.DONORS.length}</b><span>donor profiles</span></div>
+      <div class="stat"><b>${D.SOURCES.tier1.length + D.SOURCES.tier2.length}</b><span>official sources checked</span></div>
     </div>
   </section>
   <section class="section"><div class="sechead"><h2>What are you looking for?</h2><a href="#opportunities">See everything →</a></div>
@@ -185,14 +191,26 @@ V.o = (id) => {
       ${o.steps ? `<div class="stack"><h2>How to apply</h2><ol class="prose">${o.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol></div>` : ''}
       ${o.foreign ? `<div class="box red"><b>For organisations in Bangladesh:</b> foreign funds for voluntary activities need NGO Affairs Bureau registration and project approval before the money is received or spent. <a href="#bangladesh">What this means</a>.</div>` : ''}
       ${rel ? `<div class="box"><b>Related listing:</b> <a href="#o/${esc(rel.id)}">${esc(rel.title)}</a></div>` : ''}
+      <div class="stack" id="sources"><h2>Sources</h2>
+        <ol class="srclist">
+          <li><b>Official notice</b> from ${esc(o.issuer)}: <a href="${esc(o.url)}" rel="noopener" target="_blank">${esc(o.url)}</a></li>
+          ${o.docs ? `<li><b>Bid documents / terms of reference:</b> <a href="${esc(o.docs)}" rel="noopener" target="_blank">${esc(o.docs)}</a></li>` : ''}
+          <li><b>Issuer website:</b> <a href="${esc(new URL(o.url).origin)}" rel="noopener" target="_blank">${esc(host(o.url))}</a></li>
+          ${o.via ? `<li><b>Where DevFund found it:</b> <a href="${esc(o.via)}" rel="noopener" target="_blank">${esc(o.via)}</a></li>` : ''}
+          ${(o.extra || []).map(x => `<li><b>${esc(x[0])}:</b> <a href="${esc(x[1])}" rel="noopener" target="_blank">${esc(x[1])}</a></li>`).join('')}
+        </ol>
+        <p class="small muted">${o.check === 'official' ? 'DevFund read the official notice on ' : 'DevFund took the official link from the platform above on '}${esc(fmtDay(o.checked))}. The official notice is always the final word.</p>
+      </div>
       <div class="box amber small"><b>Before you apply:</b> the official notice is the final word. Read it in full, apply only through the issuer's own channel, and never pay a fee to apply. ${o.check === 'platform' ? 'DevFund took the official link for this listing from a job or grant platform; open it to confirm the details.' : ''}</div>
-      <p class="small muted">Summary written by DevFund. Last checked ${esc(fmtDay(o.checked))}. ${o.via ? `Found via <a href="${esc(o.via)}" rel="noopener" target="_blank">${esc(new URL(o.via).hostname.replace(/^www\./,''))}</a>.` : ''} Spotted an error? <a href="#report?id=${esc(o.id)}">Report a problem</a>.</p>
+      <p class="small muted">Summary written by DevFund. Last checked ${esc(fmtDay(o.checked))}. Spotted an error? <a href="#report?id=${esc(o.id)}">Report a problem</a>.</p>
     </article>
     <aside class="side">
       <div class="card">
         ${o.close ? (open ? `<span class="eyebrow">Time left</span><div class="countdown${d <= 7 ? ' soon' : ''}">${d === 0 ? 'Closes today' : d + (d === 1 ? ' day' : ' days')}</div>` : '<span class="eyebrow">Status</span><div class="countdown" style="color:var(--muted)">Closed</div>') : '<span class="eyebrow">Status</span><div class="countdown" style="font-size:1.4rem">Ongoing</div>'}
         ${o.close ? `<p class="small muted">${esc(dhaka(o))}</p>` : ''}
-        <a class="btn" href="${esc(o.url)}" rel="noopener" target="_blank">View official notice</a>
+        <a class="btn" href="${esc(o.url)}" rel="noopener" target="_blank">View official notice ${EXT}</a>
+        <p class="small muted" style="text-align:center;margin-top:-4px">on ${esc(host(o.url))}</p>
+        ${o.docs ? `<a class="btn btn-line" href="${esc(o.docs)}" rel="noopener" target="_blank">Download documents</a>` : ''}
         ${o.close && open ? `<button class="btn btn-line" id="ics">Add deadline to calendar</button>` : ''}
         <button class="btn btn-line" id="share">Copy link</button>
       </div>

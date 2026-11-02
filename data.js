@@ -19,6 +19,7 @@
      close: '2026-11-08T17:59:00Z', // deadline as UTC ISO time (end of day Dhaka when no time is given)
      closeText: '8 Nov 2026 (no time stated)', // deadline exactly as the issuer states it
      url: '',                       // the issuer's official notice / application page
+     docs: '',                      // optional direct link to the bid documents / ToR
      via: '',                       // where DevFund found it, if not the issuer's own site
      check: 'official' | 'platform',// official = checked on the issuer's own page; platform = official link taken from a job or grant platform
      checked: '2026-11-02',         // date last checked
@@ -127,6 +128,19 @@ LISTINGS: [
   via: 'https://opportunitydesk.org/2026/09/18/d-prize-global-competition-2026/', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: true
 },
 
+{
+  id: 'g6', type: 'grant',
+  title: 'Equality Fund Global Journalism Fellowship 2026–2027',
+  issuer: 'Equality Fund', issuerKind: 'Foundation', ref: '',
+  summary: 'A fellowship for journalists based in and reporting on communities in ODA-recipient countries. Fellows get a CAD 4,000 stipend, up to CAD 500 in reporting expenses, monthly online sessions with journalists and experts, safety training and one in-person convening. Applicants need at least three years of full-time or freelance journalism and fluent English.',
+  amount: 'CAD 4,000 stipend plus up to CAD 500 reporting expenses', duration: 'January – September 2027',
+  location: 'Remote, with one in-person convening', countries: 'Journalists located in and reporting on ODA-recipient countries (OECD DAC list; Bangladesh is on it).',
+  bd: true, applicants: ['individual'], sectors: ['media', 'gender'],
+  close: '2026-11-09T05:00:00Z', closeText: '8 Nov 2026, midnight Eastern Standard Time',
+  url: 'https://equalityfund.ca/en/posts/journalism-fellowship',
+  via: 'https://opportunitydesk.org/2026/09/24/equality-fund-journalism-fellowship-2026-2027/', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+
 /* ---------- Jobs and consultancies ---------- */
 {
   id: 'j1', type: 'job',
@@ -211,6 +225,34 @@ LISTINGS: [
   close: '2026-11-14T17:59:00Z', closeText: '14 Nov 2026, 23:59 Bangladesh time',
   url: 'https://wd3.myworkdaysite.com/recruiting/wfp/job_openings/job/Coxs-Bazaar-Bangladesh-The-Peoples-R/Mechanics--Electrical-Engineer---SC4--Cox-s-Bazar_JR128058',
   via: 'https://unvacancies.org/jobs/mechanics-electrical-engineer-sc4-cox-s-bazar-31097322', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+
+/* ---------- Tenders, RFPs and EOIs ---------- */
+{
+  id: 't1', type: 'tender',
+  title: 'Two-year framework agreement for food, venue and accommodation services, Mymensingh',
+  issuer: 'CARE Bangladesh', issuerKind: 'INGO', ref: '',
+  summary: 'CARE Bangladesh invites suppliers for a two-year framework agreement covering food, venues and accommodation for its work in Mymensingh. The bid documents are in a downloadable package on CARE Bangladesh\'s consultancy and procurement page.',
+  amount: '', duration: '2 years (framework agreement)',
+  location: 'Mymensingh', countries: 'Suppliers able to serve Mymensingh; see the bid documents for eligibility.',
+  bd: true, applicants: ['firm'], sectors: ['economic'],
+  close: '2026-11-07T17:59:00Z', closeText: '7 Nov 2026 (no time stated on the listing page)',
+  url: 'https://www.carebangladesh.org/consultancy',
+  docs: 'https://www.carebangladesh.org/storage/app/uploads/public/6ae/09a/ad6/6ae09aad67abe215593903.zip',
+  via: '', check: 'official', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+{
+  id: 't2', type: 'tender',
+  title: 'Two-year framework agreement for food, venue and accommodation services, Bandarban',
+  issuer: 'CARE Bangladesh', issuerKind: 'INGO', ref: '',
+  summary: 'CARE Bangladesh invites suppliers for a two-year framework agreement covering food, venues and accommodation for its work in Bandarban. The bid documents are in a downloadable package on CARE Bangladesh\'s consultancy and procurement page.',
+  amount: '', duration: '2 years (framework agreement)',
+  location: 'Bandarban', countries: 'Suppliers able to serve Bandarban; see the bid documents for eligibility.',
+  bd: true, applicants: ['firm'], sectors: ['economic'],
+  close: '2026-11-07T17:59:00Z', closeText: '7 Nov 2026 (no time stated on the listing page)',
+  url: 'https://www.carebangladesh.org/consultancy',
+  docs: 'https://www.carebangladesh.org/storage/app/uploads/public/6ae/09a/4f7/6ae09a4f7c1ae341354449.zip',
+  via: '', check: 'official', checked: '2026-11-02', added: '2026-11-02', foreign: false
 },
 
 /* ---------- Funding releases ---------- */
@@ -330,27 +372,55 @@ DONORS: [
 /* Approved source list (public on the Our Sources page) */
 SOURCES: {
   tier1: [
-    ['UN Global Marketplace (UNGM)', 'https://www.ungm.org/Public/Notice'],
-    ['UNDP procurement notices', 'https://procurement-notices.undp.org/'],
-    ['UNICEF Bangladesh supply and logistics', 'https://www.unicef.org/bangladesh/en/supply-and-logistics'],
-    ['UNFPA Bangladesh calls for submissions', 'https://bangladesh.unfpa.org/en/call-for-submissions'],
+    ['UN Global Marketplace (UNGM): tenders from all UN agencies', 'https://www.ungm.org/Public/Notice'],
+    ['UN Partner Portal: calls for civil society partners', 'https://www.unpartnerportal.org/'],
     ['UN Secretariat procurement', 'https://www.un.org/procurement/solicitations-opportunities'],
+    ['UNDP procurement notices and consultancies', 'https://procurement-notices.undp.org/'],
+    ['UNICEF Bangladesh supply and procurement', 'https://www.unicef.org/bangladesh/en/supply-and-logistics'],
+    ['UNICEF jobs', 'https://jobs.unicef.org/'],
+    ['UNFPA Bangladesh calls for submissions', 'https://bangladesh.unfpa.org/en/call-for-submissions'],
+    ['UN Women Asia-Pacific calls for proposals', 'https://asiapacific.unwomen.org/en'],
+    ['IOM Bangladesh procurement', 'https://bangladesh.iom.int/procurement'],
+    ['FAO careers', 'https://jobs.fao.org/'],
+    ['WFP careers', 'https://www.wfp.org/careers'],
+    ['UNOPS jobs', 'https://jobs.unops.org/'],
+    ['UNDEF: UN Democracy Fund', 'https://www.un.org/democracyfund/apply-for-funding'],
     ['World Bank projects and procurement', 'https://projects.worldbank.org/'],
-    ['Asian Development Bank business opportunities', 'https://www.adb.org/business/main'],
+    ['Asian Development Bank consulting and procurement', 'https://www.adb.org/'],
+    ['Asian Infrastructure Investment Bank procurement', 'https://www.aiib.org/'],
+    ['Islamic Development Bank procurement', 'https://www.isdb.org/'],
     ['EU Funding & Tenders Portal', 'https://ec.europa.eu/info/funding-tenders/opportunities/portal/'],
+    ['EU Delegation to Bangladesh', 'https://www.eeas.europa.eu/delegations/bangladesh_en'],
+    ['UK Find a Tender', 'https://www.find-tender.service.gov.uk/'],
+    ['UK international development funding', 'https://www.gov.uk/international-development-funding'],
     ['US Grants.gov', 'https://simpler.grants.gov/'],
+    ['GIZ tenders', 'https://www.giz.de/en/workingwithgiz/tenders.html'],
+    ['JICA', 'https://www.jica.go.jp/english/'],
+    ['Embassy of Japan in Bangladesh: grassroots grants', 'https://www.bd.emb-japan.go.jp/en/assistance/gghsp.html'],
     ['Bangladesh Public Procurement Authority (BPPA) advertisements', 'https://www.bppa.gov.bd/'],
     ['Bangladesh e-GP', 'https://www.eprocure.gov.bd/'],
     ['NGO Affairs Bureau', 'https://ngoab.gov.bd/'],
-    ['UN agency career sites (UNICEF, UNDP, FAO, WFP, UNOPS and others)', '']
+    ['PKSF', 'https://pksf.org.bd/'],
+    ['icddr,b tender notices', 'https://www.icddrb.org/tender-notices'],
+    ['CARE Bangladesh consultancy and procurement', 'https://www.carebangladesh.org/consultancy'],
+    ['Commonwealth Foundation grants', 'https://commonwealthfoundation.com/grants/annual/'],
+    ['Rockefeller Foundation', 'https://www.rockefellerfoundation.org/'],
+    ['Mozilla Foundation fellowships', 'https://www.mozillafoundation.org/'],
+    ['Internet Society fellowship', 'https://www.internetsociety.org/fellowship/'],
+    ['ifa CrossCulture Programme', 'https://www.ifa.de/en/funding/ccp-fellowships/'],
+    ['Equality Fund', 'https://equalityfund.ca/'],
+    ['D-Prize', 'https://d-prize.org/'],
+    ['Global Innovation Fund', 'https://www.globalinnovation.fund/']
   ],
   tier2: [
     ['ReliefWeb jobs and training', 'https://reliefweb.int/jobs'],
-    ['Foundation grant portals (Commonwealth Foundation, Rockefeller Foundation, Mozilla Foundation and others)', '']
+    ['GOV.UK international development funding finder', 'https://www.gov.uk/international-development-funding'],
+    ['Grants.gov opportunity search', 'https://simpler.grants.gov/search']
   ],
   tier3: [
     ['UN Vacancies', 'https://unvacancies.org/'],
     ['Impactpool', 'https://www.impactpool.org/'],
+    ['DevelopmentAid', 'https://www.developmentaid.org/'],
     ['Opportunity Desk', 'https://opportunitydesk.org/'],
     ['fundsforNGOs', 'https://www2.fundsforngos.org/'],
     ['Global South Opportunities', 'https://www.globalsouthopportunities.com/']
@@ -362,7 +432,7 @@ DIGEST: {
   week: '2 – 8 Nov 2026',
   note: 'DevFund opens in public beta this week with jobs and consultancies from UN agencies in Bangladesh and international grants and fellowships open to Bangladeshi applicants. Tender coverage from UNGM, the World Bank, ADB and Bangladesh e-GP is being added through the daily scan.',
   top: ['j1', 'g1', 'j2', 'g2'],
-  also: ['j3', 'g4', 'g5', 'g3']
+  also: ['g6', 't1', 'j3', 'g4', 'g5', 'g3']
 },
 
 /* Corrections log: newest first. {date, id, what} */
