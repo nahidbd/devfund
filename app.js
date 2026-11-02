@@ -46,47 +46,60 @@ const OPEN = L.filter(isOpen).sort(sortByClose);
 /* ---------- pages ---------- */
 const V = {};
 
+const ICON = {
+  grant: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>',
+  tender: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>',
+  job: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>',
+  fund: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2s1.3 1.7 3 2 3 .9 3 2-1.3 2-3 2c-1.4 0-2.5-.5-3-1.5M12 6v2M12 16v2"/></svg>',
+  philanthropy: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3 3h4a2 2 0 0 0 0-4h-3M7 12V8a5 5 0 0 1 10 0v1"/><path d="M3 18h12l6-4"/></svg>'
+};
+const TILE_NOTE = {grant:'Calls for proposals and fellowships', tender:'RFPs, EOIs and procurement', job:'Staff posts and consultancies', fund:'New funds and donor commitments', philanthropy:'Foundations and CSR'};
 V.home = () => {
   const week = OPEN.filter(o => { const d = daysLeft(o); return d !== null && d <= 7; });
   const newest = L.filter(o => o.added === D.TODAY && isOpen(o));
   const byType = t => OPEN.filter(o => o.type === t).length;
   const bd = OPEN.filter(o => o.bd).length;
   return `
-  <section class="stack" style="gap:8px">
-    <span class="kicker">Open opportunities, checked daily</span>
-    <h1>Find development funding, tenders and jobs before the deadline passes</h1>
-    <p class="muted prose" style="font-size:1.12rem">Grants, calls for proposals, tenders, EOIs, jobs and consultancies from UN agencies, development banks, donors and foundations. Each listing shows the deadline in Dhaka time, who can apply and a link to the official notice.</p>
-    <div class="row" style="margin-top:8px"><a class="btn" href="#opportunities">Browse all opportunities</a><a class="btn btn-line" href="#calendar">See deadlines by week</a></div>
+  <section class="hero stack" style="gap:18px">
+    <span class="kicker">Open opportunities, checked every day</span>
+    <h1>Funding for people who change things</h1>
+    <p>Grants, tenders, jobs and consultancies from UN agencies, development banks, donors and foundations. Every listing shows who can apply, the deadline in Dhaka time, and a link to the official notice.</p>
+    <form class="searchbar" id="heroSearch" role="search"><label class="sr" for="hq">Search opportunities</label><input id="hq" type="search" placeholder="Search grants, tenders, jobs…" autocomplete="off"><button class="btn" type="submit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Search</span></button></form>
+    <div class="quick"><a href="#bangladesh">Open to Bangladesh</a><a href="#opportunities?type=job">Consultancies</a><a href="#opportunities?type=grant">Grants for NGOs</a><a href="#calendar">Closing soon</a></div>
     <div class="stats">
-      <div class="stat"><b>${OPEN.length}</b><span>open opportunities</span></div>
-      <div class="stat"><b>${week.length}</b><span>closing in the next 7 days</span></div>
-      <div class="stat"><b>${bd}</b><span>open to applicants from Bangladesh</span></div>
+      <div class="stat"><b>${OPEN.length}</b><span>open now</span></div>
+      <div class="stat"><b>${week.length}</b><span>closing within 7 days</span></div>
+      <div class="stat"><b>${bd}</b><span>open to Bangladesh</span></div>
       <div class="stat"><b>${D.DONORS.length}</b><span>donor profiles</span></div>
     </div>
   </section>
-  <section class="section"><div class="sechead"><h2>Browse by type</h2></div>
-    <div class="cards">${Object.keys(D.TYPES).filter(t => byType(t)).map(t => `<a class="card" href="#opportunities?type=${t}"><span class="badge b-${t}" style="align-self:flex-start">${esc(D.TYPES[t].label)}</span><b style="font-size:1.6rem">${byType(t)}</b><span class="muted small">open now</span></a>`).join('')}</div>
+  <section class="section"><div class="sechead"><h2>What are you looking for?</h2><a href="#opportunities">See everything →</a></div>
+    <div class="tiles">${Object.keys(D.TYPES).map(t => `<a class="tile t-${t}" href="#opportunities?type=${t}"><span class="ic">${ICON[t]}</span><b>${byType(t)}</b><span>${esc(D.TYPES[t].label)}</span><small>${esc(TILE_NOTE[t])}</small></a>`).join('')}</div>
   </section>
-  <section class="section"><div class="sechead"><h2>Closing this week</h2><a href="#calendar">Full deadline calendar</a></div>
+  <section class="section"><div class="sechead"><h2>Closing this week</h2><a href="#calendar">Deadline calendar →</a></div>
     ${week.length ? `<div class="list">${week.map(row).join('')}</div>` : '<p class="empty">Nothing closes in the next seven days.</p>'}
   </section>
-  <section class="section"><div class="sechead"><h2>New today</h2><a href="#opportunities">All opportunities</a></div>
-    ${newest.length ? `<div class="list">${newest.slice(0, 8).map(row).join('')}</div>` : '<p class="empty">No new listings yet today. The board is updated every morning.</p>'}
+  <section class="section"><div class="sechead"><h2>New today</h2><a href="#opportunities">All opportunities →</a></div>
+    ${newest.length ? `<div class="list">${newest.slice(0, 6).map(row).join('')}</div>` : '<p class="empty">No new listings yet today. The board is updated every morning.</p>'}
   </section>
   <section class="section">
-    <div class="box red stack"><span class="kicker">Bangladesh Desk</span><h2>Winning foreign funds? Plan for NGO Affairs Bureau approval.</h2>
-    <p class="prose">Organisations in Bangladesh need the Bureau's registration and project approval before they receive or spend foreign donations for voluntary activities. Grants on DevFund that are foreign-funded carry a reminder.</p>
-    <a href="#bangladesh">Open the Bangladesh Desk</a></div>
+    <div class="box red stack"><span class="eyebrow" style="color:var(--sun-ink)">Bangladesh Desk</span><h2>Winning foreign funds? Plan for NGO Affairs Bureau approval.</h2>
+    <p class="prose">Organisations in Bangladesh need the Bureau's registration and project approval before they receive or spend foreign donations for voluntary activities. Foreign-funded grants on DevFund carry a reminder.</p>
+    <a class="btn btn-teal" href="#bangladesh" style="align-self:flex-start">Open the Bangladesh Desk</a></div>
   </section>
-  <section class="section"><div class="sechead"><h2>Weekly Opportunity Digest</h2><a href="#digest">Read the digest</a></div>
+  <section class="section"><div class="sechead"><h2>This week's digest</h2><a href="#digest">Read the digest →</a></div>
     <p class="prose">${esc(D.DIGEST.note)}</p>
   </section>
   <section class="section"><div class="cards">
     <a class="card" href="#donors"><span class="eyebrow">Donor profiles</span><h3>Who funds what, and where they post notices</h3><p class="muted">UN agencies, banks, embassies and foundations active in Bangladesh.</p></a>
-    <a class="card" href="#bid-desk"><span class="eyebrow">Proposal and Bid Desk</span><h3>Need help with a proposal or EOI?</h3><p class="muted">Proposal writing, EOIs, CVs and compliance support from Synapse Consulting.</p></a>
-    <a class="card" href="#scams"><span class="eyebrow">Stay safe</span><h3>Scam alerts</h3><p class="muted">Real funders never charge an application fee. Know the warning signs.</p></a>
+    <a class="card" href="#bid-desk"><span class="eyebrow">Proposal help</span><h3>Need help with a proposal or EOI?</h3><p class="muted">Proposal writing, EOIs, CVs and compliance support from Synapse Consulting.</p></a>
+    <a class="card" href="#scams"><span class="eyebrow">Stay safe</span><h3>Real funders never charge a fee</h3><p class="muted">Learn the warning signs of fake grants and job offers.</p></a>
   </div></section>`;
 };
+function bindHome(){
+  const f = $('#heroSearch'); if(!f) return;
+  f.onsubmit = e => { e.preventDefault(); F = Object.assign({}, F_DEFAULT, {q: $('#hq').value}); store('devfund-filters', F); location.hash = '#opportunities'; };
+}
 
 /* opportunities board with filters */
 const F_DEFAULT = {type:'', q:'', sector:'', applicant:'', window:'', bd:false, official:false, closed:false};
@@ -403,6 +416,7 @@ function render(keep){
   if(view === 'o'){ const o = L.find(x => x.id === id); t = o ? o.title : 'Not found'; }
   if(view === 'donor'){ const d = D.DONORS.find(x => x.id === id); t = d ? d.name : 'Not found'; }
   document.title = (t ? t + ' — ' : '') + 'DevFund';
+  if(view === 'home') bindHome();
   if(view === 'opportunities') bindBoard();
   if(view === 'o') bindListing(id);
   bindForm();
