@@ -1,6 +1,6 @@
 # DevFund
 
-Funding, tenders and jobs for the development sector, starting with Bangladesh. A venture of Synapse Consulting and sister site of [Digivern](https://digivern.pages.dev).
+Funding, tenders, jobs and remote consultancies for the development sector worldwide, with an in-depth Bangladesh desk. A venture of Synapse Consulting and sister site of [Digivern](https://digivern.pages.dev).
 
 ## Files
 

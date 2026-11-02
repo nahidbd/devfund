@@ -13,7 +13,11 @@
      duration: '',                  // as published, or ''
      location: '',                  // duty station / where work happens
      countries: 'Bangladesh',       // who/where is eligible, in words
-     bd: true,                      // open to applicants from Bangladesh (true), or not confirmed (false)
+     region: 'asia',                // where the work is: one of REGIONS keys ('global' for remote or worldwide)
+     country: 'Bangladesh',         // country where the work is ('' for global / multi-country / remote)
+     remote: false,                 // true when the work can be done fully or mainly remotely / home-based
+     open: 'national',              // who may apply: 'worldwide' | 'developing' (ODA / low- and middle-income countries) | 'listed' (named countries) | 'national' (nationals or residents of the country only)
+     bd: true,                      // applicants from Bangladesh are eligible or not excluded (feeds the Bangladesh Desk)
      applicants: ['individual'],    // keys of APPLICANTS
      sectors: ['governance'],       // keys of SECTORS
      close: '2026-11-08T17:59:00Z', // deadline as UTC ISO time (end of day Dhaka when no time is given)
@@ -54,6 +58,23 @@ SECTORS: {
   media: 'Media and civic space'
 },
 
+REGIONS: {
+  global: 'Global and multi-country',
+  asia: 'Asia and the Pacific',
+  africa: 'Africa',
+  americas: 'Latin America and the Caribbean',
+  mena: 'Middle East and North Africa',
+  europe: 'Europe and Central Asia',
+  northam: 'North America'
+},
+
+OPEN: {
+  worldwide: 'Open worldwide',
+  developing: 'Developing-country applicants',
+  listed: 'Listed countries',
+  national: 'Nationals or residents only'
+},
+
 APPLICANTS: {
   ngo: 'Local NGO or CSO',
   ingo: 'International NGO',
@@ -73,6 +94,7 @@ LISTINGS: [
   summary: 'Grants for organisations that work with a city government to use frontier AI in public health, economic mobility, environmental resilience or civic engagement. Seed grants run from $500,000 to under $1 million and Scale grants from $1 million to $2 million, over 24 months. Every proposal needs a letter of intent from a city government partner; research-only projects are not funded.',
   amount: '$500,000 – $2 million', duration: '24 months',
   location: 'Cities in any region', countries: 'Cities in all regions; organisations in countries under comprehensive US OFAC sanctions are excluded. Bangladesh is not named; confirm with citiesdeliver@rockfound.org.',
+  region: 'global', country: '', remote: false, open: 'worldwide',
   bd: true, applicants: ['ngo', 'ingo', 'academic', 'firm'], sectors: ['governance', 'health', 'climate', 'social'],
   close: '2026-11-30T04:59:00Z', closeText: '29 Nov 2026, 11:59 pm EST (Round 1 proposal)',
   url: 'https://www.rockefellerfoundation.org/wp-content/uploads/2026/10/Cities-Deliver-AI-Solutions-for-Public-Services-FAQs-Final.pdf',
@@ -86,6 +108,7 @@ LISTINGS: [
   summary: 'Ten fellowships for technologists, researchers, entrepreneurs, artists and change-makers building a more human-centred technology future. Track I (embedded) offers $100,000 and Track II (independent) $125,000, each including a $25,000 project budget. A letter of intent comes first; shortlisted candidates submit a full application by 12 March 2027.',
   amount: '$100,000 (Track I) or $125,000 (Track II)', duration: '2027–2028',
   location: 'Global', countries: 'Not restricted by country on the published summary; check the official call for full eligibility.',
+  region: 'global', country: '', remote: false, open: 'worldwide',
   bd: true, applicants: ['individual'], sectors: ['governance', 'research', 'media'],
   close: '2026-12-18T07:59:00Z', closeText: '17 Dec 2026, 11:59 pm Pacific Time (letter of intent)',
   url: 'https://www.mozillafoundation.org/what-we-do/grantmaking/fellowship/2027-call-for-applications/',
@@ -98,6 +121,7 @@ LISTINGS: [
   summary: 'A fellowship for internet change-makers in three tracks: policy and mobilisation, connectivity, and safety and security. Fellows get a mentor, a project stipend of up to $5,000 and travel support to a global or regional internet event. Applicants must first finish the Pre-Fellowship Training; the application link follows within 24 hours.',
   amount: 'Project stipend up to $5,000, plus travel support', duration: '',
   location: 'Global', countries: 'No country restriction stated on the published summary.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
   bd: true, applicants: ['individual'], sectors: ['governance'],
   close: '2026-11-22T23:59:00Z', closeText: '22 Nov 2026: finish the Pre-Fellowship Training. Applications close 18 Dec 2026.',
   url: 'https://www.internetsociety.org/fellowship/',
@@ -110,6 +134,7 @@ LISTINGS: [
   summary: 'Placements in Germany for civil society professionals and volunteers. Participants from abroad receive a monthly stipend of €650, return airfare, accommodation, a public transport ticket, health insurance and visa fees. Applicants need two years of work in a civil society organisation in their home country and must be at least 23.',
   amount: '€650 a month plus travel, housing and insurance', duration: '',
   location: 'Germany', countries: 'Listed countries; Bangladesh is eligible.',
+  region: 'europe', country: 'Germany', remote: false, open: 'listed',
   bd: true, applicants: ['individual', 'ngo'], sectors: ['governance', 'gender', 'climate', 'media'],
   close: '2026-12-08T23:59:00Z', closeText: '8 Dec 2026',
   url: 'https://www.ifa.de/en/funding/ccp-fellowships/',
@@ -122,6 +147,7 @@ LISTINGS: [
   summary: 'Grants of up to $20,000 for entrepreneurs launching a new organisation that distributes a proven poverty intervention in a low- or middle-income country. Applicants choose one intervention from the challenge list or propose their own. Organisations with more than 18 months of full-time operation or more than $30,000 raised are usually not supported.',
   amount: 'Up to $20,000', duration: '',
   location: 'Low- and middle-income countries', countries: 'Any low- or middle-income country with extreme poverty; countries are not named.',
+  region: 'global', country: '', remote: false, open: 'developing',
   bd: true, applicants: ['startup', 'individual'], sectors: ['social', 'health', 'economic'],
   close: '2026-12-07T07:59:00Z', closeText: '6 Dec 2026, midnight Pacific Time (final extension; regular round closes 15 Nov)',
   url: 'https://d-prize.org/',
@@ -135,6 +161,7 @@ LISTINGS: [
   summary: 'A fellowship for journalists based in and reporting on communities in ODA-recipient countries. Fellows get a CAD 4,000 stipend, up to CAD 500 in reporting expenses, monthly online sessions with journalists and experts, safety training and one in-person convening. Applicants need at least three years of full-time or freelance journalism and fluent English.',
   amount: 'CAD 4,000 stipend plus up to CAD 500 reporting expenses', duration: 'January – September 2027',
   location: 'Remote, with one in-person convening', countries: 'Journalists located in and reporting on ODA-recipient countries (OECD DAC list; Bangladesh is on it).',
+  region: 'global', country: '', remote: true, open: 'developing',
   bd: true, applicants: ['individual'], sectors: ['media', 'gender'],
   close: '2026-11-09T05:00:00Z', closeText: '8 Nov 2026, midnight Eastern Standard Time',
   url: 'https://equalityfund.ca/en/posts/journalism-fellowship',
@@ -148,6 +175,7 @@ LISTINGS: [
   summary: 'Grants of up to $500,000 for catalytic projects of up to 24 months that help scale up ecosystem-based adaptation (EbA) to climate change; 10 grants are available. Projects must build on existing work and must not be standalone field-implementation projects. Optional priority topics: innovative finance for EbA, EbA for human development and security, and people–nature–climate–land synergies. IUCN and UNEP act as the Fund\'s secretariat; the Fund\'s announcement says it is funded by Germany\'s International Climate Initiative (IKI).',
   amount: 'Up to $500,000', duration: 'Up to 24 months (projects expected to start in 2027)',
   location: 'ODA-eligible countries', countries: 'Countries on the OECD DAC list of ODA recipients (Bangladesh is on it); multi-country projects must cover only ODA-eligible countries.',
+  region: 'global', country: '', remote: false, open: 'developing',
   bd: true, applicants: ['ngo', 'ingo', 'academic', 'firm'], sectors: ['climate', 'agriculture', 'wash'],
   close: '2026-11-16T17:59:00Z', closeText: '16 Nov 2026 (submission window 12 Oct – 16 Nov; no time stated)',
   url: 'https://globalebafund.org/medium-size-grants/',
@@ -165,6 +193,7 @@ LISTINGS: [
   summary: 'Individual consultancy giving e-governance guidance on digital governance policy and implementation. About 90 working days over six months, December 2026 to May 2027. Proposals go through the UNDP Quantum supplier portal.',
   amount: '', duration: 'About 90 working days, Dec 2026 – May 2027',
   location: 'Bangladesh', countries: 'Bangladeshi nationals only',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'national',
   bd: true, applicants: ['individual'], sectors: ['governance'],
   close: '2026-11-08T17:59:00Z', closeText: '8 Nov 2026 (no time stated)',
   url: 'https://procurement-notices.undp.org/view_negotiation.cfm?nego_id=51067',
@@ -177,6 +206,7 @@ LISTINGS: [
   summary: 'Twelve-month consultancy to lead digital learning and employability work: adapting the Passport to Earning platform and designing a government-hosted national aggregator, covering partner onboarding, interoperability, APIs, governance and data-sharing. Requires a master\'s degree and at least 10 years in skilling-to-earning digital programmes.',
   amount: '', duration: '12 months, office-based with travel',
   location: 'Dhaka', countries: 'Bangladeshi nationals only',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'national',
   bd: true, applicants: ['individual'], sectors: ['education', 'governance'],
   close: '2026-11-12T17:59:00Z', closeText: '12 Nov 2026 (no time stated)',
   url: 'https://jobs.unicef.org/en-us/job/596684/national-consultant-p2e-genu-officebased-with-travel-for-12-months',
@@ -189,6 +219,7 @@ LISTINGS: [
   summary: 'Seven-month consultancy tracking the ATP project and its letters of agreement with BARC, DAE and BADC, and preparing reports for FAO, the Gates Foundation and the Government of Bangladesh. Requires an advanced degree and 9 years of M&E experience; KoboToolbox or ODK and dashboard skills are an asset.',
   amount: 'Grade SC 9', duration: '7 months',
   location: 'Dhaka', countries: 'Bangladeshi nationals, or residents with a valid work permit',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'national',
   bd: true, applicants: ['individual'], sectors: ['agriculture', 'research'],
   close: '2026-11-12T17:59:00Z', closeText: '12 Nov 2026 (no time stated)',
   url: 'https://jobs.fao.org/careersection/fao_external/jobdetail.ftl?job=2602237',
@@ -201,6 +232,7 @@ LISTINGS: [
   summary: 'Staff post supporting digital health: health management information system data collection, integration and visualisation, and planning and reporting on health programme results. Requires a relevant bachelor\'s degree and at least two years of experience.',
   amount: 'NO-B', duration: 'Fixed term',
   location: 'Dhaka', countries: 'Bangladeshi nationals only',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'national',
   bd: true, applicants: ['individual'], sectors: ['health', 'governance'],
   close: '2026-11-04T17:59:00Z', closeText: '4 Nov 2026 (no time stated)',
   url: 'https://jobs.unicef.org/en-us/job/596631/health-officer-ehmis-no2-ft-128030-dhaka-bangladesh-apro',
@@ -213,6 +245,7 @@ LISTINGS: [
   summary: 'Six-month service contract supporting food security programming in Bandarban: project support, weekly and monthly reporting, data analysis and day-to-day work with cooperating partners and local government. Requires a university degree and 6 years of relevant experience.',
   amount: 'SC-6', duration: '6 months, may be extended',
   location: 'Bandarban (Rangamati Field Office)', countries: 'Bangladeshi nationals only',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'national',
   bd: true, applicants: ['individual'], sectors: ['agriculture', 'humanitarian'],
   close: '2026-11-08T17:59:00Z', closeText: '8 Nov 2026, 23:59 Bangladesh time',
   url: 'https://wd3.myworkdaysite.com/recruiting/wfp/job_openings/job/Rangamati-Bangladesh-The-Peoples-R/Programme-Associate--SC6--Bandarban_JR127883',
@@ -225,6 +258,7 @@ LISTINGS: [
   summary: 'Twelve-month contract coordinating health, safety, social and environmental work for the IMPACT medical waste management programme in six government hospitals, with the Ministry of Health and Family Welfare and DGHS.',
   amount: 'LICA-7', duration: '12 months',
   location: 'Dhaka', countries: 'Bangladeshi nationals and legal residents only',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'national',
   bd: true, applicants: ['individual'], sectors: ['health', 'climate'],
   close: '2026-11-05T22:59:00Z', closeText: '5 Nov 2026, before midnight Copenhagen time',
   url: 'https://careers.unops.org/careersmarketplace/JobDetail/Health-Safety-Social-and-Environmental-Senior-Associate-Environmental-Management/4939',
@@ -237,10 +271,155 @@ LISTINGS: [
   summary: 'Twelve-month contract to design, install and maintain electrical systems, generators and related equipment for WFP in Cox\'s Bazar, and to train operators, partners and vendors. Requires a bachelor\'s degree (electrical engineering preferred) and 4 years of experience.',
   amount: 'SC-4', duration: '12 months',
   location: 'Cox\'s Bazar', countries: 'Bangladeshi nationals and legal residents only',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'national',
   bd: true, applicants: ['individual'], sectors: ['humanitarian'],
   close: '2026-11-14T17:59:00Z', closeText: '14 Nov 2026, 23:59 Bangladesh time',
   url: 'https://wd3.myworkdaysite.com/recruiting/wfp/job_openings/job/Coxs-Bazaar-Bangladesh-The-Peoples-R/Mechanics--Electrical-Engineer---SC4--Cox-s-Bazar_JR128058',
   via: 'https://unvacancies.org/jobs/mechanics-electrical-engineer-sc4-cox-s-bazar-31097322', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+
+{
+  id: 'j8', type: 'job',
+  title: 'Climate Mitigation Modelling Consultant (NDC Act & Invest)',
+  issuer: 'UNEP, Mitigation Branch', issuerKind: 'UN agency', ref: '287426',
+  summary: 'Eight-month home-based consultancy giving technical modelling support across UNEP\'s NDC Act & Invest projects, focusing on long-term low-emission development strategies and sectoral mitigation modelling, and reviewing partner-country proposals. Requires a master\'s in a quantitative field and 8 years in mitigation, energy-system or emissions-scenario modelling.',
+  amount: '', duration: '8 months (25 Nov 2026 – 20 Jul 2027)',
+  location: 'Remote (home-based), linked to Paris', countries: 'No nationality restriction stated on the notice.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['climate', 'research'],
+  close: '2026-11-12T23:59:00Z', closeText: '12 Nov 2026 (no time stated)',
+  url: 'https://careers.un.org/jobSearchDescription/287426?language=en',
+  via: 'https://unvacancies.org/jobs/climate-mitigation-modelling-consultant-P-287426', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+{
+  id: 'j9', type: 'job',
+  title: 'GHG Inventory Specialist (AFOLU)',
+  issuer: 'UNEP (Climate Transparency – Global Support Programme)', issuerKind: 'UN agency', ref: '287431',
+  summary: 'Part-time remote consultancy helping developing countries build greenhouse-gas inventory skills for agriculture, forestry and land use, including training on the IPCC Inventory Software and the Enhanced Transparency Framework through five country programmes. Requires a master\'s (or bachelor\'s plus two years) and 5 years in GHG inventories.',
+  amount: '', duration: '60 working days, part-time',
+  location: 'Remote (home-based), linked to Paris', countries: 'No nationality restriction stated on the notice.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['climate', 'agriculture'],
+  close: '2026-11-12T23:59:00Z', closeText: '12 Nov 2026 (no time stated)',
+  url: 'https://careers.un.org/jobSearchDescription/287431?language=en',
+  via: 'https://unvacancies.org/jobs/ghg-inventory-specialist-afolu-P-287431', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+{
+  id: 'j10', type: 'job',
+  title: 'Consultant – Upgrade of the World Economic Forecast Model (WEFM) for Cambodia',
+  issuer: 'UN DESA, Economic Analysis and Policy Division', issuerKind: 'UN agency', ref: '287372',
+  summary: 'Four-month consultancy to tailor and validate an interactive macroeconomic scenario tool for Cambodia, train government officials and produce a country scenario study, with some travel to Cambodia. Requires a master\'s in economics or a related field and 7 years in macroeconomic modelling; R and Shiny skills are highly desirable.',
+  amount: '', duration: '4 months',
+  location: 'Remote, linked to New York, with travel to Cambodia', countries: 'No nationality restriction stated on the notice.',
+  region: 'asia', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['economic', 'research'],
+  close: '2026-11-16T23:59:00Z', closeText: '16 Nov 2026 (no time stated)',
+  url: 'https://careers.un.org/jobSearchDescription/287372?language=en',
+  via: 'https://unvacancies.org/jobs/consultant-upgrade-of-the-world-economic-forecast-model-wefm-for-cambodia-N-287372', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+{
+  id: 'j11', type: 'job',
+  title: 'UNEP FI – Technical Legal Expert on sustainable finance taxonomy and climate-related financial risk (Costa Rica and Panama)',
+  issuer: 'UNEP Finance Initiative', issuerKind: 'UN agency', ref: '287437',
+  summary: 'Six-month home-based consultancy to produce technical-legal analysis and draft regulatory text for a sustainable finance taxonomy and a climate-related financial risk framework in Costa Rica and Panama. Requires a master\'s in law or a related field, 7 years advising projects in Costa Rica or Panama, and fluent Spanish and English.',
+  amount: '', duration: '6 months',
+  location: 'Remote (home-based), linked to Geneva', countries: 'No nationality restriction stated; requires Costa Rica or Panama experience and fluent Spanish.',
+  region: 'americas', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['governance', 'economic', 'climate'],
+  close: '2026-11-12T23:59:00Z', closeText: '12 Nov 2026 (no time stated)',
+  url: 'https://careers.un.org/jobSearchDescription/287437?language=en',
+  via: 'https://unvacancies.org/jobs/unep-fi-technical-legal-expert-to-support-costa-rica-and-panama-regulation-on-sustainable-finance-ta-P-287437', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+{
+  id: 'j12', type: 'job',
+  title: 'Advisor – Innovative and Sustainable Finance (retainer)',
+  issuer: 'UNOPS, Infrastructure and Project Management Group', issuerKind: 'UN agency', ref: '4960',
+  summary: 'Fully remote retainer contract to research innovative and sustainable financing mechanisms, consult stakeholders and recommend viable models for UNOPS projects, mainly for the Geneva portfolio. Assignments vary from hours to months with no guaranteed minimum. Requires a master\'s and 7 years in innovative or sustainable finance.',
+  amount: 'IICA-3 retainer', duration: 'Up to 12 months, as needed',
+  location: 'Fully remote, with occasional travel', countries: 'Open to all nationalities.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['economic'],
+  close: '2026-11-15T22:59:00Z', closeText: '15 Nov 2026, before midnight Copenhagen time',
+  url: 'https://careers.unops.org/careersmarketplace/JobDetail/Advisor-Innovative-and-Sustainable-Finance/4960',
+  via: 'https://unvacancies.org/jobs/advisor-innovative-and-sustainable-finance-OPS-4960', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+{
+  id: 'j13', type: 'job',
+  title: 'Consultant Team Leader – Evaluation of UNICEF\'s risk management in humanitarian action',
+  issuer: 'UNICEF Evaluation Office', issuerKind: 'UN agency', ref: '596709',
+  summary: 'Ten-month home-based role leading a global evaluation of UNICEF\'s risk governance in humanitarian action, managing the team and deliverables. Requires a master\'s and more than 15 years of humanitarian research and evaluation, including global thematic evaluations for UN agencies.',
+  amount: '', duration: '10 months',
+  location: 'Home-based with travel, linked to New York', countries: 'No nationality restriction stated on the notice.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['humanitarian', 'research'],
+  close: '2026-11-12T23:59:00Z', closeText: '12 Nov 2026 (no time stated)',
+  url: 'https://jobs.unicef.org/en-us/job/596709/consultancy-consultant-team-leader-evaluation-of-unicefs-risk-management-prevention-and-sharing-in-humanitarian-actionnyhq10-monthshomebased-with-travel',
+  via: 'https://unvacancies.org/jobs/consultancy-consultant-team-leader-evaluation-of-unicefs-risk-management-prevention-and-sharing-in-h-F-596709', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+{
+  id: 'j14', type: 'job',
+  title: 'Senior Humanitarian Evaluation Expert – risk-taking, risk-sharing and risk management',
+  issuer: 'UNICEF Evaluation Office', issuerKind: 'UN agency', ref: '596718',
+  summary: 'Home-based consultancy of about six months to help lead phase 2 of UNICEF\'s humanitarian risk evaluation, including at least four pilot cases and quality assurance of all case studies. Requires 15 years of humanitarian research and evaluation, including field work in large-scale emergencies.',
+  amount: '', duration: 'About 6 months',
+  location: 'Home-based with travel for data collection, linked to New York', countries: 'Applications welcome regardless of nationality.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['humanitarian', 'research'],
+  close: '2026-11-15T23:59:00Z', closeText: '15 Nov 2026 (no time stated)',
+  url: 'https://jobs.unicef.org/en-us/job/596718/senior-humanitarian-evaluation-expert-evaluation-of-risktaking-risksharing-and-risk-management-in-humanitarian-action-new-york-united-states-of-america-home-based-with-travel-to-countries-for-data-collection-as-relevant',
+  via: 'https://unvacancies.org/jobs/senior-humanitarian-evaluation-expert-evaluation-of-risk-taking-risk-sharing-and-risk-management-in-F-596718', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+{
+  id: 'j15', type: 'job',
+  title: 'Project Management, Reporting and Partnership Support Consultant – UNICEF Evaluation Office',
+  issuer: 'UNICEF Evaluation Office (DevEI)', issuerKind: 'UN agency', ref: '596701',
+  summary: 'Nine-month remote role, about half-time (up to 90 days), supporting coordination, donor reporting, budgets and knowledge management for multi-country impact evaluations. Requires a master\'s and 5 years across project management, donor reporting, grant monitoring or knowledge management.',
+  amount: '', duration: '9 months, up to 90 days',
+  location: 'Remote, no travel, linked to New York', countries: 'Applications welcome regardless of nationality.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['research'],
+  close: '2026-11-12T23:59:00Z', closeText: '12 Nov 2026 (no time stated)',
+  url: 'https://jobs.unicef.org/en-us/job/596701/project-management-reporting-and-partnership-support-consultant-unicef-evaluation-office-development-effectiveness-and-impact-evaluation-remote-with-no-travel-9-months-596701',
+  via: 'https://unvacancies.org/jobs/project-management-reporting-and-partnership-support-consultant-unicef-evaluation-office-development-F-596701', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+{
+  id: 'j16', type: 'job',
+  title: 'Child Poverty Advocacy International Consultant, Global Programme Division',
+  issuer: 'UNICEF Global Programme Division', issuerKind: 'UN agency', ref: '596700',
+  summary: 'Remote consultancy of about 9.5 months leading UNICEF\'s global child poverty advocacy strategy and partnerships, and supporting regional and country policy work. Requires a master\'s and 5 years of policy advocacy; Spanish is an asset.',
+  amount: '', duration: '9.53 months',
+  location: 'Remote with travel, linked to Panama City', countries: 'No nationality restriction stated on the notice.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['social', 'research'],
+  close: '2026-11-11T23:59:00Z', closeText: '11 Nov 2026 (no time stated)',
+  url: 'https://jobs.unicef.org/en-us/job/596700/child-poverty-advocacy-international-consultant-global-programme-division-gpd-panama-953-months-remote-with-travel',
+  via: 'https://unvacancies.org/jobs/child-poverty-advocacy-international-consultant-global-programme-division-gpd-panama-9-53-months-rem-F-596700', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+{
+  id: 'j17', type: 'job',
+  title: 'Consultant – Food Environment Policy Advocacy, Governance and Conflict-of-Interest Resources (Nutrition)',
+  issuer: 'UNICEF Global Programme Division – Nutrition', issuerKind: 'UN agency', ref: '596704',
+  summary: 'Eleven-month remote consultancy to develop tools and advocacy resources on preventing child and adolescent overweight and obesity, support country offices on food-environment policy, and update guidance. Requires a master\'s in human or public health nutrition and 10 years in food systems, nutrition policy or governance.',
+  amount: '', duration: '11 months',
+  location: 'Fully remote, linked to Bangkok', countries: 'Applications welcome regardless of nationality.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['health', 'agriculture'],
+  close: '2026-11-12T23:59:00Z', closeText: '12 Nov 2026 (no time stated)',
+  url: 'https://jobs.unicef.org/en-us/job/596704/consultancy-consultant-to-strengthen-unicef-food-environment-policy-advocacy-governance-conflictofinterest-resourcesgpdnutritionbangkok-thailand-11-months-remote',
+  via: 'https://unvacancies.org/jobs/consultancy-consultant-to-strengthen-unicef-food-environment-policy-advocacy-governance-conflict-of-F-596704', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+},
+{
+  id: 'j18', type: 'job',
+  title: 'Technical Support International Consultant – Quality Assurance of National Curriculum and Assessment Reform, Uzbekistan',
+  issuer: 'UNICEF Uzbekistan', issuerKind: 'UN agency', ref: '596703',
+  summary: 'Twenty-four-month remote consultancy with travel to quality-assure education products and oversee guidance on teaching-learning materials, capacity building and assessment reform for preschool and school education in Uzbekistan. Requires a master\'s in education or a related field.',
+  amount: '', duration: '24 months',
+  location: 'Remote with travel, linked to Tashkent', countries: 'No nationality restriction stated on the notice.',
+  region: 'europe', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['education'],
+  close: '2026-11-13T23:59:00Z', closeText: '13 Nov 2026 (no time stated)',
+  url: 'https://jobs.unicef.org/en-us/job/596703/technical-support-international-consultant-quality-assurance-of-national-curriculum-tlm-guidance-capacity-building-and-assessment-reform-uzbekistan-24-months-remote-with-travel',
+  via: 'https://unvacancies.org/jobs/technical-support-international-consultant-quality-assurance-of-national-curriculum-tlm-guidance-cap-F-596703', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
 },
 
 /* ---------- Tenders, RFPs and EOIs ---------- */
@@ -251,6 +430,7 @@ LISTINGS: [
   summary: 'CARE Bangladesh invites suppliers for a two-year framework agreement covering food, venues and accommodation for its work in Mymensingh. The bid documents are in a downloadable package on CARE Bangladesh\'s consultancy and procurement page.',
   amount: '', duration: '2 years (framework agreement)',
   location: 'Mymensingh', countries: 'Suppliers able to serve Mymensingh; see the bid documents for eligibility.',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'national',
   bd: true, applicants: ['firm'], sectors: ['economic'],
   close: '2026-11-07T17:59:00Z', closeText: '7 Nov 2026 (no time stated on the listing page)',
   url: 'https://www.carebangladesh.org/consultancy',
@@ -264,6 +444,7 @@ LISTINGS: [
   summary: 'CARE Bangladesh invites suppliers for a two-year framework agreement covering food, venues and accommodation for its work in Bandarban. The bid documents are in a downloadable package on CARE Bangladesh\'s consultancy and procurement page.',
   amount: '', duration: '2 years (framework agreement)',
   location: 'Bandarban', countries: 'Suppliers able to serve Bandarban; see the bid documents for eligibility.',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'national',
   bd: true, applicants: ['firm'], sectors: ['economic'],
   close: '2026-11-07T17:59:00Z', closeText: '7 Nov 2026 (no time stated on the listing page)',
   url: 'https://www.carebangladesh.org/consultancy',
@@ -279,6 +460,7 @@ LISTINGS: [
   summary: 'Announced on 16 October 2026: $50 million for organisations that help cities use AI to anticipate and meet residents\' needs, starting with a global open call. The first round of the open call is listed separately on DevFund.',
   amount: '$50 million', duration: '',
   location: 'Global', countries: 'Global open call',
+  region: 'global', country: '', remote: false, open: 'worldwide',
   bd: true, applicants: ['ngo', 'ingo', 'academic', 'firm'], sectors: ['governance'],
   close: '', closeText: 'Ongoing initiative; Round 1 of the open call closes 29 Nov 2026',
   url: 'https://nextbillion.net/news/press-release-rockefeller-foundation-openai-foundation-announce-50-million-partnership-to-help-cities-improve-public-services-through-ai/',
@@ -407,6 +589,7 @@ SOURCES: {
     ['UNDP procurement notices and consultancies', 'https://procurement-notices.undp.org/'],
     ['UNICEF Bangladesh supply and procurement', 'https://www.unicef.org/bangladesh/en/supply-and-logistics'],
     ['UNICEF jobs', 'https://jobs.unicef.org/'],
+    ['UN Careers (UN Secretariat, UNEP, UN DESA, UNDRR and others)', 'https://careers.un.org/'],
     ['UNFPA Bangladesh calls for submissions', 'https://bangladesh.unfpa.org/en/call-for-submissions'],
     ['UN Women Asia-Pacific calls for proposals', 'https://asiapacific.unwomen.org/en'],
     ['IOM Bangladesh procurement', 'https://bangladesh.iom.int/procurement'],
@@ -448,7 +631,7 @@ SOURCES: {
     ['Grants.gov opportunity search', 'https://simpler.grants.gov/search']
   ],
   tier3: [
-    ['UN Vacancies', 'https://unvacancies.org/'],
+    ['UN Vacancies (including its remote-jobs list)', 'https://unvacancies.org/remote-un-jobs'],
     ['Impactpool', 'https://www.impactpool.org/'],
     ['DevelopmentAid', 'https://www.developmentaid.org/'],
     ['Opportunity Desk', 'https://opportunitydesk.org/'],
@@ -460,9 +643,9 @@ SOURCES: {
 /* Weekly Opportunity Digest: refreshed every Monday. Items are listing ids. */
 DIGEST: {
   week: '2 – 8 Nov 2026',
-  note: 'DevFund opens in public beta this week with jobs and consultancies from UN agencies in Bangladesh and international grants and fellowships open to Bangladeshi applicants. Tender coverage from UNGM, the World Bank, ADB and Bangladesh e-GP is being added through the daily scan.',
-  top: ['g7', 'j1', 'g1', 'j2'],
-  also: ['g2', 'g6', 't1', 'j3', 'g4', 'g5']
+  note: 'DevFund now covers the whole world, including remote work: this week brings 11 home-based UN consultancies in climate, evaluation, finance, nutrition and education, alongside grants such as the Global EbA Fund (up to $500,000, closing 16 Nov). Fund News tracks $2.8 billion in 2026 financing approvals and signings.',
+  top: ['g7', 'j8', 'j12', 'g1'],
+  also: ['j13', 'j17', 'g2', 'j1', 'g6', 'g4']
 },
 
 /* Corrections log: newest first. {date, id, what} */

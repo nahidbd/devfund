@@ -19,7 +19,9 @@ function closeMs(o){ return o.close ? Date.parse(o.close) : null; }
 function isOpen(o){ const c = closeMs(o); return c === null || c >= NOW; }
 const dayNum = ms => Math.floor((ms + 6 * 3600e3) / DAY); // Dhaka calendar day
 function daysLeft(o){ const c = closeMs(o); if(c === null) return null; if(c < NOW) return -1; return dayNum(c) - dayNum(NOW); }
-function dhaka(o){ const c = closeMs(o); return c === null ? '' : dhakaFmt.format(new Date(c)) + ' Dhaka time'; }
+const localFmt = new Intl.DateTimeFormat('en-GB', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit', hour12:false, timeZoneName:'short'});
+const LOCAL_IS_DHAKA = (() => { try{ return Intl.DateTimeFormat().resolvedOptions().timeZone === 'Asia/Dhaka'; }catch(e){ return true; } })();
+function dhaka(o){ const c = closeMs(o); if(c === null) return ''; const d = new Date(c); return LOCAL_IS_DHAKA ? dhakaFmt.format(d) + ' Dhaka time' : localFmt.format(d) + ' your time · ' + dhakaFmt.format(d) + ' Dhaka'; }
 function fmtDay(iso){ return dhakaDay.format(new Date(iso + 'T06:00:00Z')); }
 function dueBox(o){
   const d = daysLeft(o);
@@ -33,6 +35,17 @@ const EXT = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke=
 function srcLine(o){
   return `<div class="srcline"><span>Source:</span> <a href="${esc(o.url)}" rel="noopener" target="_blank">${esc(host(o.url))} ${EXT}<span class="sr"> (official notice, opens in a new tab)</span></a>${o.docs ? ` · <a href="${esc(o.docs)}" rel="noopener" target="_blank">Documents ${EXT}</a>` : ''}${o.via ? ` <span class="muted">· found via <a href="${esc(o.via)}" rel="noopener" target="_blank">${esc(host(o.via))}</a></span>` : ''}</div>`;
 }
+function geoBadges(o){
+  const b = [];
+  if(o.remote) b.push('<span class="badge b-remote">Remote</span>');
+  if(o.country) b.push(`<span class="badge b-plain">${esc(o.country)}</span>`);
+  else if(!o.remote && o.region === 'global') b.push('<span class="badge b-plain">Global</span>');
+  else if(!o.remote && o.region && D.REGIONS[o.region]) b.push(`<span class="badge b-plain">${esc(D.REGIONS[o.region])}</span>`);
+  if(o.open === 'worldwide') b.push('<span class="badge b-bd">Open worldwide</span>');
+  else if(o.open === 'developing') b.push('<span class="badge b-bd">Developing countries</span>');
+  else if(o.open === 'national') b.push('<span class="badge b-closed">Nationals only</span>');
+  return b.join('');
+}
 function typeBadge(o){ return `<span class="badge b-${o.type}">${esc(D.TYPES[o.type].one)}</span>`; }
 function checkBadge(o){ return o.check === 'official' ? `<span class="badge b-official">Checked on official notice</span>` : `<span class="badge b-platform">Official link via platform</span>`; }
 
@@ -40,7 +53,7 @@ function checkBadge(o){ return o.check === 'official' ? `<span class="badge b-of
 function row(o){
   const d = daysLeft(o);
   return `<article class="item">${dueBox(o)}<div class="stack" style="gap:6px">
-    <div class="row" style="gap:6px">${typeBadge(o)}${o.bd ? '<span class="badge b-bd">Open to Bangladesh</span>' : ''}${d !== null && d >= 0 && d <= 7 ? '<span class="badge b-soon">Closing soon</span>' : ''}</div>
+    <div class="row" style="gap:6px">${typeBadge(o)}${geoBadges(o)}${d !== null && d >= 0 && d <= 7 ? '<span class="badge b-soon">Closing soon</span>' : ''}</div>
     <h3><a href="#o/${esc(o.id)}">${esc(o.title)}</a></h3>
     <div class="meta"><span><b>${esc(o.issuer)}</b></span>${o.amount ? `<span>${esc(o.amount)}</span>` : ''}${o.location ? `<span>${esc(o.location)}</span>` : ''}<span>Deadline: ${esc(o.closeText)}</span></div>
     ${srcLine(o)}
@@ -64,23 +77,27 @@ V.home = () => {
   const week = OPEN.filter(o => { const d = daysLeft(o); return d !== null && d <= 7; });
   const newest = L.filter(o => o.added === D.TODAY && isOpen(o));
   const byType = t => OPEN.filter(o => o.type === t).length;
-  const bd = OPEN.filter(o => o.bd).length;
+  const remote = OPEN.filter(o => o.remote).length;
+  const nations = new Set(OPEN.map(o => o.country).filter(Boolean)).size;
   return `
   <section class="hero stack" style="gap:18px">
     <span class="kicker">Open opportunities, checked every day</span>
     <h1>Funding for people who change things</h1>
-    <p>Grants, tenders, jobs and consultancies from UN agencies, development banks, donors and foundations. Every listing shows who can apply, the deadline in Dhaka time, and a link to the official notice.</p>
+    <p>Grants, tenders, jobs and remote consultancies from UN agencies, development banks, donors and foundations, worldwide. Every listing shows where the work is, who can apply, the deadline, and a link to the official notice.</p>
     <form class="searchbar" id="heroSearch" role="search"><label class="sr" for="hq">Search opportunities</label><input id="hq" type="search" placeholder="Search grants, tenders, jobs…" autocomplete="off"><button class="btn" type="submit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Search</span></button></form>
-    <div class="quick"><a href="#bangladesh">Open to Bangladesh</a><a href="#opportunities?type=job">Consultancies</a><a href="#opportunities?type=grant">Grants for NGOs</a><a href="#calendar">Closing soon</a></div>
+    <div class="quick"><a href="#opportunities?remote=1">Remote work</a><a href="#opportunities?open=worldwide">Open worldwide</a><a href="#opportunities?type=grant">Grants for NGOs</a><a href="#opportunities?type=tender">Tenders</a><a href="#bangladesh">Bangladesh desk</a><a href="#calendar">Closing soon</a></div>
     <div class="stats">
       <div class="stat"><b>${OPEN.length}</b><span>open now</span></div>
       <div class="stat"><b>${week.length}</b><span>closing within 7 days</span></div>
-      <div class="stat"><b>${bd}</b><span>open to Bangladesh</span></div>
+      <div class="stat"><b>${remote}</b><span>remote or home-based</span></div>
       <div class="stat"><b>${D.SOURCES.tier1.length + D.SOURCES.tier2.length}</b><span>official sources checked</span></div>
     </div>
   </section>
   <section class="section"><div class="sechead"><h2>What are you looking for?</h2><a href="#opportunities">See everything →</a></div>
     <div class="tiles">${Object.keys(D.TYPES).map(t => `<a class="tile t-${t}" href="#opportunities?type=${t}"><span class="ic">${ICON[t]}</span><b>${byType(t)}</b><span>${esc(D.TYPES[t].label)}</span><small>${esc(TILE_NOTE[t])}</small></a>`).join('')}</div>
+  </section>
+  <section class="section"><div class="sechead"><h2>Browse by region</h2><a href="#opportunities?remote=1">Remote only →</a></div>
+    <div class="row">${Object.keys(D.REGIONS).map(r => { const n = OPEN.filter(o => o.region === r).length; return `<a class="chip" href="#opportunities?region=${r}">${esc(D.REGIONS[r])} <span class="n">${n}</span></a>`; }).join('')}<a class="chip" href="#opportunities?remote=1">Remote <span class="n">${remote}</span></a></div>
   </section>
   <section class="section"><div class="sechead"><h2>Closing this week</h2><a href="#calendar">Deadline calendar →</a></div>
     ${week.length ? `<div class="list">${week.map(row).join('')}</div>` : '<p class="empty">Nothing closes in the next seven days.</p>'}
@@ -112,7 +129,7 @@ function bindHome(){
 }
 
 /* opportunities board with filters */
-const F_DEFAULT = {type:'', q:'', sector:'', applicant:'', window:'', bd:false, official:false, closed:false};
+const F_DEFAULT = {type:'', q:'', sector:'', applicant:'', window:'', region:'', country:'', open:'', remote:false, bd:false, official:false, closed:false};
 let F = Object.assign({}, F_DEFAULT, store('devfund-filters') || {});
 function boardResults(){
   const q = F.q.trim().toLowerCase();
@@ -122,6 +139,10 @@ function boardResults(){
     if(F.sector && !(o.sectors || []).includes(F.sector)) return false;
     if(F.applicant && !(o.applicants || []).includes(F.applicant)) return false;
     if(F.bd && !o.bd) return false;
+    if(F.remote && !o.remote) return false;
+    if(F.region && o.region !== F.region) return false;
+    if(F.country && o.country !== F.country) return false;
+    if(F.open && o.open !== F.open) return false;
     if(F.official && o.check !== 'official') return false;
     if(F.window){ const d = daysLeft(o); if(d === null || d < 0 || d > +F.window) return false; }
     if(q && !(o.title + ' ' + o.issuer + ' ' + o.summary + ' ' + (o.location || '') + ' ' + (o.ref || '')).toLowerCase().includes(q)) return false;
@@ -131,11 +152,18 @@ function boardResults(){
 function opts(map, val, all){ return `<option value="">${all}</option>` + Object.keys(map).map(k => `<option value="${k}"${k === val ? ' selected' : ''}>${esc(map[k].label || map[k])}</option>`).join(''); }
 V.opportunities = (param) => {
   const p = new URLSearchParams(param || '');
+  if([...p.keys()].length){ F = Object.assign({}, F_DEFAULT, {official: F.official}); }
   if(p.has('type')) F.type = p.get('type');
+  if(p.has('region')) F.region = p.get('region');
+  if(p.has('open')) F.open = p.get('open');
+  if(p.has('country')) F.country = p.get('country');
+  if(p.has('remote')) F.remote = true;
+  if(p.has('q')) F.q = p.get('q');
+  if([...p.keys()].length){ store('devfund-filters', F); history.replaceState(null, '', '#opportunities'); }
   const res = boardResults();
   const counts = t => L.filter(o => (F.closed || isOpen(o)) && (!t || o.type === t)).length;
   return `
-  <div class="pagehead"><span class="kicker">Opportunity Board</span><h1>All opportunities</h1><p class="muted prose">Filter by type, sector, who can apply and how soon the deadline is. Your filters are remembered on this device.</p></div>
+  <div class="pagehead"><span class="kicker">Opportunity Board</span><h1>All opportunities</h1><p class="muted prose">Filter by type, region, country, remote work, who can apply and how soon the deadline is. Your filters are remembered on this device.</p></div>
   <div class="filters" role="search">
     <div class="row" role="group" aria-label="Type">
       <button class="chip" data-type="" aria-pressed="${!F.type}">All <span class="n">${counts('')}</span></button>
@@ -144,11 +172,15 @@ V.opportunities = (param) => {
     <div class="grid">
       <div class="field"><label for="fq">Search</label><input id="fq" type="search" value="${esc(F.q)}" placeholder="Title, organisation, place"></div>
       <div class="field"><label for="fs">Sector</label><select id="fs">${opts(D.SECTORS, F.sector, 'All sectors')}</select></div>
-      <div class="field"><label for="fa">Who can apply</label><select id="fa">${opts(D.APPLICANTS, F.applicant, 'Anyone')}</select></div>
+      <div class="field"><label for="fa">Applicant type</label><select id="fa">${opts(D.APPLICANTS, F.applicant, 'Anyone')}</select></div>
+      <div class="field"><label for="fr">Region</label><select id="fr">${opts(D.REGIONS, F.region, 'Anywhere')}</select></div>
+      <div class="field"><label for="fc">Country</label><select id="fc"><option value="">All countries</option>${[...new Set(L.map(o => o.country).filter(Boolean))].sort().map(c => `<option${c === F.country ? ' selected' : ''}>${esc(c)}</option>`).join('')}</select></div>
+      <div class="field"><label for="fo">Eligibility</label><select id="fo">${opts(D.OPEN, F.open, 'Any eligibility')}</select></div>
       <div class="field"><label for="fw">Deadline</label><select id="fw"><option value="">Any time</option>${[['7','Next 7 days'],['14','Next 14 days'],['30','Next 30 days'],['60','Next 60 days']].map(([v,t]) => `<option value="${v}"${F.window === v ? ' selected' : ''}>${t}</option>`).join('')}</select></div>
     </div>
     <div class="row" style="gap:18px">
-      <label class="toggle"><input type="checkbox" id="fbd"${F.bd ? ' checked' : ''}> Open to Bangladesh only</label>
+      <label class="toggle"><input type="checkbox" id="frm"${F.remote ? ' checked' : ''}> Remote only</label>
+      <label class="toggle"><input type="checkbox" id="fbd"${F.bd ? ' checked' : ''}> Open to applicants from Bangladesh</label>
       <label class="toggle"><input type="checkbox" id="fof"${F.official ? ' checked' : ''}> Checked on official notice only</label>
       <label class="toggle"><input type="checkbox" id="fcl"${F.closed ? ' checked' : ''}> Include closed</label>
       <button class="btn btn-line" id="freset" style="min-height:38px">Clear filters</button>
@@ -159,10 +191,10 @@ V.opportunities = (param) => {
 };
 function bindBoard(){
   const set = (k, v) => { F[k] = v; store('devfund-filters', F); const id = document.activeElement && document.activeElement.id; render(true); if(id){ const el = document.getElementById(id); if(el){ el.focus(); if(el.setSelectionRange && el.type === 'search') el.setSelectionRange(el.value.length, el.value.length); } } };
-  main.querySelectorAll('[data-type]').forEach(b => b.onclick = () => { F.type = b.dataset.type; store('devfund-filters', F); history.replaceState(null, '', F.type ? '#opportunities?type=' + F.type : '#opportunities'); render(true); });
+  main.querySelectorAll('[data-type]').forEach(b => b.onclick = () => { F.type = b.dataset.type; store('devfund-filters', F); render(true); });
   const q = $('#fq'); if(q){ let t; q.oninput = () => { clearTimeout(t); t = setTimeout(() => set('q', q.value), 250); }; }
-  [['#fs','sector'],['#fa','applicant'],['#fw','window']].forEach(([s,k]) => { const el = $(s); if(el) el.onchange = () => set(k, el.value); });
-  [['#fbd','bd'],['#fof','official'],['#fcl','closed']].forEach(([s,k]) => { const el = $(s); if(el) el.onchange = () => set(k, el.checked); });
+  [['#fs','sector'],['#fa','applicant'],['#fw','window'],['#fr','region'],['#fc','country'],['#fo','open']].forEach(([s,k]) => { const el = $(s); if(el) el.onchange = () => set(k, el.value); });
+  [['#fbd','bd'],['#frm','remote'],['#fof','official'],['#fcl','closed']].forEach(([s,k]) => { const el = $(s); if(el) el.onchange = () => set(k, el.checked); });
   const r = $('#freset'); if(r) r.onclick = () => { F = Object.assign({}, F_DEFAULT); store('devfund-filters', F); history.replaceState(null, '', '#opportunities'); render(true); };
 }
 
@@ -178,7 +210,7 @@ V.o = (id) => {
   <p class="crumb"><a href="#opportunities">Opportunities</a> › <a href="#opportunities?type=${o.type}">${esc(D.TYPES[o.type].label)}</a></p>
   <div class="detail">
     <article class="stack" style="gap:18px">
-      <div class="row" style="gap:6px">${typeBadge(o)}${o.bd ? '<span class="badge b-bd">Open to Bangladesh</span>' : ''}${checkBadge(o)}${!open ? '<span class="badge b-closed">Closed</span>' : ''}</div>
+      <div class="row" style="gap:6px">${typeBadge(o)}${geoBadges(o)}${checkBadge(o)}${!open ? '<span class="badge b-closed">Closed</span>' : ''}</div>
       <h1>${esc(o.title)}</h1>
       <p style="font-size:1.12rem">${esc(o.summary)}</p>
       <dl class="facts">
@@ -187,13 +219,15 @@ V.o = (id) => {
         <dt>Deadline</dt><dd>${esc(o.closeText)}${o.close ? `<br><span class="muted">${esc(dhaka(o))}</span>` : ''}</dd>
         ${o.amount ? `<dt>Amount or grade</dt><dd>${esc(o.amount)}</dd>` : ''}
         ${o.duration ? `<dt>Duration</dt><dd>${esc(o.duration)}</dd>` : ''}
-        ${o.location ? `<dt>Location</dt><dd>${esc(o.location)}</dd>` : ''}
+        ${o.location ? `<dt>Location</dt><dd>${esc(o.location)}${o.remote ? ' <span class="badge b-remote">Remote</span>' : ''}</dd>` : ''}
+        ${o.region ? `<dt>Region</dt><dd>${esc(D.REGIONS[o.region] || o.region)}${o.country ? ' · ' + esc(o.country) : ''}</dd>` : ''}
+        ${o.open ? `<dt>Open to</dt><dd>${esc(D.OPEN[o.open] || o.open)}</dd>` : ''}
         <dt>Who is eligible</dt><dd>${esc(o.countries)}</dd>
         ${appl ? `<dt>Applicant type</dt><dd>${esc(appl)}</dd>` : ''}
         ${sect ? `<dt>Sector</dt><dd>${esc(sect)}</dd>` : ''}
       </dl>
       ${o.steps ? `<div class="stack"><h2>How to apply</h2><ol class="prose">${o.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol></div>` : ''}
-      ${o.foreign ? `<div class="box red"><b>For organisations in Bangladesh:</b> foreign funds for voluntary activities need NGO Affairs Bureau registration and project approval before the money is received or spent. <a href="#bangladesh">What this means</a>.</div>` : ''}
+      ${o.foreign && o.bd ? `<div class="box red"><b>For organisations in Bangladesh:</b> foreign funds for voluntary activities need NGO Affairs Bureau registration and project approval before the money is received or spent. <a href="#bangladesh">What this means</a>.</div>` : ''}
       ${rel ? `<div class="box"><b>Related listing:</b> <a href="#o/${esc(rel.id)}">${esc(rel.title)}</a></div>` : ''}
       <div class="stack" id="sources"><h2>Sources</h2>
         <ol class="srclist">
@@ -322,7 +356,7 @@ V.calendar = () => {
   });
   const keys = Object.keys(groups).sort();
   const wk = k => { const a = new Date(k + 'T00:00:00Z'), b = new Date(a.getTime() + 6 * DAY); const f = x => x.toLocaleDateString('en-GB', {day:'numeric', month:'short', timeZone:'UTC'}); return `Week of ${f(a)} – ${f(b)}`; };
-  return `<div class="pagehead"><span class="kicker">Deadline calendar</span><h1>Every open deadline, week by week</h1><p class="muted prose">Times are shown in Dhaka time (GMT+6). Open a listing to add its deadline to your own calendar, with a reminder two days before.</p></div>
+  return `<div class="pagehead"><span class="kicker">Deadline calendar</span><h1>Every open deadline, week by week</h1><p class="muted prose">Times are shown in Dhaka time (GMT+6); each listing page also shows the deadline in your own time zone. Open a listing to add its deadline to your calendar, with a reminder two days before.</p></div>
   ${keys.length ? keys.map(k => `<section class="week section" style="margin-top:20px"><h3>${wk(k)}</h3>${groups[k].map(o => `<div class="cal-row"><span class="small"><b>${esc(dhakaFmt.format(new Date(closeMs(o))).replace(/,? \d{4}/, ''))}</b></span><span>${typeBadge(o)} <a href="#o/${esc(o.id)}">${esc(o.title)}</a> <span class="muted small">· ${esc(o.issuer)}</span></span></div>`).join('')}</section>`).join('') : '<p class="empty">No open deadlines right now.</p>'}`;
 };
 
@@ -447,7 +481,8 @@ V.methodology = () => page('How DevFund works', 'How we find, check and publish 
   <h2>What the labels mean</h2>
   <ul><li><span class="badge b-official">Checked on official notice</span> We read the issuer's own notice.</li>
   <li><span class="badge b-platform">Official link via platform</span> We found the opportunity on a recognised job or grant platform that links to the issuer's own page, and copied that link. Open the official notice to confirm the details.</li>
-  <li><span class="badge b-bd">Open to Bangladesh</span> The notice allows applicants from Bangladesh, or does not exclude them.</li></ul>
+  <li><span class="badge b-remote">Remote</span> The work can be done fully or mainly from home, sometimes with travel.</li>
+  <li><span class="badge b-bd">Open worldwide</span> / <span class="badge b-bd">Developing countries</span> / <span class="badge b-closed">Nationals only</span> Who the notice allows to apply. Always confirm eligibility in the official notice.</li></ul>
   <h2>Our rules</h2>
   <ul><li>Summaries are short and written in our own words. We link to tender documents and terms of reference; we never copy or re-host them.</li>
   <li>The official notice always decides. If our summary differs, we correct it within 24 hours and log the correction.</li>
@@ -481,7 +516,7 @@ V.coi = () => page('Conflict of interest', 'Our conflict-of-interest statement',
   <li>Sponsored or featured placement, if introduced, will always be labelled and will never change verification.</li></ul>
   <p>Questions about this statement: <a href="#report">contact us</a>.</p>`);
 V.about = () => page('About', 'About DevFund', `
-  <p>DevFund is a free portal for development-sector funding, tenders and jobs. It serves local NGOs and civil society organisations, international NGOs, consulting firms, individual consultants and job seekers, starting with Bangladesh and covering international opportunities open to Bangladeshi applicants.</p>
+  <p>DevFund is a free portal for development-sector funding, tenders and jobs. It serves NGOs and civil society organisations, international NGOs, consulting firms, individual consultants and job seekers worldwide, including remote and home-based work, with an in-depth desk for Bangladesh.</p>
   <p>It is a venture of Synapse Consulting ("Think. Connect. Transform.") and the sister site of <a href="https://digivern.pages.dev">Digivern</a>, which covers news and analysis on digital governance.</p>
   <h2>During the beta</h2><p>Everything on DevFund is free. Email alerts, organisation profiles that rank open calls by fit, and a Bangla interface are planned next.</p>
   <h2>Read more</h2><ul><li><a href="#methodology">How DevFund works</a></li><li><a href="#sources">Our sources</a></li><li><a href="#coi">Conflict of interest</a></li><li><a href="#corrections">Corrections log</a></li></ul>`);
