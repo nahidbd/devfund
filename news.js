@@ -20,6 +20,79 @@
 window.DF_NEWS = {
 NEWS: [
 {
+  id: 'n11', date: '2026-10-30', kind: 'Approval',
+  title: 'IDB approves $900 million for Argentina\'s Human Capital Strengthening Support Program',
+  summary: 'The Inter-American Development Bank\'s board approved $900 million to strengthen Argentina\'s social protection system: keeping children in school, offering job training to up to 500,000 adults (about 300,000 expected to be certified) and modernising ANSES and SINIDE records so families can more easily meet the education requirements of the AUH child allowance.',
+  why: 'Large training and records-modernisation components usually bring procurement for training providers and information-system consultants.',
+  country: 'Argentina', region: 'Latin America and the Caribbean', lender: 'IDB',
+  deal: {amount: 900, currency: 'USD', instrument: 'Loan', stage: 'Approved', project: 'Human Capital Strengthening Support Program', agency: 'ANSES'},
+  sources: [['Devdiscourse: IDB backs Argentina with $900m to support education and job training access (30 Oct 2026)', 'https://www.devdiscourse.com/article/business/3999316-idb-backs-argentina-with-900m-to-support-education-and-job-training-access']],
+  trust: 'media'
+},
+{
+  id: 'n12', date: '2026-10-30', kind: 'Approval',
+  title: 'World Bank approves $150 million results-based programme for property tax and municipal services in Sindh, Pakistan',
+  summary: 'The World Bank board approved the Sindh Property Revenues Enhancement Program (Sindh PREP). Funding is tied to results, with a $40 million investment component. It aims to raise Karachi\'s annual property tax collection from about $8.5 million to $85 million and compliance from 20% to 50%, and to improve municipal services.',
+  why: 'Property-tax reform programmes typically procure valuation, GIS and revenue-system consultants.',
+  country: 'Pakistan', region: 'South Asia', lender: 'World Bank',
+  deal: {amount: 150, currency: 'USD', instrument: 'Program-for-Results', stage: 'Approved', project: 'Sindh Property Revenues Enhancement Program (Sindh PREP)', agency: 'Government of Sindh'},
+  sources: [['Daily Pakistan: World Bank approves $150m to help Karachi raise property tax revenue (1 Nov 2026)', 'https://en.dailypakistan.com.pk/01-Nov-2026/world-bank-approves-150m-to-help-karachi-raise-property-tax-revenue']],
+  trust: 'media'
+},
+{
+  id: 'n13', date: '2026-10-29', kind: 'Approval',
+  title: 'Green Climate Fund approves a record $1.97 billion for 21 projects; 2026 approvals reach $3.2 billion',
+  summary: 'At its 46th Board meeting the Green Climate Fund approved $1.97 billion for 21 projects, including $682 million for six private-sector initiatives, taking 2026 approvals to a record $3.2 billion. Algeria, Cameroon, Moldova and Yemen received their first single-country projects, and the Maldives gained its first national direct-access entity.',
+  why: 'Approved GCF projects are delivered by accredited entities that hire executing partners, NGOs and consultants over the following years.',
+  country: '', region: 'Global', lender: 'Green Climate Fund',
+  deal: {amount: 1970, currency: 'USD', instrument: 'Grants and loans', stage: 'Approved', project: '21 projects approved at GCF B.46', agency: 'Accredited entities'},
+  sources: [
+    ['Reuters via Yahoo Finance: Green Climate Fund approves record near $2 billion funding (29 Oct 2026)', 'https://finance.yahoo.com/economy/policy/articles/green-climate-fund-approves-record-145521720.html'],
+    ['PINA: GCF financing tops $3 billion for consecutive record year (30 Oct 2026)', 'https://pina.com.fj/2026/10/30/gcf-financing-tops-usd3-billion-for-consecutive-record-year-as-reforms-continue-to-deliver/']
+  ],
+  trust: 'media'
+},
+{
+  id: 'n14', date: '2026-10-28', kind: 'Approval',
+  title: 'GCF backs FAO-supported projects in Algeria and Mexico worth $128.3 million',
+  summary: 'Among the B.46 approvals: a $43 million GCF grant, with $56.5 million from Algeria\'s government, to improve climate resilience across 454,138 hectares of steppe and dry forest in the Green Dam area; and an $85.3 million REDD+ results-based payment for Mexico, supporting silvopastoral systems, 1,200 farmer field schools and forest conservation.',
+  why: '',
+  country: '', region: 'Global', lender: 'Green Climate Fund',
+  deal: {amount: 128.3, currency: 'USD', instrument: 'Grant; results-based payment', stage: 'Approved', project: 'Algeria Green Dam resilience ($43m); Mexico REDD+ ($85.3m)', agency: 'FAO', countedIn: 'n13'},
+  sources: [['IndexBox: GCF approves $184.8 million in FAO-supported projects for Algeria and Mexico (28 Oct 2026)', 'https://www.indexbox.io/blog/green-climate-fund-approves-1848-million-in-fao-supported-projects-for-algeria-and-mexico/']],
+  trust: 'media'
+},
+{
+  id: 'n15', date: '2026-10-26', kind: 'Approval',
+  title: 'AfDB lends Botswana $503.75 million to cushion energy shocks and expand jobs for women and youth',
+  summary: 'The African Development Bank approved the first phase of the Economic Competitiveness and Transformation Support Program, with $170 million in co-financing from the OPEC Fund. It offsets the cost-of-living impact of the global energy shock and supports fiscal and private-sector reforms for private-led growth and jobs, especially for women and youth.',
+  why: 'Policy-based support pays for reforms; watch for technical-assistance packages linked to the reform actions.',
+  country: 'Botswana', region: 'Africa', lender: 'AfDB',
+  deal: {amount: 503.75, currency: 'USD', instrument: 'Policy-based loan', stage: 'Approved', project: 'Economic Competitiveness and Transformation Support Program, phase 1', agency: 'Government of Botswana'},
+  sources: [['Top Africa News: Botswana secures $503.75m African Development Bank financing (26 Oct 2026)', 'https://www.topafricanews.com/2026/10/26/botswana-secures-503-75m-african-development-bank-financing-to-cushion-energy-shocks-drive-jobs/']],
+  trust: 'media'
+},
+{
+  id: 'n16', date: '2026-10-22', kind: 'Approval',
+  title: 'AfDB approves $487 million for Morocco\'s economic governance and climate resilience programme',
+  summary: 'The AfDB board approved Phase III of the Economic Governance and Climate Change Resilience Support Program, covering tax and public-administration modernisation, digital investor procedures and SME support, water efficiency and desalination, and the energy transition including renewables and green hydrogen.',
+  why: '',
+  country: 'Morocco', region: 'Africa', lender: 'AfDB',
+  deal: {amount: 487, currency: 'USD', instrument: 'Programme financing', stage: 'Approved', project: 'Economic Governance and Climate Change Resilience Support Program, Phase III', agency: 'Government of Morocco'},
+  sources: [['Fes News Media: AfDB approves $487 million financing package for Morocco (22 Oct 2026)', 'https://fesnews.media/322933/2026/10/22/']],
+  trust: 'media'
+},
+{
+  id: 'n17', date: '2026-10-15', kind: 'Data',
+  title: 'Cameroon: World Bank portfolio reaches $5.01 billion across 21 projects, $4.13 billion signed',
+  summary: 'Cameroon\'s planning ministry (MINEPAT) said at the IMF–World Bank Annual Meetings that the World Bank has approved $5.01 billion for 21 projects (15 national, 6 regional), of which agreements worth $4.13 billion for 18 active projects have been signed, leaving about $881 million to sign. The Douala–Bangui Economic Corridor alone received $425 million.',
+  why: 'A large signed portfolio means ongoing procurement across sectors; check project pages for open notices.',
+  country: 'Cameroon', region: 'Africa', lender: 'World Bank',
+  deal: null,
+  sources: [['Business in Cameroon: World Bank approves $5 billion for Cameroon, $4.13 billion signed (16 Oct 2026)', 'https://www.businessincameroon.com/finance/1610-16987-world-bank-approves-5-billion-for-cameroon-with-4-13-billion-in-financing-deals-signed']],
+  trust: 'media'
+},
+{
   id: 'n1', date: '2026-10-31', kind: 'Signing',
   title: 'Bangladesh signs $450 million World Bank deal for Financial Sector Support Project II',
   summary: 'The Economic Relations Division and the World Bank signed a $450 million (SDR 328 million) financing agreement to strengthen the financial safety net, improve banking supervision and support banking reforms. Bangladesh Bank will implement the five-year project (July 2026 – June 2031). Reported terms: 1.5% interest and 25-year repayment with a five-year grace period.',
@@ -128,6 +201,29 @@ NEWS: [
 ],
 
 ANALYSES: [
+{
+  id: 'a2', date: '2026-11-02',
+  title: 'Budget support, social protection and climate: where development money moved in late October 2026',
+  standfirst: 'With bilateral aid shrinking, the multilateral banks and climate funds are doing the heavy lifting. October\'s biggest approvals were policy-based loans, social-protection programmes and a record round of climate finance.',
+  keynums: [['$3.2bn', 'GCF approvals in 2026, a record [1]'], ['$900m', 'IDB loan for Argentina\'s human capital programme [3]'], ['$990m', 'two AfDB policy-based approvals: Botswana and Morocco [4][5]'], ['23.1%', 'fall in global ODA in 2025 [7]']],
+  body: [
+    ['The short version', 'In the last two weeks of October 2026, the Green Climate Fund approved $1.97 billion for 21 projects, taking its 2026 total to a record $3.2 billion [1][2]. The IDB approved $900 million for Argentina [3], the AfDB approved $503.75 million for Botswana and $487 million for Morocco [4][5], and the World Bank approved a $150 million results-based programme in Pakistan\'s Sindh province [6]. This comes after official development assistance fell 23.1% in 2025 [7].'],
+    ['What the money is for', 'Most of these operations finance reforms and social systems rather than construction. Botswana\'s programme offsets the energy-price shock and supports fiscal and private-sector reforms [4]; Morocco\'s covers tax administration, digital investor services, water and the energy transition [5]; Argentina\'s keeps children in school, trains up to 500,000 adults and modernises social-security records [3]; Sindh\'s pays on results for higher property-tax collection and better municipal services [6]. Climate finance is the exception: GCF approvals include $682 million for private-sector initiatives and first projects in Algeria, Cameroon, Moldova and Yemen [1][2].'],
+    ['What it means for NGOs, firms and consultants', 'Policy-based and results-based operations create demand for technical assistance (tax, public financial management, social registries, digital services) rather than large implementation contracts. Social-protection and training programmes like Argentina\'s bring work for training providers and information-system consultants [3]. GCF projects are delivered through accredited entities over several years, so NGOs and consultants should approach the accredited entities and executing partners of newly approved projects [1][2].'],
+    ['DevFund\'s assessment', 'DevFund\'s view: for implementers, the most reliable pipeline in 2027 sits with the climate funds and the regional development banks, not bilateral donors. Organisations that can deliver adaptation, social-protection systems or revenue and digital-government reforms, and that partner early with accredited entities or ministries, are best placed. Expect fewer stand-alone grant calls and more subcontracting under large programmes.']
+  ],
+  watch: ['Procurement notices and executing-partner calls for the 21 GCF B.46 projects', 'Technical-assistance packages linked to the AfDB policy-based programmes in Botswana and Morocco', 'Training-provider and systems procurement under Argentina\'s Human Capital Strengthening Support Program', 'Whether 2026 OECD aid data shows a further fall in bilateral ODA'],
+  sources: [
+    ['Reuters via Yahoo Finance: Green Climate Fund approves record near $2 billion funding', 'https://finance.yahoo.com/economy/policy/articles/green-climate-fund-approves-record-145521720.html'],
+    ['PINA: GCF financing tops $3 billion for consecutive record year', 'https://pina.com.fj/2026/10/30/gcf-financing-tops-usd3-billion-for-consecutive-record-year-as-reforms-continue-to-deliver/'],
+    ['Devdiscourse: IDB backs Argentina with $900m', 'https://www.devdiscourse.com/article/business/3999316-idb-backs-argentina-with-900m-to-support-education-and-job-training-access'],
+    ['Top Africa News: Botswana secures $503.75m AfDB financing', 'https://www.topafricanews.com/2026/10/26/botswana-secures-503-75m-african-development-bank-financing-to-cushion-energy-shocks-drive-jobs/'],
+    ['Fes News Media: AfDB approves $487 million for Morocco', 'https://fesnews.media/322933/2026/10/22/'],
+    ['Daily Pakistan: World Bank approves $150m for Karachi property tax revenue', 'https://en.dailypakistan.com.pk/01-Nov-2026/world-bank-approves-150m-to-help-karachi-raise-property-tax-revenue'],
+    ['OECD: International aid fell sharply in 2025', 'https://www.oecd.org/en/about/news/press-releases/2026/04/international-aid-fell-sharply-in-2025-says-oecd.html'],
+    ['IndexBox: GCF approves FAO-supported projects for Algeria and Mexico', 'https://www.indexbox.io/blog/green-climate-fund-approves-1848-million-in-fao-supported-projects-for-algeria-and-mexico/']
+  ]
+},
 {
   id: 'a1', date: '2026-11-02',
   title: 'More money promised, less money arriving: what Bangladesh\'s aid pipeline means for NGOs and consultants',

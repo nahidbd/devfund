@@ -471,7 +471,7 @@ LISTINGS: [
 /* Donor profiles: who funds what and where their notices appear. Every fact links to a page opened on the date shown. */
 DONORS: [
 {
-  id: 'unicef-bd', name: 'UNICEF Bangladesh', kind: 'UN agency',
+  id: 'unicef-bd', match: 'UNICEF Bangladesh', scope: 'Bangladesh', name: 'UNICEF Bangladesh', kind: 'UN agency',
   what: 'Requests for proposals (LRPS) for research, evaluations, technical assistance, training and construction; individual consultancies and staff posts.',
   where: 'Notices are posted on the UNICEF Bangladesh website and on UNGM. Jobs are on jobs.unicef.org.',
   how: 'Bids go by email only to ebidsbangladesh@unicef.org, with technical and financial proposals in separate files; financial files are password-protected; each email must be under 10 MB.',
@@ -487,7 +487,7 @@ DONORS: [
   ], checked: '2026-11-02'
 },
 {
-  id: 'unwomen-bd', name: 'UN Women Bangladesh', kind: 'UN agency',
+  id: 'unwomen-bd', match: 'UN Women', scope: 'Bangladesh', name: 'UN Women Bangladesh', kind: 'UN agency',
   what: 'Calls for proposals for civil society organisations, with preference for women\'s rights organisations; national consultancies.',
   where: 'UN Women Asia-Pacific website (programme implementation section).',
   how: 'Download the call template from the notice page and follow its submission instructions.',
@@ -496,7 +496,7 @@ DONORS: [
   checked: '2026-11-02'
 },
 {
-  id: 'unfpa-bd', name: 'UNFPA Bangladesh', kind: 'UN agency',
+  id: 'unfpa-bd', match: 'UNFPA', scope: 'Bangladesh', name: 'UNFPA Bangladesh', kind: 'UN agency',
   what: 'Invitations for proposals for NGOs, including faith-based organisations; requests for quotation for goods and services.',
   where: 'UNFPA Bangladesh "Call for submissions" page.',
   how: 'Proposals by email to eoi-bgd@unfpa.org, marked with the call name, in English.',
@@ -507,7 +507,7 @@ DONORS: [
   ], checked: '2026-11-02'
 },
 {
-  id: 'worldbank-bd', name: 'World Bank-financed projects in Bangladesh', kind: 'Development bank',
+  id: 'worldbank-bd', match: '', scope: 'Bangladesh', name: 'World Bank-financed projects in Bangladesh', kind: 'Development bank',
   what: 'Government project units hire consulting firms and individual consultants under World Bank Procurement Regulations.',
   where: 'Requests for expressions of interest are advertised by the procuring entity on the BPPA advertisement pages and on the World Bank projects site.',
   how: 'Submit a written EOI with CV or firm profile to the project office by the stated deadline; follow the selection method in the notice (for example QCBS for firms).',
@@ -521,7 +521,51 @@ DONORS: [
   ], checked: '2026-11-02'
 },
 {
-  id: 'global-eba-fund', name: 'Global EbA Fund', kind: 'Other',
+  id: 'gcf', match: 'Green Climate Fund', scope: 'Global', name: 'Green Climate Fund (GCF)', kind: 'Global fund',
+  what: 'The largest multilateral climate fund, financing adaptation and mitigation projects in developing countries, including private-sector initiatives. At its 46th Board meeting (October 2026) it approved $1.97 billion for 21 projects, bringing 2026 approvals to a record $3.2 billion.',
+  where: 'GCF website: funding proposals approved at each Board meeting, accredited entities and readiness support.',
+  how: 'Funding flows through accredited entities (international, regional and national direct-access entities) working with national designated authorities. NGOs and firms usually take part as executing partners or consortium members of an accredited entity\'s project.',
+  recent: ['B.46 (October 2026): 21 projects, $1.97 billion, including first single-country projects for Algeria, Cameroon, Moldova and Yemen', 'FAO-supported projects approved at B.46: $43 million for steppe and dry-forest resilience in Algeria and $85.3 million REDD+ results-based payment for Mexico'],
+  sources: [
+    ['Reuters via Yahoo Finance: Green Climate Fund approves record near $2 billion (29 Oct 2026)', 'https://finance.yahoo.com/economy/policy/articles/green-climate-fund-approves-record-145521720.html'],
+    ['PINA: GCF financing tops $3 billion for consecutive record year (30 Oct 2026)', 'https://pina.com.fj/2026/10/30/gcf-financing-tops-usd3-billion-for-consecutive-record-year-as-reforms-continue-to-deliver/'],
+    ['IndexBox: GCF approves $184.8 million in FAO-supported projects for Algeria and Mexico', 'https://www.indexbox.io/blog/green-climate-fund-approves-1848-million-in-fao-supported-projects-for-algeria-and-mexico/']
+  ], checked: '2026-11-02'
+},
+{
+  id: 'afdb', match: 'African Development Bank', scope: 'Global', name: 'African Development Bank Group (AfDB)', kind: 'Development bank',
+  what: 'Loans, grants and guarantees for African countries and businesses. Recent approvals include large policy-based programmes: $503.75 million for Botswana\'s Economic Competitiveness and Transformation Support Program (with $170 million from the OPEC Fund) and $487 million for Morocco\'s economic governance and climate resilience programme.',
+  where: 'AfDB press releases and the consultants page, which lists expressions of interest for individual consultants and firms with closing dates.',
+  how: 'Consultants and firms respond to expressions of interest on the AfDB consultants page; check each notice for eligibility rules, which can depend on nationality of a member country.',
+  recent: ['Botswana: $503.75 million, first phase of a two-year programme (October 2026)', 'Morocco: $487 million, Phase III of the Economic Governance and Climate Change Resilience Support Program (22 Oct 2026)'],
+  sources: [
+    ['Top Africa News: Botswana secures $503.75m AfDB financing (26 Oct 2026)', 'https://www.topafricanews.com/2026/10/26/botswana-secures-503-75m-african-development-bank-financing-to-cushion-energy-shocks-drive-jobs/'],
+    ['Fes News Media: AfDB approves $487 million for Morocco (22 Oct 2026)', 'https://fesnews.media/322933/2026/10/22/'],
+    ['AfDB: current consultant vacancies', 'https://www.afdb.org/en/about-us/careers/current-vacancies/consultants']
+  ], checked: '2026-11-02'
+},
+{
+  id: 'idb', match: 'Inter-American Development Bank', scope: 'Global', name: 'Inter-American Development Bank (IDB)', kind: 'Development bank',
+  what: 'Loans and grants for Latin America and the Caribbean, with large social-protection and human-capital programmes, such as $900 million for Argentina\'s Human Capital Strengthening Support Program (October 2026), which includes job training for up to 500,000 adults.',
+  where: 'IDB press room and project pages; IDB Lab runs separate calls for start-ups and innovators.',
+  how: 'Governments borrow; consultants, firms and NGOs are hired through procurement under each project. IDB Lab calls are open to eligible start-ups and organisations in the region.',
+  recent: ['Argentina: $900 million Human Capital Strengthening Support Program (30 Oct 2026)', 'IDB Lab: call for STEM start-ups to expand access to capital (press room, autumn 2026)'],
+  sources: [
+    ['Devdiscourse: IDB backs Argentina with $900m (30 Oct 2026)', 'https://www.devdiscourse.com/article/business/3999316-idb-backs-argentina-with-900m-to-support-education-and-job-training-access'],
+    ['IDB press room', 'https://www.iadb.org/en/press-room']
+  ], checked: '2026-11-02'
+},
+{
+  id: 'rockefeller', match: 'Rockefeller', scope: 'Global', name: 'The Rockefeller Foundation', kind: 'Foundation',
+  what: 'Global foundation. With the OpenAI Foundation it launched the $50 million Cities Deliver initiative (October 2026), whose open call gives grants of $500,000 to $2 million to organisations working with city governments on AI for public services.',
+  where: 'Rockefeller Foundation website, including call FAQs.',
+  how: 'Organisations (not individuals or government bodies) apply with a city government partner; Round 1 closes 29 November 2026. Questions: citiesdeliver@rockfound.org.',
+  recent: ['Cities Deliver: AI Solutions for Public Services, Round 1 (closes 29 Nov 2026)'],
+  sources: [['Cities Deliver FAQs (October 2026)', 'https://www.rockefellerfoundation.org/wp-content/uploads/2026/10/Cities-Deliver-AI-Solutions-for-Public-Services-FAQs-Final.pdf']],
+  checked: '2026-11-02'
+},
+{
+  id: 'global-eba-fund', match: 'Global EbA Fund', scope: 'Global', name: 'Global EbA Fund', kind: 'Other',
   what: 'Grants for ecosystem-based adaptation (EbA) to climate change: small-size grants of up to $250,000 (18–24 months), with priority for least developed countries and small island developing states, and medium-size grants of up to $500,000 (up to 24 months) for ODA-eligible countries. Themes include investment readiness, innovative EbA technologies, applied research and links with other nature-based solutions.',
   where: 'Global EbA Fund website (globalebafund.org): call documents, FAQ and the Grants Procedures Manual. IUCN and UNEP act as the secretariat; the Fund\'s own announcements say it is funded by Germany\'s International Climate Initiative (IKI).',
   how: 'Online through the IUCN Grants Portal, in English, by one lead organisation (consortia welcome). NGOs, INGOs, intergovernmental organisations (except UNEP and IUCN offices), CBOs, Indigenous Peoples\' organisations, universities, think tanks and companies can apply; individuals cannot. Projects must build on existing work rather than stand-alone field implementation. Country-level projects need a consortium with a local partner receiving at least 25% of the budget. Government bodies, IUCN and UNEP offices can be partners but cannot receive funds. Co-financing is optional.',
@@ -534,7 +578,7 @@ DONORS: [
   ], checked: '2026-11-02'
 },
 {
-  id: 'commonwealth', name: 'Commonwealth Foundation', kind: 'Foundation',
+  id: 'commonwealth', match: 'Commonwealth Foundation', scope: 'Global', name: 'Commonwealth Foundation', kind: 'Foundation',
   what: 'Individual Organisation Grants of £15,000–£30,000 a year and Collective Action Grants of £15,000–£20,000 a year, for up to two years, in climate and environmental justice, economic inclusion and freedom of expression.',
   where: 'Commonwealth Foundation grants page. Bangladesh is eligible.',
   how: 'Online through the Foundation\'s portal. Applicants need three years of registration and an average income under £2.5 million.',
@@ -543,7 +587,7 @@ DONORS: [
   checked: '2026-11-02'
 },
 {
-  id: 'japan-gghsp', name: 'Embassy of Japan in Bangladesh – Grassroots Human Security Projects (GGHSP)', kind: 'Bilateral donor',
+  id: 'japan-gghsp', match: 'Embassy of Japan', scope: 'Bangladesh', name: 'Embassy of Japan in Bangladesh – Grassroots Human Security Projects (GGHSP)', kind: 'Bilateral donor',
   what: 'Grants mainly for health care, primary education, rural development and poverty relief, covering construction, equipment and infrastructure. Salaries, research, training and recurring costs are not covered.',
   where: 'Embassy of Japan in Bangladesh, assistance pages.',
   how: 'Download the GGHSP forms and guideline and submit to the GGHSP Consultant, Economic and Development Cooperation Section, Embassy of Japan, Baridhara, Dhaka. Contact the Embassy to confirm the current round.',
@@ -552,7 +596,7 @@ DONORS: [
   checked: '2026-11-02'
 },
 {
-  id: 'undef', name: 'UN Democracy Fund (UNDEF)', kind: 'UN agency',
+  id: 'undef', match: 'UN Democracy Fund', scope: 'Global', name: 'UN Democracy Fund (UNDEF)', kind: 'UN agency',
   what: 'Project grants of $100,000–$200,000, usually over two years, for civil society, human rights and democratic participation.',
   where: 'UNDEF "Apply for funding" page. Proposals are accepted only during an annual online window.',
   how: 'Online Project Proposal System only, in English or French. The window published on the page ran 1–28 February.',
@@ -561,7 +605,7 @@ DONORS: [
   checked: '2026-11-02'
 },
 {
-  id: 'us-mission-bd', name: 'U.S. Mission to Bangladesh – Public Diplomacy grants', kind: 'Bilateral donor',
+  id: 'us-mission-bd', match: 'U.S. Mission', scope: 'Bangladesh', name: 'U.S. Mission to Bangladesh – Public Diplomacy grants', kind: 'Bilateral donor',
   what: 'Small public diplomacy cooperative agreements for nonprofits, universities and individuals.',
   where: 'Grants.gov (simpler.grants.gov).',
   how: 'Apply through Grants.gov under the published notice of funding opportunity.',
@@ -570,7 +614,7 @@ DONORS: [
   checked: '2026-11-02'
 },
 {
-  id: 'gif', name: 'Global Innovation Fund', kind: 'Foundation',
+  id: 'gif', match: 'Global Innovation Fund', scope: 'Global', name: 'Global Innovation Fund', kind: 'Foundation',
   what: 'Grants and investments for innovations that improve the lives of people living on low incomes, in bands from £100,001 to over £1 million.',
   where: 'Global Innovation Fund website. The UK government funding listing names Bangladesh among 26 eligible countries but marks the opportunity closed.',
   how: 'Check globalinnovation.fund for the current application route.',
@@ -587,34 +631,33 @@ SOURCES: {
     ['UN Partner Portal: calls for civil society partners', 'https://www.unpartnerportal.org/'],
     ['UN Secretariat procurement', 'https://www.un.org/procurement/solicitations-opportunities'],
     ['UNDP procurement notices and consultancies', 'https://procurement-notices.undp.org/'],
-    ['UNICEF Bangladesh supply and procurement', 'https://www.unicef.org/bangladesh/en/supply-and-logistics'],
     ['UNICEF jobs', 'https://jobs.unicef.org/'],
     ['UN Careers (UN Secretariat, UNEP, UN DESA, UNDRR and others)', 'https://careers.un.org/'],
-    ['UNFPA Bangladesh calls for submissions', 'https://bangladesh.unfpa.org/en/call-for-submissions'],
     ['UN Women Asia-Pacific calls for proposals', 'https://asiapacific.unwomen.org/en'],
-    ['IOM Bangladesh procurement', 'https://bangladesh.iom.int/procurement'],
     ['FAO careers', 'https://jobs.fao.org/'],
     ['WFP careers', 'https://www.wfp.org/careers'],
     ['UNOPS jobs', 'https://jobs.unops.org/'],
     ['UNDEF: UN Democracy Fund', 'https://www.un.org/democracyfund/apply-for-funding'],
     ['World Bank projects and procurement', 'https://projects.worldbank.org/'],
+    ['African Development Bank: consultants and procurement', 'https://www.afdb.org/en/about-us/careers/current-vacancies/consultants'],
+    ['Inter-American Development Bank', 'https://www.iadb.org/en'],
+    ['European Bank for Reconstruction and Development', 'https://www.ebrd.com/'],
+    ['Green Climate Fund', 'https://www.greenclimate.fund/'],
+    ['Global Environment Facility', 'https://www.thegef.org/'],
+    ['The Global Fund', 'https://www.theglobalfund.org/'],
+    ['UNHCR', 'https://www.unhcr.org/'],
+    ['World Health Organization', 'https://www.who.int/'],
+    ['UNEP', 'https://www.unep.org/'],
+
     ['Asian Development Bank consulting and procurement', 'https://www.adb.org/'],
     ['Asian Infrastructure Investment Bank procurement', 'https://www.aiib.org/'],
     ['Islamic Development Bank procurement', 'https://www.isdb.org/'],
     ['EU Funding & Tenders Portal', 'https://ec.europa.eu/info/funding-tenders/opportunities/portal/'],
-    ['EU Delegation to Bangladesh', 'https://www.eeas.europa.eu/delegations/bangladesh_en'],
     ['UK Find a Tender', 'https://www.find-tender.service.gov.uk/'],
     ['UK international development funding', 'https://www.gov.uk/international-development-funding'],
     ['US Grants.gov', 'https://simpler.grants.gov/'],
     ['GIZ tenders', 'https://www.giz.de/en/workingwithgiz/tenders.html'],
     ['JICA', 'https://www.jica.go.jp/english/'],
-    ['Embassy of Japan in Bangladesh: grassroots grants', 'https://www.bd.emb-japan.go.jp/en/assistance/gghsp.html'],
-    ['Bangladesh Public Procurement Authority (BPPA) advertisements', 'https://www.bppa.gov.bd/'],
-    ['Bangladesh e-GP', 'https://www.eprocure.gov.bd/'],
-    ['NGO Affairs Bureau', 'https://ngoab.gov.bd/'],
-    ['PKSF', 'https://pksf.org.bd/'],
-    ['icddr,b tender notices', 'https://www.icddrb.org/tender-notices'],
-    ['CARE Bangladesh consultancy and procurement', 'https://www.carebangladesh.org/consultancy'],
     ['Commonwealth Foundation grants', 'https://commonwealthfoundation.com/grants/annual/'],
     ['Rockefeller Foundation', 'https://www.rockefellerfoundation.org/'],
     ['Mozilla Foundation fellowships', 'https://www.mozillafoundation.org/'],
@@ -625,6 +668,21 @@ SOURCES: {
     ['Global Innovation Fund', 'https://www.globalinnovation.fund/'],
     ['Global EbA Fund', 'https://globalebafund.org/']
   ],
+  national: {
+    Bangladesh: [
+      ['Bangladesh Public Procurement Authority (BPPA) advertisements', 'https://www.bppa.gov.bd/'],
+      ['Bangladesh e-GP', 'https://www.eprocure.gov.bd/'],
+      ['NGO Affairs Bureau', 'https://ngoab.gov.bd/'],
+      ['PKSF', 'https://pksf.org.bd/'],
+      ['icddr,b tender notices', 'https://www.icddrb.org/tender-notices'],
+      ['CARE Bangladesh consultancy and procurement', 'https://www.carebangladesh.org/consultancy'],
+      ['Embassy of Japan in Bangladesh: grassroots grants', 'https://www.bd.emb-japan.go.jp/en/assistance/gghsp.html'],
+      ['EU Delegation to Bangladesh', 'https://www.eeas.europa.eu/delegations/bangladesh_en'],
+      ['UNICEF Bangladesh supply and procurement', 'https://www.unicef.org/bangladesh/en/supply-and-logistics'],
+      ['UNFPA Bangladesh calls for submissions', 'https://bangladesh.unfpa.org/en/call-for-submissions'],
+      ['IOM Bangladesh procurement', 'https://bangladesh.iom.int/procurement']
+    ]
+  },
   tier2: [
     ['ReliefWeb jobs and training', 'https://reliefweb.int/jobs'],
     ['GOV.UK international development funding finder', 'https://www.gov.uk/international-development-funding'],
