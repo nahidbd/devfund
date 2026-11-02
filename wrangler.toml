@@ -1,0 +1,9 @@
+# Cloudflare Pages configuration for DevFund (static site + small functions for forms and site statistics).
+name = "devfund"
+pages_build_output_dir = "."
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "devfund-data"
+database_id = "6df228fe-b45f-491e-96eb-d3b156aace90"
