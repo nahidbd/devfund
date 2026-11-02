@@ -166,6 +166,15 @@ footer .fine{border-top:1px solid rgba(255,255,255,.15);margin-top:28px;padding-
 .srcline > span:first-child{color:var(--muted);font-weight:800}
 .srcline a{font-weight:800}
 .srclist{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;font-size:.95rem;overflow-wrap:anywhere}
+.analysis-lead{background:var(--hero);color:#fff;border:0}.analysis-lead .eyebrow{color:#F9C79E}.analysis-lead p{color:#E3F4F1}.analysis-lead:hover{color:#fff}.analysis-lead h2,.analysis-lead h3{color:#fff}
+.keynums{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.keynums div{background:var(--sun-soft);border-radius:14px;padding:12px 16px;display:flex;flex-direction:column;gap:4px}
+.keynums b{font-size:1.7rem;line-height:1.1;font-weight:900;color:var(--sun-ink)}.keynums span{font-size:.9rem;color:var(--ink)}
+.analysis-lead .keynums div{background:rgba(255,255,255,.13)}.analysis-lead .keynums b{color:#fff}.analysis-lead .keynums span{color:#D7EEEA}
+.due.nd{background:var(--sunken)}.due.nd b{color:var(--ink);font-size:1.5rem}.due.nd span{color:var(--muted);text-transform:none;font-size:.75rem}
+a.cite{font-size:.78em;font-weight:800;text-decoration:none;vertical-align:super;line-height:0}
+.srclist li.flash{background:var(--gold-soft);border-radius:6px}
+@media (max-width:640px){table.tracker,table.tracker tbody,table.tracker tr,table.tracker td{display:block;width:auto}table.tracker thead{display:none}table.tracker tr{border-bottom:1px solid var(--line);padding:10px 4px}table.tracker td{border:0;padding:2px 4px}table.tracker td::before{content:attr(data-l) ": ";font-weight:800;color:var(--muted);font-size:.82rem}}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;z-index:50;max-width:calc(100% - 32px);font-weight:700}
 .empty{padding:28px;text-align:center;background:var(--surface);border:1px dashed var(--line);border-radius:var(--r)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -181,6 +190,7 @@ footer .fine{border-top:1px solid rgba(255,255,255,.15);margin-top:28px;padding-
   <button class="btn btn-line menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
   <nav class="nav" id="nav" data-open="false" aria-label="Main">
     <a href="#opportunities" data-n="opportunities">Opportunities</a>
+    <a href="#news" data-n="news">Fund News</a>
     <a href="#calendar" data-n="calendar">Deadlines</a>
     <a href="#bangladesh" data-n="bangladesh">Bangladesh</a>
     <a href="#donors" data-n="donors">Donors</a>
@@ -194,13 +204,14 @@ footer .fine{border-top:1px solid rgba(255,255,255,.15);margin-top:28px;padding-
   <div class="cols">
     <div class="stack" style="gap:10px"><a class="brand" href="#" style="color:#fff"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="10" fill="#13867C"/><circle cx="22" cy="10" r="5" fill="#F08A3C"/><path d="M8 24c3-7 9-11 16-11" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg>DevFund</a>
       <p>Grants, tenders, jobs and funding news for NGOs, consulting firms and development professionals. Free for everyone, and every listing links to the official notice.</p></div>
-    <div><h3>Find</h3><ul><li><a href="#opportunities?type=grant">Grants and calls</a></li><li><a href="#opportunities?type=tender">Tenders and EOIs</a></li><li><a href="#opportunities?type=job">Jobs and consultancies</a></li><li><a href="#opportunities?type=fund">Funding releases</a></li><li><a href="#calendar">Deadline calendar</a></li></ul></div>
+    <div><h3>Find</h3><ul><li><a href="#opportunities?type=grant">Grants and calls</a></li><li><a href="#opportunities?type=tender">Tenders and EOIs</a></li><li><a href="#opportunities?type=job">Jobs and consultancies</a></li><li><a href="#opportunities?type=fund">Funding releases</a></li><li><a href="#calendar">Deadline calendar</a></li><li><a href="#news">Fund News</a></li></ul></div>
     <div><h3>Trust</h3><ul><li><a href="#methodology">How DevFund works</a></li><li><a href="#sources">Our sources</a></li><li><a href="#scams">Scam alerts</a></li><li><a href="#corrections">Corrections log</a></li><li><a href="#coi">Conflict of interest</a></li></ul></div>
     <div><h3>Contact</h3><ul><li><a href="#submit">Post an opportunity</a></li><li><a href="#report">Report a problem</a></li><li><a href="#bid-desk">Proposal and Bid Desk</a></li><li><a href="#subscribe">Get the digest</a></li><li><a href="#about">About</a></li></ul></div>
   </div>
   <div class="fine"><span>Updated <b id="upd"></b></span><span>A venture of Synapse Consulting · Think. Connect. Transform. · Sister site of <a href="https://digivern.pages.dev">Digivern</a></span></div>
 </div></footer>
 <script src="data.js"></script>
+<script src="news.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

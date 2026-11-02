@@ -9,6 +9,7 @@ Funding, tenders and jobs for the development sector, starting with Bangladesh. 
 | `index.html` | Page layout and styles |
 | `app.js` | How pages are drawn: routing, the Opportunity Board filters, listing pages, calendar, forms |
 | `data.js` | All content: `LISTINGS`, `DONORS`, `SOURCES`, `DIGEST`, `CORRECTIONS`, `UPDATED`, `TODAY`. The comment at the top explains every listing field |
+| `news.js` | Fund News: `NEWS` (approvals, signings, pipeline deals, aid-flow data, policy) and `ANALYSES`. Items with a `deal` feed the Finance tracker |
 | `_headers` | Security headers |
 | `wrangler.toml` | Cloudflare Pages settings and the `devfund-data` database binding |
 | `functions/api/form.js` | Stores form submissions (post an opportunity, report a problem, Proposal Desk, digest sign-up) in the `submissions` table |

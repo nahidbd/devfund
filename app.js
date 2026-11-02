@@ -85,6 +85,10 @@ V.home = () => {
   <section class="section"><div class="sechead"><h2>Closing this week</h2><a href="#calendar">Deadline calendar →</a></div>
     ${week.length ? `<div class="list">${week.map(row).join('')}</div>` : '<p class="empty">Nothing closes in the next seven days.</p>'}
   </section>
+  <section class="section"><div class="sechead"><h2>Fund News</h2><a href="#news">All news and the finance tracker →</a></div>
+    ${FA[0] ? `<a class="card analysis-lead" href="#a/${esc(FA[0].id)}"><span class="eyebrow">Analysis</span><h3 style="font-size:1.35rem">${esc(FA[0].title)}</h3><p class="muted">${esc(FA[0].standfirst)}</p></a>` : ''}
+    <div class="list">${NEWS_SORTED.slice(0, 3).map(newsCard).join('')}</div>
+  </section>
   <section class="section"><div class="sechead"><h2>New today</h2><a href="#opportunities">All opportunities →</a></div>
     ${newest.length ? `<div class="list">${newest.slice(0, 6).map(row).join('')}</div>` : '<p class="empty">No new listings yet today. The board is updated every morning.</p>'}
   </section>
@@ -229,6 +233,84 @@ function bindListing(id){
   };
 }
 
+/* ---------- Fund News ---------- */
+const FN = (window.DF_NEWS && window.DF_NEWS.NEWS) || [];
+const FA = (window.DF_NEWS && window.DF_NEWS.ANALYSES) || [];
+const NEWS_SORTED = FN.slice().sort((a, b) => b.date.localeCompare(a.date));
+function newsDate(n){ return n.dateText || fmtDay(n.date); }
+function money(d){ if(!d) return ''; const a = d.amount; return '$' + (a >= 1000 ? (a / 1000).toLocaleString('en-US', {maximumFractionDigits: 2}) + ' billion' : a.toLocaleString('en-US') + ' million'); }
+const KIND_CLS = {'Approval':'b-grant', 'Signing':'b-job', 'Pipeline':'b-fund', 'Disbursement data':'b-tender', 'Data':'b-tender', 'Policy':'b-philanthropy'};
+function newsCard(n){
+  return `<article class="item news"><div class="due nd"><b>${esc(n.dateText ? n.dateText.split(' ')[0].slice(0,3) : new Date(n.date + 'T06:00:00Z').getUTCDate())}</b><span>${esc(n.dateText ? n.dateText.split(' ')[1] || '' : new Date(n.date + 'T06:00:00Z').toLocaleDateString('en-GB', {month:'short', year:'numeric', timeZone:'UTC'}))}</span></div><div class="stack" style="gap:6px">
+    <div class="row" style="gap:6px"><span class="badge ${KIND_CLS[n.kind] || 'b-plain'}">${esc(n.kind)}</span>${n.lender ? `<span class="badge b-plain">${esc(n.lender)}</span>` : ''}${n.deal ? `<span class="badge b-bd">${esc(money(n.deal))}</span>` : ''}</div>
+    <h3><a href="#n/${esc(n.id)}">${esc(n.title)}</a></h3>
+    <p class="muted small">${esc(n.summary.length > 220 ? n.summary.slice(0, 217).replace(/\s+\S*$/, '') + '…' : n.summary)}</p>
+    <div class="srcline"><span>Source:</span> <a href="${esc(n.sources[0][1])}" rel="noopener" target="_blank">${esc(host(n.sources[0][1]))} ${EXT}</a>${n.sources.length > 1 ? ` <span class="muted">+${n.sources.length - 1} more</span>` : ''}</div>
+  </div></article>`;
+}
+let NF = {lender:'', stage:''};
+V.news = () => {
+  const deals = FN.filter(n => n.deal);
+  const lenders = [...new Set(deals.map(n => n.lender))].sort();
+  const stages = ['Approved', 'Signed', 'Pipeline'];
+  const rows = deals.filter(n => (!NF.lender || n.lender === NF.lender) && (!NF.stage || n.deal.stage === NF.stage)).sort((a, b) => b.date.localeCompare(a.date));
+  const total = rows.filter(n => !n.deal.countedIn || !rows.some(r => r.id === n.deal.countedIn)).reduce((s, n) => s + n.deal.amount, 0);
+  const a = FA[0];
+  return `<div class="pagehead"><span class="kicker">Fund News</span><h1>Where development money is moving</h1><p class="muted prose">Loan and grant approvals, signings and pipelines from the World Bank, ADB, AIIB and other funders, aid-flow data and analysis of what it means for NGOs, firms and consultants. Every item links to its source.</p></div>
+  ${a ? `<a class="card analysis-lead" href="#a/${esc(a.id)}"><span class="eyebrow">Analysis · ${esc(fmtDay(a.date))}</span><h2>${esc(a.title)}</h2><p>${esc(a.standfirst)}</p><div class="keynums">${a.keynums.map(k => `<div><b>${esc(k[0])}</b><span>${esc(k[1].replace(/\s*\[\d+\]/g, ''))}</span></div>`).join('')}</div><span class="btn btn-teal" style="align-self:flex-start">Read the analysis</span></a>` : ''}
+  <section class="section"><div class="sechead"><h2>Latest news</h2></div><div class="list">${NEWS_SORTED.map(newsCard).join('')}</div></section>
+  <section class="section" id="tracker"><div class="sechead"><h2>Finance tracker</h2><span class="muted small">Approvals, signings and pipeline deals reported in Fund News</span></div>
+    <div class="filters"><div class="grid">
+      <div class="field"><label for="tl">Lender</label><select id="tl"><option value="">All lenders</option>${lenders.map(l => `<option${l === NF.lender ? ' selected' : ''}>${esc(l)}</option>`).join('')}</select></div>
+      <div class="field"><label for="ts">Stage</label><select id="ts"><option value="">All stages</option>${stages.map(s => `<option${s === NF.stage ? ' selected' : ''}>${s}</option>`).join('')}</select></div>
+    </div><p class="count">${rows.length} ${rows.length === 1 ? 'deal' : 'deals'} · ${esc(money({amount: Math.round(total * 100) / 100}))} in total</p></div>
+    <div class="tablebox card" style="padding:6px 8px"><table class="tracker"><thead><tr><th>Date</th><th>Lender</th><th>Project</th><th>Amount</th><th>Instrument</th><th>Stage</th><th>Source</th></tr></thead><tbody>
+      ${rows.map(n => `<tr><td data-l="Date">${esc(newsDate(n))}</td><td data-l="Lender">${esc(n.lender)}</td><td data-l="Project"><a href="#n/${esc(n.id)}">${esc(n.deal.project)}</a>${n.deal.agency ? `<br><span class="muted small">${esc(n.deal.agency)}</span>` : ''}</td><td data-l="Amount"><b>${esc(money(n.deal))}</b>${n.deal.countedIn ? `<br><span class="muted small">same money as <a href="#n/${esc(n.deal.countedIn)}">later signing</a></span>` : ''}</td><td data-l="Instrument">${esc(n.deal.instrument)}</td><td data-l="Stage"><span class="badge ${n.deal.stage === 'Approved' ? 'b-grant' : n.deal.stage === 'Signed' ? 'b-job' : 'b-fund'}">${esc(n.deal.stage)}</span></td><td data-l="Source"><a href="${esc(n.sources[0][1])}" rel="noopener" target="_blank">${esc(host(n.sources[0][1]))}</a></td></tr>`).join('')}
+    </tbody></table></div>
+    <p class="small muted">Amounts as reported, in US dollars; totals count each loan once. "Approved" means board approval; "Signed" means the financing agreement was signed with the government; "Pipeline" means agreed in principle but not yet approved.</p>
+  </section>`;
+};
+function bindNews(){
+  const l = $('#tl'), st = $('#ts');
+  if(l) l.onchange = () => { NF.lender = l.value; render(true); const e = $('#tl'); if(e) e.focus(); };
+  if(st) st.onchange = () => { NF.stage = st.value; render(true); const e = $('#ts'); if(e) e.focus(); };
+}
+V.n = (id) => {
+  const n = FN.find(x => x.id === id); if(!n) return notFound();
+  const rel = L.filter(o => n.lender && o.issuer.toLowerCase().includes(n.lender.toLowerCase())).slice(0, 3);
+  return `<p class="crumb"><a href="#news">Fund News</a></p>
+  <article class="stack prose" style="gap:16px;max-width:760px">
+    <div class="row" style="gap:6px"><span class="badge ${KIND_CLS[n.kind] || 'b-plain'}">${esc(n.kind)}</span>${n.lender ? `<span class="badge b-plain">${esc(n.lender)}</span>` : ''}<span class="badge ${n.trust === 'official' ? 'b-official' : 'b-platform'}">${n.trust === 'official' ? 'Official source' : 'News report'}</span></div>
+    <h1>${esc(n.title)}</h1>
+    <p class="muted">${esc(newsDate(n))}${n.country ? ' · ' + esc(n.country) : ''}${n.region && n.region !== n.country ? ' · ' + esc(n.region) : ''}</p>
+    <p style="font-size:1.12rem">${esc(n.summary)}</p>
+    ${n.deal ? `<dl class="facts"><dt>Lender</dt><dd>${esc(n.lender)}</dd><dt>Amount</dt><dd>${esc(money(n.deal))}</dd><dt>Instrument</dt><dd>${esc(n.deal.instrument)}</dd><dt>Stage</dt><dd>${esc(n.deal.stage)}</dd><dt>Project</dt><dd>${esc(n.deal.project)}</dd>${n.deal.agency ? `<dt>Implementing agency</dt><dd>${esc(n.deal.agency)}</dd>` : ''}</dl>` : ''}
+    ${n.why ? `<div class="box red"><b>Why it matters:</b> ${esc(n.why)}</div>` : ''}
+    <div class="stack"><h2>Sources</h2><ol class="srclist">${n.sources.map(s => `<li><a href="${esc(s[1])}" rel="noopener" target="_blank">${esc(s[0])}</a> <span class="muted small">(${esc(host(s[1]))})</span></li>`).join('')}</ol>
+    <p class="small muted">Summary written by DevFund from the sources above. <a href="#report?id=${esc(n.id)}">Report a problem</a>.</p></div>
+  </article>
+  ${rel.length ? `<section class="section"><div class="sechead"><h2>Open opportunities from ${esc(n.lender)}</h2></div><div class="list">${rel.map(row).join('')}</div></section>` : ''}`;
+};
+V.a = (id) => {
+  const a = FA.find(x => x.id === id); if(!a) return notFound();
+  const cite = t => esc(t).replace(/\[(\d+)\]/g, (m, k) => `<a class="cite" href="#a/${esc(a.id)}" data-src="${k}">[${k}]</a>`);
+  return `<p class="crumb"><a href="#news">Fund News</a> › Analysis</p>
+  <article class="stack" style="gap:18px;max-width:820px">
+    <span class="kicker">Analysis · ${esc(fmtDay(a.date))}</span>
+    <h1>${esc(a.title)}</h1>
+    <p style="font-size:1.15rem">${esc(a.standfirst)}</p>
+    <div class="keynums">${a.keynums.map(k => `<div><b>${esc(k[0])}</b><span>${cite(k[1])}</span></div>`).join('')}</div>
+    <div class="prose">${a.body.map(b => `<h2>${esc(b[0])}</h2><p>${cite(b[1])}</p>`).join('')}
+      <h2>What to watch</h2><ul>${a.watch.map(w => `<li>${esc(w)}</li>`).join('')}</ul>
+      <h2>Sources</h2><ol class="srclist" id="asrc">${a.sources.map((s, i) => `<li id="s${i + 1}"><a href="${esc(s[1])}" rel="noopener" target="_blank">${esc(s[0])}</a> <span class="muted small">(${esc(host(s[1]))})</span></li>`).join('')}</ol>
+      <p class="small muted">Written by DevFund. The section headed "DevFund's assessment" is DevFund's own view; every figure links to its source.</p>
+    </div>
+  </article>`;
+};
+function bindAnalysis(){
+  main.querySelectorAll('a.cite').forEach(c => c.onclick = e => { e.preventDefault(); const li = document.getElementById('s' + c.dataset.src); if(li){ li.scrollIntoView({behavior:'smooth', block:'center'}); li.classList.add('flash'); setTimeout(() => li.classList.remove('flash'), 1600); } });
+}
+
 /* deadline calendar */
 V.calendar = () => {
   const dated = OPEN.filter(o => o.close);
@@ -320,7 +402,7 @@ V.submit = () => formPage('submit-opportunity', 'Post an opportunity', 'Tell us 
    ${fld('deadline','Deadline (with time zone)','text',true)}
    ${fld('notes','Anything else we should know','textarea',false)}`,
   'Send for review');
-V.report = (param) => { const id = idParam(param); const o = L.find(x => x.id === id); return formPage('report-problem', 'Report a problem', 'Report an error or a suspicious listing',
+V.report = (param) => { const id = idParam(param); const o = L.find(x => x.id === id) || FN.find(x => x.id === id); return formPage('report-problem', 'Report a problem', 'Report an error or a suspicious listing',
   'Tell us about a wrong date, a broken link, a closed call, or anything that looks like a scam. We fix errors within 24 hours and log them publicly.',
   `${fld('listing','Listing','text',true, o ? o.title + ' (' + o.id + ')' : '')}
    ${sel('problem','What is wrong',['Wrong deadline or details','Broken link','Call is closed or cancelled','Looks like a scam','Other'])}
@@ -406,8 +488,8 @@ V.about = () => page('About', 'About DevFund', `
 function notFound(){ return `<div class="empty stack"><h1>Page not found</h1><p>This page or listing does not exist, or it has been removed.</p><a href="#opportunities">Browse open opportunities</a></div>`; }
 
 /* ---------- router ---------- */
-const TITLES = {opportunities:'Opportunities', calendar:'Deadlines', bangladesh:'Bangladesh Desk', donors:'Donors', digest:'Weekly Digest', submit:'Post an opportunity', report:'Report a problem', 'bid-desk':'Proposal Desk', subscribe:'Get the digest', methodology:'How DevFund works', sources:'Our sources', scams:'Scam alerts', corrections:'Corrections', coi:'Conflict of interest', about:'About'};
-const NAVMAP = {o:'opportunities', donor:'donors'};
+const TITLES = {news:'Fund News', opportunities:'Opportunities', calendar:'Deadlines', bangladesh:'Bangladesh Desk', donors:'Donors', digest:'Weekly Digest', submit:'Post an opportunity', report:'Report a problem', 'bid-desk':'Proposal Desk', subscribe:'Get the digest', methodology:'How DevFund works', sources:'Our sources', scams:'Scam alerts', corrections:'Corrections', coi:'Conflict of interest', about:'About'};
+const NAVMAP = {o:'opportunities', donor:'donors', n:'news', a:'news'};
 function parse(){
   const h = decodeURIComponent(location.hash.replace(/^#/, ''));
   const [path, param] = h.split('?');
@@ -433,10 +515,14 @@ function render(keep){
   let t = TITLES[view];
   if(view === 'o'){ const o = L.find(x => x.id === id); t = o ? o.title : 'Not found'; }
   if(view === 'donor'){ const d = D.DONORS.find(x => x.id === id); t = d ? d.name : 'Not found'; }
+  if(view === 'n'){ const n = FN.find(x => x.id === id); t = n ? n.title : 'Not found'; }
+  if(view === 'a'){ const a = FA.find(x => x.id === id); t = a ? a.title : 'Not found'; }
   document.title = (t ? t + ' — ' : '') + 'DevFund';
   if(view === 'home') bindHome();
   if(view === 'opportunities') bindBoard();
   if(view === 'o') bindListing(id);
+  if(view === 'news') bindNews();
+  if(view === 'a') bindAnalysis();
   bindForm();
   if(!keep){ window.scrollTo(0, 0); }
   const nav = $('#nav'); nav.dataset.open = 'false'; $('#menuBtn').setAttribute('aria-expanded', 'false');
