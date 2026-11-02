@@ -145,7 +145,7 @@ LISTINGS: [
   id: 'g7', type: 'grant',
   title: 'Global EbA Fund: Call for Proposals for Medium-Size Grants (ecosystem-based adaptation)',
   issuer: 'Global EbA Fund', issuerKind: 'Other', ref: '',
-  summary: 'Grants of up to $500,000 for up to 24 months to scale up ecosystem-based adaptation (EbA) to climate change; 10 grants are available. NGOs, community-based and Indigenous Peoples\' organisations, universities, think tanks and private companies can apply. Country-level projects need a consortium with at least one local organisation receiving at least 25% of the budget. Applications go through the IUCN Grants Portal, in English.',
+  summary: 'Grants of up to $500,000 for catalytic projects of up to 24 months that help scale up ecosystem-based adaptation (EbA) to climate change; 10 grants are available. Projects must build on existing work and must not be standalone field-implementation projects. Optional priority topics: innovative finance for EbA, EbA for human development and security, and people–nature–climate–land synergies. IUCN and UNEP act as the Fund\'s secretariat; the Fund\'s announcement says it is funded by Germany\'s International Climate Initiative (IKI).',
   amount: 'Up to $500,000', duration: 'Up to 24 months (projects expected to start in 2027)',
   location: 'ODA-eligible countries', countries: 'Countries on the OECD DAC list of ODA recipients (Bangladesh is on it); multi-country projects must cover only ODA-eligible countries.',
   bd: true, applicants: ['ngo', 'ingo', 'academic', 'firm'], sectors: ['climate', 'agriculture', 'wash'],
@@ -154,7 +154,7 @@ LISTINGS: [
   docs: 'https://globalebafund.org/wp-content/uploads/2026/08/Global-EbA-Fund_Medium-size-grants-Call-for-Proposals.pdf',
   extra: [['Frequently asked questions (October 2026)', 'https://globalebafund.org/wp-content/uploads/2026/10/FAQ_Global-EbA-Fund-Open-Calls-for-Proposals_Oct26.pdf']],
   via: '', check: 'official', checked: '2026-11-02', added: '2026-11-02', foreign: true,
-  steps: ['Read the call document and the Grants Procedures Manual on the Global EbA Fund website', 'Draft offline using the application form, then submit on the IUCN Grants Portal by 16 November 2026', 'Upload a theory of change and logframe, budget, team CVs, organigram and a project-location map if available']
+  steps: ['Check the eligibility checklist: builds on existing work, ODA-eligible countries (or a global/thematic focus), local partners, results sustained after the grant, up to 24 months and $500,000', 'Eligible lead applicants: NGOs, INGOs, intergovernmental organisations (not UNEP or IUCN offices), community-based and Indigenous Peoples\' organisations, universities, research institutes and companies. Consortia apply through one lead organisation, and country-level projects need a local partner receiving at least 25% of the budget', 'Read the call document, FAQ and Grants Procedures Manual, draft offline with the application form, then submit on the IUCN Grants Portal by 16 November 2026', 'Upload a theory of change and logframe, budget, team CVs, organigram and a project-location map if available']
 },
 
 /* ---------- Jobs and consultancies ---------- */
@@ -341,8 +341,8 @@ DONORS: [
 {
   id: 'global-eba-fund', name: 'Global EbA Fund', kind: 'Other',
   what: 'Grants for ecosystem-based adaptation (EbA) to climate change: small-size grants of up to $250,000 (18–24 months), with priority for least developed countries and small island developing states, and medium-size grants of up to $500,000 (up to 24 months) for ODA-eligible countries. Themes include investment readiness, innovative EbA technologies, applied research and links with other nature-based solutions.',
-  where: 'Global EbA Fund website (globalebafund.org): call documents, FAQ and the Grants Procedures Manual.',
-  how: 'Online through the IUCN Grants Portal, in English. NGOs, CBOs, Indigenous Peoples\' organisations, universities, think tanks and companies can apply; individuals cannot. Country-level projects need a consortium with a local partner receiving at least 25% of the budget. Government bodies, IUCN and UNEP offices can be partners but cannot receive funds. Co-financing is optional.',
+  where: 'Global EbA Fund website (globalebafund.org): call documents, FAQ and the Grants Procedures Manual. IUCN and UNEP act as the secretariat; the Fund\'s own announcements say it is funded by Germany\'s International Climate Initiative (IKI).',
+  how: 'Online through the IUCN Grants Portal, in English, by one lead organisation (consortia welcome). NGOs, INGOs, intergovernmental organisations (except UNEP and IUCN offices), CBOs, Indigenous Peoples\' organisations, universities, think tanks and companies can apply; individuals cannot. Projects must build on existing work rather than stand-alone field implementation. Country-level projects need a consortium with a local partner receiving at least 25% of the budget. Government bodies, IUCN and UNEP offices can be partners but cannot receive funds. Co-financing is optional.',
   recent: ['8th call for small-size grants: open 28 Sep – 26 Oct 2026 (closed); Bangladesh listed among eligible LDCs', 'Call for medium-size grants: open 12 Oct – 16 Nov 2026'],
   sources: [
     ['Global EbA Fund: medium-size grants', 'https://globalebafund.org/medium-size-grants/'],
