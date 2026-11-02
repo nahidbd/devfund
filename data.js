@@ -141,6 +141,22 @@ LISTINGS: [
   via: 'https://opportunitydesk.org/2026/09/24/equality-fund-journalism-fellowship-2026-2027/', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
 },
 
+{
+  id: 'g7', type: 'grant',
+  title: 'Global EbA Fund: Call for Proposals for Medium-Size Grants (ecosystem-based adaptation)',
+  issuer: 'Global EbA Fund', issuerKind: 'Other', ref: '',
+  summary: 'Grants of up to $500,000 for up to 24 months to scale up ecosystem-based adaptation (EbA) to climate change; 10 grants are available. NGOs, community-based and Indigenous Peoples\' organisations, universities, think tanks and private companies can apply. Country-level projects need a consortium with at least one local organisation receiving at least 25% of the budget. Applications go through the IUCN Grants Portal, in English.',
+  amount: 'Up to $500,000', duration: 'Up to 24 months (projects expected to start in 2027)',
+  location: 'ODA-eligible countries', countries: 'Countries on the OECD DAC list of ODA recipients (Bangladesh is on it); multi-country projects must cover only ODA-eligible countries.',
+  bd: true, applicants: ['ngo', 'ingo', 'academic', 'firm'], sectors: ['climate', 'agriculture', 'wash'],
+  close: '2026-11-16T17:59:00Z', closeText: '16 Nov 2026 (submission window 12 Oct – 16 Nov; no time stated)',
+  url: 'https://globalebafund.org/medium-size-grants/',
+  docs: 'https://globalebafund.org/wp-content/uploads/2026/08/Global-EbA-Fund_Medium-size-grants-Call-for-Proposals.pdf',
+  extra: [['Frequently asked questions (October 2026)', 'https://globalebafund.org/wp-content/uploads/2026/10/FAQ_Global-EbA-Fund-Open-Calls-for-Proposals_Oct26.pdf']],
+  via: '', check: 'official', checked: '2026-11-02', added: '2026-11-02', foreign: true,
+  steps: ['Read the call document and the Grants Procedures Manual on the Global EbA Fund website', 'Draft offline using the application form, then submit on the IUCN Grants Portal by 16 November 2026', 'Upload a theory of change and logframe, budget, team CVs, organigram and a project-location map if available']
+},
+
 /* ---------- Jobs and consultancies ---------- */
 {
   id: 'j1', type: 'job',
@@ -323,6 +339,19 @@ DONORS: [
   ], checked: '2026-11-02'
 },
 {
+  id: 'global-eba-fund', name: 'Global EbA Fund', kind: 'Other',
+  what: 'Grants for ecosystem-based adaptation (EbA) to climate change: small-size grants of up to $250,000 (18–24 months), with priority for least developed countries and small island developing states, and medium-size grants of up to $500,000 (up to 24 months) for ODA-eligible countries. Themes include investment readiness, innovative EbA technologies, applied research and links with other nature-based solutions.',
+  where: 'Global EbA Fund website (globalebafund.org): call documents, FAQ and the Grants Procedures Manual.',
+  how: 'Online through the IUCN Grants Portal, in English. NGOs, CBOs, Indigenous Peoples\' organisations, universities, think tanks and companies can apply; individuals cannot. Country-level projects need a consortium with a local partner receiving at least 25% of the budget. Government bodies, IUCN and UNEP offices can be partners but cannot receive funds. Co-financing is optional.',
+  recent: ['8th call for small-size grants: open 28 Sep – 26 Oct 2026 (closed); Bangladesh listed among eligible LDCs', 'Call for medium-size grants: open 12 Oct – 16 Nov 2026'],
+  sources: [
+    ['Global EbA Fund: medium-size grants', 'https://globalebafund.org/medium-size-grants/'],
+    ['Call for Proposals: medium-size grants (PDF)', 'https://globalebafund.org/wp-content/uploads/2026/08/Global-EbA-Fund_Medium-size-grants-Call-for-Proposals.pdf'],
+    ['8th Call for Proposals: small-size grants (PDF)', 'https://globalebafund.org/wp-content/uploads/2026/08/Global-EbA-Fund_Small-size-grants-Call-for-Proposals.pdf'],
+    ['FAQ on the open calls (October 2026)', 'https://globalebafund.org/wp-content/uploads/2026/10/FAQ_Global-EbA-Fund-Open-Calls-for-Proposals_Oct26.pdf']
+  ], checked: '2026-11-02'
+},
+{
   id: 'commonwealth', name: 'Commonwealth Foundation', kind: 'Foundation',
   what: 'Individual Organisation Grants of £15,000–£30,000 a year and Collective Action Grants of £15,000–£20,000 a year, for up to two years, in climate and environmental justice, economic inclusion and freedom of expression.',
   where: 'Commonwealth Foundation grants page. Bangladesh is eligible.',
@@ -410,7 +439,8 @@ SOURCES: {
     ['ifa CrossCulture Programme', 'https://www.ifa.de/en/funding/ccp-fellowships/'],
     ['Equality Fund', 'https://equalityfund.ca/'],
     ['D-Prize', 'https://d-prize.org/'],
-    ['Global Innovation Fund', 'https://www.globalinnovation.fund/']
+    ['Global Innovation Fund', 'https://www.globalinnovation.fund/'],
+    ['Global EbA Fund', 'https://globalebafund.org/']
   ],
   tier2: [
     ['ReliefWeb jobs and training', 'https://reliefweb.int/jobs'],
@@ -431,8 +461,8 @@ SOURCES: {
 DIGEST: {
   week: '2 – 8 Nov 2026',
   note: 'DevFund opens in public beta this week with jobs and consultancies from UN agencies in Bangladesh and international grants and fellowships open to Bangladeshi applicants. Tender coverage from UNGM, the World Bank, ADB and Bangladesh e-GP is being added through the daily scan.',
-  top: ['j1', 'g1', 'j2', 'g2'],
-  also: ['g6', 't1', 'j3', 'g4', 'g5', 'g3']
+  top: ['g7', 'j1', 'g1', 'j2'],
+  also: ['g2', 'g6', 't1', 'j3', 'g4', 'g5']
 },
 
 /* Corrections log: newest first. {date, id, what} */
