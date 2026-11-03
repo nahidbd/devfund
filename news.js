@@ -20,6 +20,56 @@
 window.DF_NEWS = {
 NEWS: [
 {
+  id: 'n18', date: '2026-11-01', kind: 'Signing',
+  title: 'Egypt signs $1 billion World Bank development policy financing agreement',
+  summary: 'Egypt and the World Bank signed the agreement for $1 billion in budget support, the second of three concessional development policy operations under the "Building Resilience, Opportunity, and Wealth for Egypt\'s Prosperity and Stability" programme approved by the Bank\'s board in May 2026. According to the government, the reforms target private-sector job creation, public finance management, protection for vulnerable groups and the shift to a green economy.',
+  why: 'Budget support flows to the treasury rather than through projects, so it brings little direct procurement, but the policy reforms it backs often lead to technical-assistance work.',
+  country: 'Egypt', region: 'Middle East and North Africa', lender: 'World Bank',
+  deal: {amount: 1000, currency: 'USD', instrument: 'Development policy financing', stage: 'Signed', project: 'Building Resilience, Opportunity, and Wealth for Egypt\'s Prosperity and Stability (second operation)', agency: 'Ministry of Foreign Affairs (Governor to the World Bank)'},
+  sources: [['Egypt Independent (MENA): FM signs $1 billion financing agreement with World Bank (2 Nov 2026)', 'https://www.egyptindependent.com/fm-signs-1-billion-financing-agreement-with-world-bank/']],
+  trust: 'media'
+},
+{
+  id: 'n19', date: '2026-11-02', kind: 'Pipeline',
+  title: 'Honduras reaches agreement with IMF staff on final review, unlocking $120 million subject to board approval',
+  summary: 'Honduras and IMF staff agreed on the final review of the country\'s three-year, $847 million programme agreed in September 2023. The last $120 million will be released once the IMF Executive Board approves the review, which is expected in December. Reported priorities include fiscal discipline with better-targeted social support, public financial management and external stability.',
+  why: '',
+  country: 'Honduras', region: 'Latin America and the Caribbean', lender: 'IMF',
+  deal: {amount: 120, currency: 'USD', instrument: 'IMF arrangement (final tranche)', stage: 'Pipeline', project: 'Final review of the 2023 IMF-supported programme', agency: 'Government of Honduras'},
+  sources: [['The Manila Times: IMF clears way for $120 million for Honduras in final bailout tranche (2 Nov 2026)', 'https://www.manilatimes.net/2026/11/02/world/americas-emea/imf-clears-way-for-120-million-for-honduras-in-final-bailout-tranche/2459679']],
+  trust: 'media'
+},
+{
+  id: 'n20', date: '2026-10-29', kind: 'Signing',
+  title: 'EIB Global and Ethiopia\'s Dashen Bank launch €40 million credit line for agribusiness and women-led firms',
+  summary: 'EIB Global signed a €20 million long-term loan with Dashen Bank on 27 October, matched by €20 million from Dashen, for Ethiopian small and medium-sized enterprises. At least 70% is for agriculture and related businesses, especially exporters of coffee, pulses, horticulture and cereals; at least 30% for climate action; and 30% for women-led enterprises. The EU funds technical assistance to the bank through the ACP Trust Fund.',
+  why: 'Technical assistance on environmental and social due diligence and climate-finance reporting for partner banks is a recurring consultancy opportunity under EIB Global credit lines.',
+  country: 'Ethiopia', region: 'Africa', lender: 'EIB',
+  deal: null,
+  sources: [['EIB press release: EIB Global and Dashen Bank to unlock €40 million for green agribusiness and women-led enterprises in Ethiopia (29 Oct 2026)', 'https://www.eib.org/en/press/all/2026-367-eib-global-and-ethiopian-lender-dashen-bank-to-unlock-eur40-million-for-green-agribusiness-and-women-led-enterprises-in-ethiopia']],
+  trust: 'official'
+},
+{
+  id: 'n21', date: '2026-10-27', kind: 'Pipeline',
+  title: 'Japan to provide ¥50 billion (about $317 million) emergency loan to Bangladesh for economic resilience and energy supply',
+  summary: 'Following talks in Tokyo between Prime Minister Tarique Rahman and Japanese Prime Minister Sanae Takaichi, Japan announced an "Emergency Support Loan for Enhancing Economic Resilience and Stable Energy Supply" of ¥50 billion, reported as $317 million and described as the first yen-loan project under Japan\'s POWERR Asia initiative. The joint statement also refers to developing the Matarbari–Maheshkhali area around the Matarbari deep-sea port under the BIG-B framework. Loan terms and the signing date were not reported.',
+  why: 'Watch for the loan agreement with ERD and JICA; Matarbari-area development under BIG-B has historically generated large consultancy and works contracts.',
+  country: 'Bangladesh', region: 'South Asia', lender: 'Japan (JICA)',
+  deal: {amount: 317, currency: 'USD', instrument: 'Yen loan (budget support)', stage: 'Pipeline', project: 'Emergency Support Loan for Enhancing Economic Resilience and Stable Energy Supply', agency: 'Economic Relations Division'},
+  sources: [['The Daily Star: Japan to provide $317m loan to Bangladesh for economic resilience, energy security (27 Oct 2026)', 'https://www.thedailystar.net/news/bangladesh/diplomacy/news/japan-provide-317m-loan-bangladesh-economic-resilience-energy-security-4308696']],
+  trust: 'media'
+},
+{
+  id: 'n22', date: '2026-10-21', kind: 'Approval',
+  title: 'ADB approves $100 million for social protection and livelihoods in Sri Lanka',
+  summary: 'ADB approved a $50 million policy-based loan and a $50 million project loan under the Promoting Resilience and Opportunity for Inclusive Recovery Sector Development Program. It supports the National Empowerment Program for 30,000 low-income households in six districts with livelihood grants, skills, financial-literacy training and market access, and sets up five model elderly day-care centres. It also funds social-protection data, case management and arrangements for responding to shocks.',
+  why: 'Livelihood-grant delivery, skills training and eldercare pilots are typically run with NGOs and training providers; social-protection information systems bring IT and M&E consultancies.',
+  country: 'Sri Lanka', region: 'South Asia', lender: 'ADB',
+  deal: {amount: 100, currency: 'USD', instrument: 'Policy-based and project loans', stage: 'Approved', project: 'Promoting Resilience and Opportunity for Inclusive Recovery Sector Development Program (59337-001)', agency: 'Government of Sri Lanka'},
+  sources: [['ADB news release: ADB Approves $100 Million Program to Strengthen Social Protection and Expand Economic Opportunities in Sri Lanka (21 Oct 2026)', 'https://www.adb.org/news/adb-approves-100-million-program-strengthen-social-protection-and-expand-economic']],
+  trust: 'official'
+},
+{
   id: 'n11', date: '2026-10-30', kind: 'Approval',
   title: 'IDB approves $900 million for Argentina\'s Human Capital Strengthening Support Program',
   summary: 'The Inter-American Development Bank\'s board approved $900 million to strengthen Argentina\'s social protection system: keeping children in school, offering job training to up to 500,000 adults (about 300,000 expected to be certified) and modernising ANSES and SINIDE records so families can more easily meet the education requirements of the AUH child allowance.',

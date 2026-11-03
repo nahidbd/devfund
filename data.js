@@ -32,8 +32,8 @@
    }
 */
 window.DF = {
-UPDATED: '2 Nov 2026',
-TODAY: '2026-11-02',
+UPDATED: '3 Nov 2026',
+TODAY: '2026-11-03',
 
 TYPES: {
   grant: {label: 'Grants & calls', one: 'Grant or call', code: 'G'},
@@ -185,6 +185,45 @@ LISTINGS: [
   steps: ['Check the eligibility checklist: builds on existing work, ODA-eligible countries (or a global/thematic focus), local partners, results sustained after the grant, up to 24 months and $500,000', 'Eligible lead applicants: NGOs, INGOs, intergovernmental organisations (not UNEP or IUCN offices), community-based and Indigenous Peoples\' organisations, universities, research institutes and companies. Consortia apply through one lead organisation, and country-level projects need a local partner receiving at least 25% of the budget', 'Read the call document, FAQ and Grants Procedures Manual, draft offline with the application form, then submit on the IUCN Grants Portal by 16 November 2026', 'Upload a theory of change and logframe, budget, team CVs, organigram and a project-location map if available']
 },
 
+{
+  id: 'g8', type: 'grant',
+  title: 'Commonwealth Blue Charter Incubator, Round II: ocean project grants for governments',
+  issuer: 'Commonwealth Secretariat', issuerKind: 'Other', ref: '',
+  summary: 'Grants of £20,000 to £50,000 for 6–18-month ocean projects led by a national or sub-national government body in a Commonwealth member country, covering marine pollution, ecosystem restoration, the sustainable blue economy, fisheries and the ocean–climate link. NGOs, technical and implementing partners can join as partners. There are dedicated windows for South Asia, Pacific small island states and the Caribbean, and each country may submit up to two applications.',
+  amount: '£20,000 – £50,000 per project', duration: '6–18 months',
+  location: 'Commonwealth member countries', countries: 'All 56 Commonwealth member countries, including Bangladesh; the lead applicant must be a government ministry, department or agency.',
+  region: 'global', country: '', remote: false, open: 'listed',
+  bd: true, applicants: ['government'], sectors: ['climate', 'economic', 'agriculture'],
+  close: '2026-12-11T23:59:00Z', closeText: 'Friday 11 December 2026, 23:59 GMT (UTC+0)',
+  url: 'https://thecommonwealth.org/commonwealth-blue-charter-project-incubator-round-ii',
+  via: '', check: 'official', checked: '2026-11-03', added: '2026-11-03', foreign: true
+},
+{
+  id: 'g9', type: 'grant',
+  title: 'Mozilla Foundation Human-Scale AI Incubator 2026',
+  issuer: 'Mozilla Foundation', issuerKind: 'Foundation', ref: '',
+  summary: 'Non-dilutive funding for teams building smaller, specialised, community-focused AI: $300,000 at first, with up to $200,000 more for projects that show strong progress (up to $500,000 over three years). Support starts in April 2027 with 12 months of incubation and possible follow-on support.',
+  amount: '$300,000, rising to up to $500,000', duration: '12 months from April 2027, with possible two-year follow-on',
+  location: 'Global', countries: 'Country and organisation eligibility is not stated on the platform summary; check the official call before applying.',
+  region: 'global', country: '', remote: false, open: 'worldwide',
+  bd: true, applicants: ['ngo', 'ingo', 'startup', 'firm', 'academic'], sectors: ['governance', 'research'],
+  close: '2026-11-21T07:59:00Z', closeText: 'Friday 20 Nov 2026, 11:59 pm Pacific Standard Time',
+  url: 'https://www.mozillafoundation.org/en/what-we-do/grantmaking/incubator/human-scale-ai/call-for-proposals/',
+  via: 'https://www.globalsouthopportunities.com/2026/11/02/mozilla-3/', check: 'platform', checked: '2026-11-03', added: '2026-11-03', foreign: true
+},
+{
+  id: 'g10', type: 'grant',
+  title: 'AERC call for proposals: Industrial Policy and Growth in Africa project',
+  issuer: 'African Economic Research Consortium (AERC)', issuerKind: 'Other', ref: '',
+  summary: 'Commissioned studies of up to $10,000 each on industrial policy and growth in Africa, at country, multi-country or sector level, to be finished within 18 months. Funds cover researcher time, secondary data licences and software, not field data collection or travel. Lead and co-applicants need an economics (or related) PhD awarded in 2016 or later.',
+  amount: 'Up to $10,000 per study', duration: 'Up to 18 months',
+  location: 'Africa', countries: 'Early-career African and Africa-focused economists; collaboration with African and international institutions is encouraged.',
+  region: 'africa', country: '', remote: false, open: 'worldwide',
+  bd: true, applicants: ['individual', 'academic'], sectors: ['economic', 'research'],
+  close: '2026-11-21T20:59:00Z', closeText: '21 Nov 2026, midnight East Africa Time (UTC+3)',
+  url: 'https://aercafrica.org/opportunities/industrial-policy-and-growth-in-africa-project/',
+  via: 'https://www.globalsouthopportunities.com/2026/10/26/africa-153/', check: 'platform', checked: '2026-11-03', added: '2026-11-03', foreign: false
+},
 /* ---------- Jobs and consultancies ---------- */
 {
   id: 'j1', type: 'job',
@@ -422,6 +461,84 @@ LISTINGS: [
   via: 'https://unvacancies.org/jobs/technical-support-international-consultant-quality-assurance-of-national-curriculum-tlm-guidance-cap-F-596703', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
 },
 
+{
+  id: 'j19', type: 'job',
+  title: 'National WASH Consultant – WASH Sector Development, Policy and Coordination',
+  issuer: 'UNICEF Bangladesh', issuerKind: 'UN agency', ref: '596736',
+  summary: 'Twelve-month office-based consultancy in Dhaka supporting the Local Government Division\'s Policy Support Wing on WASH policies, guidelines and standards, sector planning, budgeting and financing, and coordination of the national WASH forums and Sector Development Plan thematic groups. Requires a master\'s, at least 10 years of development experience (preferably water and sanitation) and fluent Bangla and English.',
+  amount: '', duration: '12 months',
+  location: 'Dhaka (office-based, with travel)', countries: 'Bangladeshi nationals only.',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'national',
+  bd: true, applicants: ['individual'], sectors: ['wash', 'governance'],
+  close: '2026-11-16T17:55:00Z', closeText: '16 Nov 2026, 11:55 pm Bangladesh Standard Time',
+  url: 'https://jobs.unicef.org/en-us/job/596736/national-wash-consultant-wash-sector-development-policy-and-coordination-dhaka-bangladeshwash-12-months-office-based-with-travel-nationals-only596736',
+  via: '', check: 'official', checked: '2026-11-03', added: '2026-11-03', foreign: false
+},
+{
+  id: 'j20', type: 'job',
+  title: 'National Consultant for Hygiene Programming, Evidence Generation and Knowledge Management',
+  issuer: 'UNICEF Bangladesh', issuerKind: 'UN agency', ref: '596733',
+  summary: 'Twelve-month consultancy in Dhaka supporting the national school-based menstrual hygiene management campaign: planning, monitoring and documentation, hygiene promotion materials, WASH data analysis and knowledge products. Requires a master\'s, at least 8 years in WASH or hygiene programming and fluent Bangla and English; a short technical proposal is part of the application.',
+  amount: '', duration: '12 months',
+  location: 'Dhaka (office-based, with travel)', countries: 'Bangladeshi nationals only.',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'national',
+  bd: true, applicants: ['individual'], sectors: ['wash', 'gender', 'education'],
+  close: '2026-11-09T17:59:00Z', closeText: '9 Nov 2026 (closing time not shown on the platform listing; check the UNICEF page)',
+  url: 'https://jobs.unicef.org/en-us/job/596733/national-consultant-for-hygiene-programming-evidence-generation-and-knowledge-management-dhaka-bangladesh-wash12-months-office-based-with-travel-nationals-only596733',
+  via: 'https://unvacancies.org/jobs/national-consultant-for-hygiene-programming-evidence-generation-and-knowledge-management-dhaka-bangl-F-596733', check: 'platform', checked: '2026-11-03', added: '2026-11-03', foreign: false
+},
+{
+  id: 'j21', type: 'job',
+  title: 'International Sustainable Energy Consultant, Climate Resilience Section (remote, 12 months)',
+  issuer: 'UNICEF Global Programme Division', issuerKind: 'UN agency', ref: '596727',
+  summary: 'Fully remote 12-month consultancy, linked to Bangkok, working with UNICEF country and regional offices to push for stronger sustainable-energy and child-sensitive commitments in energy investments and programming. Requires a master\'s in renewable energy, climate, development or a related field and at least 8 years on sustainable energy initiatives; French is an asset.',
+  amount: '', duration: '12 months',
+  location: 'Remote (home-based), linked to Bangkok', countries: 'No nationality restriction stated on the listing.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['climate'],
+  close: '2026-11-15T16:59:00Z', closeText: '15 Nov 2026 (closing time not shown on the platform listing)',
+  url: 'https://jobs.unicef.org/en-us/job/596727/international-sustainable-energy-consultant-global-programme-divisiongpd-climate-resilience-section-remote-work-for-12-months-bangkok-thailand',
+  via: 'https://unvacancies.org/jobs/international-sustainable-energy-consultant-global-programme-division-gpd-climate-resilience-section-F-596727', check: 'platform', checked: '2026-11-03', added: '2026-11-03', foreign: false
+},
+{
+  id: 'j22', type: 'job',
+  title: 'Project Scientist II (Urban Heat Expert), India Cooling Programme',
+  issuer: 'UNEP (Cool Coalition)', issuerKind: 'UN agency', ref: '287135',
+  summary: 'Twelve-month remote consultancy running urban heat assessments in 50 Indian cities and helping city governments and developers adopt passive cooling, nature-based solutions and district cooling. Requires a PhD (or postdoc) in planning, climate science or energy engineering, practical experience in India and knowledge of Hindi.',
+  amount: '', duration: '12 months',
+  location: 'Remote; work focused on India', countries: 'No nationality restriction stated, but India experience and Hindi are required.',
+  region: 'asia', country: 'India', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['climate', 'research'],
+  close: '2026-11-15T23:59:00Z', closeText: '15 Nov 2026 (no time stated)',
+  url: 'https://careers.un.org/jobSearchDescription/287135?language=en',
+  via: 'https://unvacancies.org/jobs/project-scientist-ii-urban-heat-expert-P-287135', check: 'platform', checked: '2026-11-03', added: '2026-11-03', foreign: false
+},
+{
+  id: 'j23', type: 'job',
+  title: 'Home-based Disaster Preparedness Consultant – National Emergency Telecom Plans and Mobile Early Warning (roster)',
+  issuer: 'International Telecommunication Union (ITU), Telecommunication Development Bureau', issuerKind: 'UN agency', ref: 'Vacancy 1152',
+  summary: 'Roster of home-based consultants for 15–80-day assignments helping countries draft national emergency telecommunication plans, assess early warning systems and advise on cell-broadcast and location-based SMS alerts, including specifications for bidding documents. Requires a degree in telecoms or IT and at least seven years in emergency telecommunications; English or French.',
+  amount: 'Daily rate', duration: '15–80 working days per assignment',
+  location: 'Remote (home-based)', countries: 'Open to external candidates of any nationality.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['climate', 'governance'],
+  close: '2026-12-31T22:59:00Z', closeText: '31 Dec 2026, midnight Geneva time',
+  url: 'https://jobs.itu.int/job/Home-Based-Disaster-Preparedness-Consultant-National-Emergency-Telecom-Plans-and-Mobile-Early-Warning/941800455/',
+  via: 'https://unvacancies.org/jobs/disaster-preparedness-consultant-national-emergency-telecom-plans-and-mobile-early-warning-41800455', check: 'platform', checked: '2026-11-03', added: '2026-11-03', foreign: false
+},
+{
+  id: 'j24', type: 'job',
+  title: 'International Consultant, Information Management Analyst (retainer, home-based)',
+  issuer: 'UN Women, State of Palestine Country Office', issuerKind: 'UN agency', ref: '37829',
+  summary: 'Six-month home-based retainer supporting information management for UN Women\'s humanitarian and early-recovery work: reach analysis, sex- and age-disaggregated data, dashboards, the inter-agency community feedback system and joint-programme reporting. Requires a master\'s (or bachelor\'s plus two years) and two years in humanitarian information management; Arabic is desirable.',
+  amount: '', duration: '6 months (retainer)',
+  location: 'Remote (home-based), no travel', countries: 'Open to all nationalities.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['humanitarian', 'gender', 'research'],
+  close: '2026-11-11T23:59:00Z', closeText: '11 Nov 2026 (no time zone stated on the platform listing)',
+  url: 'https://estm.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/37829',
+  via: 'https://unvacancies.org/jobs/un-women-international-consultant-information-management-analyst-retainer-home-based-EN-37829', check: 'platform', checked: '2026-11-03', added: '2026-11-03', foreign: false
+},
 /* ---------- Tenders, RFPs and EOIs ---------- */
 {
   id: 't1', type: 'tender',
@@ -452,6 +569,45 @@ LISTINGS: [
   via: '', check: 'official', checked: '2026-11-02', added: '2026-11-02', foreign: false
 },
 
+{
+  id: 't3', type: 'tender',
+  title: 'Request for expressions of interest: two senior individual consultants for the Horn of Africa Initiative Secretariat',
+  issuer: 'Inter-University Council for East Africa (IUCEA)', issuerKind: 'Other', ref: 'UG-IUCEA-577529-CS-INDV; UG-IUCEA-577537-CS-INDV',
+  summary: 'World Bank-financed EOI for a Senior Program Officer (officer-in-charge) to lead the Horn of Africa Initiative Secretariat in Nairobi and a Senior Operations Officer for results and communication. Selection follows the World Bank\'s individual consultant method; signed CVs go by email only, with the assignment and reference in the subject line.',
+  amount: '', duration: '',
+  location: 'Nairobi, Kenya (Horn of Africa Initiative Secretariat)', countries: 'Qualified individual consultants; no nationality restriction stated on the notice.',
+  region: 'africa', country: 'Kenya', remote: false, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['economic', 'governance'],
+  close: '2026-11-06T14:00:00Z', closeText: '6 Nov 2026, 5:00 pm East African Time',
+  url: 'https://iucea.org/request-for-expressions-of-interest-consulting-services-individual-selection/',
+  via: '', check: 'official', checked: '2026-11-03', added: '2026-11-03', foreign: false
+},
+{
+  id: 't4', type: 'tender',
+  title: 'Consultancy to build an interactive SADDD evidence and inclusion dashboard linked to the UN Women data platform',
+  issuer: 'BRAC', issuerKind: 'INGO', ref: 'BPD/2026/RFP-2957',
+  summary: 'BRAC invites proposals from consultants to develop an interactive dashboard for sex-, age- and disability-disaggregated data (SADDD) and evidence on inclusion, and to integrate it with the UN/UN Women data platform. Documents and submission are on BRAC\'s e-tender portal.',
+  amount: '', duration: '',
+  location: 'Bangladesh', countries: 'See the letter of invitation on BRAC\'s e-tender portal for eligibility.',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'national',
+  bd: true, applicants: ['firm', 'individual'], sectors: ['gender', 'research', 'governance'],
+  close: '2026-11-11T08:30:00Z', closeText: '11 Nov 2026, 2:30 pm (last submission)',
+  url: 'https://tender.brac.net/',
+  via: '', check: 'official', checked: '2026-11-03', added: '2026-11-03', foreign: false
+},
+{
+  id: 't5', type: 'tender',
+  title: 'Invitation for tender: transport services with loading and unloading in Cox\'s Bazar (BRAC Humanitarian Crisis Management Programme)',
+  issuer: 'BRAC', issuerKind: 'INGO', ref: 'BPD/FA/2026/IFT-2759',
+  summary: 'BRAC seeks transport providers, including loading and unloading, for its Humanitarian Crisis Management Programme in the Cox\'s Bazar area. Tender documents and submission are on BRAC\'s e-tender portal.',
+  amount: '', duration: '',
+  location: 'Cox\'s Bazar', countries: 'Suppliers able to serve the Cox\'s Bazar area; see the tender documents.',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'national',
+  bd: true, applicants: ['firm'], sectors: ['humanitarian'],
+  close: '2026-11-15T08:30:00Z', closeText: '15 Nov 2026, 2:30 pm (last submission)',
+  url: 'https://tender.brac.net/',
+  via: '', check: 'official', checked: '2026-11-03', added: '2026-11-03', foreign: false
+},
 /* ---------- Funding releases ---------- */
 {
   id: 'f1', type: 'fund',
