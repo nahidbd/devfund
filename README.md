@@ -21,6 +21,6 @@ The repository is linked to Cloudflare Pages (project `devfund`, no build step).
 
 Form submissions are stored in the D1 database `devfund-data` (table `submissions`, status `new` until the editor handles them).
 
-## Daily update
+## Weekly update
 
-A scheduled task edits `data.js` every morning: adds new verified listings, re-checks open ones, updates `UPDATED` and `TODAY`, refreshes `DIGEST` on Mondays, and publishes. Closed listings drop off the board automatically at their deadline and stay reachable by link.
+A scheduled task runs every Sunday at 07:12 Dhaka time. It re-checks open listings, adds new verified listings and Fund News items from the past week, writes one analysis, refreshes `DIGEST`, updates `UPDATED` and `TODAY`, and publishes. Closed listings drop off the board automatically at their deadline and stay reachable by link.

@@ -1,5 +1,5 @@
 /* Fund News: news and analysis on development finance — loan and grant approvals, signings, aid flows and donor policy.
-   The daily update edits this file. Newest first.
+   The weekly update (every Sunday) edits this file. Newest first.
 
    NEWS item shape:
    {

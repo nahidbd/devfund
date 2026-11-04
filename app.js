@@ -75,13 +75,14 @@ const ICON = {
 const TILE_NOTE = {grant:'Calls for proposals and fellowships', tender:'RFPs, EOIs and procurement', job:'Staff posts and consultancies', fund:'New funds and donor commitments', philanthropy:'Foundations and CSR'};
 V.home = () => {
   const week = OPEN.filter(o => { const d = daysLeft(o); return d !== null && d <= 7; });
-  const newest = L.filter(o => o.added === D.TODAY && isOpen(o));
+  const weekAgo = new Date(Date.parse(D.TODAY + 'T00:00:00Z') - 6 * DAY).toISOString().slice(0, 10);
+  const newest = L.filter(o => o.added >= weekAgo && isOpen(o)).sort((x, y) => y.added.localeCompare(x.added));
   const byType = t => OPEN.filter(o => o.type === t).length;
   const remote = OPEN.filter(o => o.remote).length;
   const nations = new Set(OPEN.map(o => o.country).filter(Boolean)).size;
   return `
   <section class="hero stack" style="gap:18px">
-    <span class="kicker">Open opportunities, checked every day</span>
+    <span class="kicker">Open opportunities, updated every week</span>
     <h1>Funding for people who change things</h1>
     <p>Grants, tenders, jobs and remote consultancies from UN agencies, development banks, donors and foundations, worldwide. Every listing shows where the work is, who can apply, the deadline, and a link to the official notice.</p>
     <form class="searchbar" id="heroSearch" role="search"><label class="sr" for="hq">Search opportunities</label><input id="hq" type="search" placeholder="Search grants, tenders, jobs…" autocomplete="off"><button class="btn" type="submit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span>Search</span></button></form>
@@ -106,8 +107,8 @@ V.home = () => {
     ${FA[0] ? `<a class="card analysis-lead" href="#a/${esc(FA[0].id)}"><span class="eyebrow">Analysis</span><h3 style="font-size:1.35rem">${esc(FA[0].title)}</h3><p class="muted">${esc(FA[0].standfirst)}</p></a>` : ''}
     <div class="list">${NEWS_SORTED.slice(0, 3).map(newsCard).join('')}</div>
   </section>
-  <section class="section"><div class="sechead"><h2>New today</h2><a href="#opportunities">All opportunities →</a></div>
-    ${newest.length ? `<div class="list">${newest.slice(0, 6).map(row).join('')}</div>` : '<p class="empty">No new listings yet today. The board is updated every morning.</p>'}
+  <section class="section"><div class="sechead"><h2>New this week</h2><a href="#opportunities">All opportunities →</a></div>
+    ${newest.length ? `<div class="list">${newest.slice(0, 6).map(row).join('')}</div>` : '<p class="empty">No new listings yet this week. The board is updated every Sunday.</p>'}
   </section>
   <section class="section">
     <div class="box red stack"><span class="eyebrow" style="color:var(--sun-ink)">Country desks</span><h2>Winning foreign funds? Check your country's rules first.</h2>
@@ -452,7 +453,7 @@ V.digest = () => {
   return `<div class="pagehead"><span class="kicker">Weekly Opportunity Digest</span><h1>${esc(D.DIGEST.week)}</h1><p class="prose" style="font-size:1.1rem">${esc(D.DIGEST.note)}</p></div>
   <section class="section"><div class="sechead"><h2>Top picks this week</h2></div><div class="list">${pick(D.DIGEST.top).map(row).join('')}</div></section>
   <section class="section"><div class="sechead"><h2>Also open</h2></div><div class="list">${pick(D.DIGEST.also).map(row).join('')}</div></section>
-  <p class="muted small" style="margin-top:18px">The digest is refreshed every Monday. <a href="#subscribe">Get it by email</a> once email delivery starts.</p>`;
+  <p class="muted small" style="margin-top:18px">The digest is refreshed every Sunday. <a href="#subscribe">Get it by email</a> once email delivery starts.</p>`;
 };
 
 /* forms */
@@ -515,7 +516,7 @@ function bindForm(){
 /* trust and info pages */
 const page = (kicker, title, body) => `<div class="pagehead"><span class="kicker">${kicker}</span><h1>${title}</h1></div><div class="prose">${body}</div>`;
 V.methodology = () => page('How DevFund works', 'How we find, check and publish opportunities', `
-  <p>DevFund scans an approved list of official portals every morning: UN agency procurement and career sites, development bank procurement, donor government portals, foundations and national public procurement sites. Software tools, including AI, help us read notices and draft listings. Every listing is checked against its source before it goes on the board.</p>
+  <p>DevFund scans an approved list of official portals every week: UN agency procurement and career sites, development bank procurement, donor government portals, foundations and national public procurement sites. Software tools, including AI, help us read notices and draft listings. Every listing is checked against its source before it goes on the board.</p>
   <h2>What we check</h2>
   <ol><li><b>Source:</b> the notice must exist on the issuer's own website or an approved portal. Opportunities found on aggregators or social media are published only once we have traced them to the issuer.</li>
   <li><b>Details:</b> deadline, time zone, amount, eligibility and reference number are read from the notice. Deadlines are shown as the issuer states them and converted to your own time zone.</li>

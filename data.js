@@ -1,5 +1,5 @@
 /* DevFund content. All listings, donor profiles and sources live here.
-   The daily update edits this file only.
+   The weekly update (every Sunday) edits this file.
 
    LISTINGS item shape:
    {
@@ -971,7 +971,7 @@ SOURCES: {
   ]
 },
 
-/* Weekly Opportunity Digest: refreshed every Monday. Items are listing ids. */
+/* Weekly Opportunity Digest: refreshed every Sunday. Items are listing ids. */
 DIGEST: {
   week: '2 – 8 Nov 2026',
   note: 'DevFund now covers the whole world, including remote work: this week brings 11 home-based UN consultancies in climate, evaluation, finance, nutrition and education, alongside grants such as the Global EbA Fund (up to $500,000, closing 16 Nov). Fund News tracks $2.8 billion in 2026 financing approvals and signings.',
