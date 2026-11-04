@@ -32,8 +32,8 @@
    }
 */
 window.DF = {
-UPDATED: '3 Nov 2026',
-TODAY: '2026-11-03',
+UPDATED: '4 Nov 2026',
+TODAY: '2026-11-04',
 
 TYPES: {
   grant: {label: 'Grants & calls', one: 'Grant or call', code: 'G'},
@@ -165,7 +165,7 @@ LISTINGS: [
   bd: true, applicants: ['individual'], sectors: ['media', 'gender'],
   close: '2026-11-09T05:00:00Z', closeText: '8 Nov 2026, midnight Eastern Standard Time',
   url: 'https://equalityfund.ca/en/posts/journalism-fellowship',
-  via: 'https://opportunitydesk.org/2026/09/24/equality-fund-journalism-fellowship-2026-2027/', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+  via: 'https://opportunitydesk.org/2026/09/24/equality-fund-journalism-fellowship-2026-2027/', check: 'platform', checked: '2026-11-04', added: '2026-11-02', foreign: false
 },
 
 {
@@ -181,7 +181,7 @@ LISTINGS: [
   url: 'https://globalebafund.org/medium-size-grants/',
   docs: 'https://globalebafund.org/wp-content/uploads/2026/08/Global-EbA-Fund_Medium-size-grants-Call-for-Proposals.pdf',
   extra: [['Frequently asked questions (October 2026)', 'https://globalebafund.org/wp-content/uploads/2026/10/FAQ_Global-EbA-Fund-Open-Calls-for-Proposals_Oct26.pdf']],
-  via: '', check: 'official', checked: '2026-11-02', added: '2026-11-02', foreign: true,
+  via: '', check: 'official', checked: '2026-11-04', added: '2026-11-02', foreign: true,
   steps: ['Check the eligibility checklist: builds on existing work, ODA-eligible countries (or a global/thematic focus), local partners, results sustained after the grant, up to 24 months and $500,000', 'Eligible lead applicants: NGOs, INGOs, intergovernmental organisations (not UNEP or IUCN offices), community-based and Indigenous Peoples\' organisations, universities, research institutes and companies. Consortia apply through one lead organisation, and country-level projects need a local partner receiving at least 25% of the budget', 'Read the call document, FAQ and Grants Procedures Manual, draft offline with the application form, then submit on the IUCN Grants Portal by 16 November 2026', 'Upload a theory of change and logframe, budget, team CVs, organigram and a project-location map if available']
 },
 
@@ -196,7 +196,7 @@ LISTINGS: [
   bd: true, applicants: ['government'], sectors: ['climate', 'economic', 'agriculture'],
   close: '2026-12-11T23:59:00Z', closeText: 'Friday 11 December 2026, 23:59 GMT (UTC+0)',
   url: 'https://thecommonwealth.org/commonwealth-blue-charter-project-incubator-round-ii',
-  via: '', check: 'official', checked: '2026-11-03', added: '2026-11-03', foreign: true
+  via: '', check: 'official', checked: '2026-11-04', added: '2026-11-03', foreign: true
 },
 {
   id: 'g9', type: 'grant',
@@ -224,6 +224,32 @@ LISTINGS: [
   url: 'https://aercafrica.org/opportunities/industrial-policy-and-growth-in-africa-project/',
   via: 'https://www.globalsouthopportunities.com/2026/10/26/africa-153/', check: 'platform', checked: '2026-11-03', added: '2026-11-03', foreign: false
 },
+{
+  id: 'g11', type: 'grant',
+  title: 'Climate Democracy Accelerator 2027 cohort: training and grants for participatory climate programmes',
+  issuer: 'People Powered', issuerKind: 'Other', ref: '',
+  summary: 'A six-month training programme (March–August 2027) followed by 12 months to carry out an action plan, for government–civil society partnerships that run participatory programmes on regenerative agriculture or renewable energy. Every participant receives a $10,000 implementation grant and the six best action plans in each cohort get a further $15,000. Grants go to the non-governmental partner, which must be a registered non-profit with at least a year of operations, paid staff, a board and audited accounts.',
+  amount: '$10,000 grant (plus $15,000 for the top six action plans)', duration: '6 months training (Mar–Aug 2027) + 12 months implementation',
+  location: 'Any country; priority to Brazil, India, Indonesia and Mexico', countries: 'Priority countries are Brazil, India, Indonesia and Mexico; other countries, especially in Africa, Asia and Latin America, are welcome. A government applicant must partner with a civil society organisation.',
+  region: 'global', country: '', remote: false, open: 'worldwide',
+  bd: true, applicants: ['ngo', 'government'], sectors: ['climate', 'governance', 'agriculture'],
+  close: '2026-11-27T23:59:00Z', closeText: '27 Nov 2026, 11:59 pm UTC',
+  url: 'https://www.peoplepowered.org/climate-democracy-accelerator',
+  via: '', check: 'official', checked: '2026-11-04', added: '2026-11-04', foreign: true
+},
+{
+  id: 'g12', type: 'grant',
+  title: 'Terre de Femmes International Award 2027: women-led tree projects in cities',
+  issuer: 'Fondation Yves Rocher', issuerKind: 'Foundation', ref: '',
+  summary: 'An award for women, or groups of women, leading nature conservation projects linked to trees, with the 2027 theme "Trees in the City". Two winners worldwide each receive €10,000 for their project. Applicants apply through a non-profit (association, NGO or foundation) that has existed for at least a year.',
+  amount: '€10,000 per project (2 winners)', duration: '',
+  location: 'Any country', countries: 'Open to all countries and nationalities.',
+  region: 'global', country: '', remote: false, open: 'worldwide',
+  bd: true, applicants: ['ngo', 'individual'], sectors: ['climate', 'gender'],
+  close: '2026-11-30T22:59:00Z', closeText: '30 Nov 2026, midnight (time zone not stated; read as Paris time)',
+  url: 'https://www.yves-rocher-fondation.org/en/how-to-apply-for-the-international-award/',
+  via: 'https://opportunitydesk.org/2026/10/10/terre-de-femmes-international-award-2027/', check: 'platform', checked: '2026-11-04', added: '2026-11-04', foreign: true
+},
 /* ---------- Jobs and consultancies ---------- */
 {
   id: 'j1', type: 'job',
@@ -249,7 +275,7 @@ LISTINGS: [
   bd: true, applicants: ['individual'], sectors: ['education', 'governance'],
   close: '2026-11-12T17:59:00Z', closeText: '12 Nov 2026 (no time stated)',
   url: 'https://jobs.unicef.org/en-us/job/596684/national-consultant-p2e-genu-officebased-with-travel-for-12-months',
-  via: 'https://unvacancies.org/jobs/national-consultant-p2e-genu-office-based-with-travel-for-12-months-F-596684', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+  via: 'https://unvacancies.org/jobs/national-consultant-p2e-genu-office-based-with-travel-for-12-months-F-596684', check: 'platform', checked: '2026-11-04', added: '2026-11-02', foreign: false
 },
 {
   id: 'j3', type: 'job',
@@ -262,7 +288,7 @@ LISTINGS: [
   bd: true, applicants: ['individual'], sectors: ['agriculture', 'research'],
   close: '2026-11-12T17:59:00Z', closeText: '12 Nov 2026 (no time stated)',
   url: 'https://jobs.fao.org/careersection/fao_external/jobdetail.ftl?job=2602237',
-  via: 'https://unvacancies.org/jobs/national-monitoring-and-evaluation-specialist--2602237', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+  via: 'https://unvacancies.org/jobs/national-monitoring-and-evaluation-specialist--2602237', check: 'platform', checked: '2026-11-04', added: '2026-11-02', foreign: false
 },
 {
   id: 'j4', type: 'job',
@@ -406,7 +432,7 @@ LISTINGS: [
   bd: true, applicants: ['individual'], sectors: ['humanitarian', 'research'],
   close: '2026-11-15T23:59:00Z', closeText: '15 Nov 2026 (no time stated)',
   url: 'https://jobs.unicef.org/en-us/job/596718/senior-humanitarian-evaluation-expert-evaluation-of-risktaking-risksharing-and-risk-management-in-humanitarian-action-new-york-united-states-of-america-home-based-with-travel-to-countries-for-data-collection-as-relevant',
-  via: 'https://unvacancies.org/jobs/senior-humanitarian-evaluation-expert-evaluation-of-risk-taking-risk-sharing-and-risk-management-in-F-596718', check: 'platform', checked: '2026-11-02', added: '2026-11-02', foreign: false
+  via: 'https://unvacancies.org/jobs/senior-humanitarian-evaluation-expert-evaluation-of-risk-taking-risk-sharing-and-risk-management-in-F-596718', check: 'platform', checked: '2026-11-04', added: '2026-11-02', foreign: false
 },
 {
   id: 'j15', type: 'job',
@@ -472,7 +498,7 @@ LISTINGS: [
   bd: true, applicants: ['individual'], sectors: ['wash', 'governance'],
   close: '2026-11-16T17:55:00Z', closeText: '16 Nov 2026, 11:55 pm Bangladesh Standard Time',
   url: 'https://jobs.unicef.org/en-us/job/596736/national-wash-consultant-wash-sector-development-policy-and-coordination-dhaka-bangladeshwash-12-months-office-based-with-travel-nationals-only596736',
-  via: '', check: 'official', checked: '2026-11-03', added: '2026-11-03', foreign: false
+  via: '', check: 'official', checked: '2026-11-04', added: '2026-11-03', foreign: false
 },
 {
   id: 'j20', type: 'job',
@@ -485,7 +511,7 @@ LISTINGS: [
   bd: true, applicants: ['individual'], sectors: ['wash', 'gender', 'education'],
   close: '2026-11-09T17:59:00Z', closeText: '9 Nov 2026 (closing time not shown on the platform listing; check the UNICEF page)',
   url: 'https://jobs.unicef.org/en-us/job/596733/national-consultant-for-hygiene-programming-evidence-generation-and-knowledge-management-dhaka-bangladesh-wash12-months-office-based-with-travel-nationals-only596733',
-  via: 'https://unvacancies.org/jobs/national-consultant-for-hygiene-programming-evidence-generation-and-knowledge-management-dhaka-bangl-F-596733', check: 'platform', checked: '2026-11-03', added: '2026-11-03', foreign: false
+  via: 'https://unvacancies.org/jobs/national-consultant-for-hygiene-programming-evidence-generation-and-knowledge-management-dhaka-bangl-F-596733', check: 'platform', checked: '2026-11-04', added: '2026-11-03', foreign: false
 },
 {
   id: 'j21', type: 'job',
@@ -498,7 +524,7 @@ LISTINGS: [
   bd: true, applicants: ['individual'], sectors: ['climate'],
   close: '2026-11-15T16:59:00Z', closeText: '15 Nov 2026 (closing time not shown on the platform listing)',
   url: 'https://jobs.unicef.org/en-us/job/596727/international-sustainable-energy-consultant-global-programme-divisiongpd-climate-resilience-section-remote-work-for-12-months-bangkok-thailand',
-  via: 'https://unvacancies.org/jobs/international-sustainable-energy-consultant-global-programme-division-gpd-climate-resilience-section-F-596727', check: 'platform', checked: '2026-11-03', added: '2026-11-03', foreign: false
+  via: 'https://unvacancies.org/jobs/international-sustainable-energy-consultant-global-programme-division-gpd-climate-resilience-section-F-596727', check: 'platform', checked: '2026-11-04', added: '2026-11-03', foreign: false
 },
 {
   id: 'j22', type: 'job',
@@ -511,7 +537,7 @@ LISTINGS: [
   bd: true, applicants: ['individual'], sectors: ['climate', 'research'],
   close: '2026-11-15T23:59:00Z', closeText: '15 Nov 2026 (no time stated)',
   url: 'https://careers.un.org/jobSearchDescription/287135?language=en',
-  via: 'https://unvacancies.org/jobs/project-scientist-ii-urban-heat-expert-P-287135', check: 'platform', checked: '2026-11-03', added: '2026-11-03', foreign: false
+  via: 'https://unvacancies.org/jobs/project-scientist-ii-urban-heat-expert-P-287135', check: 'platform', checked: '2026-11-04', added: '2026-11-03', foreign: false
 },
 {
   id: 'j23', type: 'job',
@@ -524,7 +550,7 @@ LISTINGS: [
   bd: true, applicants: ['individual'], sectors: ['climate', 'governance'],
   close: '2026-12-31T22:59:00Z', closeText: '31 Dec 2026, midnight Geneva time',
   url: 'https://jobs.itu.int/job/Home-Based-Disaster-Preparedness-Consultant-National-Emergency-Telecom-Plans-and-Mobile-Early-Warning/941800455/',
-  via: 'https://unvacancies.org/jobs/disaster-preparedness-consultant-national-emergency-telecom-plans-and-mobile-early-warning-41800455', check: 'platform', checked: '2026-11-03', added: '2026-11-03', foreign: false
+  via: 'https://unvacancies.org/jobs/disaster-preparedness-consultant-national-emergency-telecom-plans-and-mobile-early-warning-41800455', check: 'platform', checked: '2026-11-04', added: '2026-11-03', foreign: false
 },
 {
   id: 'j24', type: 'job',
@@ -537,7 +563,72 @@ LISTINGS: [
   bd: true, applicants: ['individual'], sectors: ['humanitarian', 'gender', 'research'],
   close: '2026-11-11T23:59:00Z', closeText: '11 Nov 2026 (no time zone stated on the platform listing)',
   url: 'https://estm.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/37829',
-  via: 'https://unvacancies.org/jobs/un-women-international-consultant-information-management-analyst-retainer-home-based-EN-37829', check: 'platform', checked: '2026-11-03', added: '2026-11-03', foreign: false
+  via: 'https://unvacancies.org/jobs/un-women-international-consultant-information-management-analyst-retainer-home-based-EN-37829', check: 'platform', checked: '2026-11-04', added: '2026-11-03', foreign: false
+},
+{
+  id: 'j25', type: 'job',
+  title: 'Middle-level Consultant on Education: EMIS, out-of-school children and learner pathways (home-based)',
+  issuer: 'UNESCO, Section of Education Policy', issuerKind: 'UN agency', ref: '76471957',
+  summary: 'About 60 working days, home-based, to review how education data systems track out-of-school children, dropout and learner pathways, write six country case studies and build a new self-assessment module for UNESCO\'s EMIS toolkit. Needs an advanced degree and at least five years in EMIS or education data systems. Applicants send one PDF of up to eight pages with a short technical proposal, a one-page financial proposal and a CV.',
+  amount: 'Daily rate set by the applicant\'s financial proposal', duration: 'About 3 months (Nov 2026 – Jan 2027)',
+  location: 'Remote (home-based), linked to Paris', countries: 'No nationality restriction stated; external candidates only.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['education', 'research'],
+  close: '2026-11-17T22:59:00Z', closeText: '17 Nov 2026, 23:59 CET (midnight UTC+1)',
+  url: 'https://careers.unesco.org/job/Paris-Middle-level-Consultant-on-Education/1376471957/',
+  via: 'https://unvacancies.org/jobs/middle-level-consultant-on-education-76471957', check: 'platform', checked: '2026-11-04', added: '2026-11-04', foreign: false
+},
+{
+  id: 'j26', type: 'job',
+  title: 'Technical Consultant – Secondary Education Guidance: Multiple and Flexible Pathways, 2027 edition (fully remote)',
+  issuer: 'UNICEF', issuerKind: 'UN agency', ref: '596746',
+  summary: 'A fully remote consultancy of three months and ten days to write the 2027 edition of UNICEF\'s guidance for country offices on secondary education and flexible learning pathways, replacing the 2020 version, with multi-country consultation and a short partner-facing summary. Requires an advanced degree and at least 15 years in education policy and programmes in low- and middle-income countries.',
+  amount: 'Fee set by the applicant\'s financial proposal', duration: '3 months 10 days',
+  location: 'Fully remote (linked to Amman)', countries: 'No nationality restriction stated.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['education'],
+  close: '2026-11-09T20:59:00Z', closeText: '9 Nov 2026 (no time stated on the platform listing)',
+  url: 'https://jobs.unicef.org/en-us/job/596746/technical-consultant-secondary-education-guidance-multiple-and-flexible-pathways-2027-edition-remote-3-months-10-days',
+  via: 'https://unvacancies.org/jobs/technical-consultant-secondary-education-guidance-multiple-and-flexible-pathways-2027-edition-remote-F-596746', check: 'platform', checked: '2026-11-04', added: '2026-11-04', foreign: false
+},
+{
+  id: 'j27', type: 'job',
+  title: 'Senior Urban and Territorial Planner Consultant, Urban Lab (home-based)',
+  issuer: 'UN-Habitat, Regional Programme Division', issuerKind: 'UN agency', ref: '287558',
+  summary: 'Three-month home-based consultancy supporting the Water as Leverage Multilevel Climate Action Programme in countries including India and Kenya: progress and lessons-learned reports, resource mobilisation, planning guidance and training materials. Requires a master\'s in architecture, urban planning or design and seven years of relevant experience.',
+  amount: '', duration: '3 months',
+  location: 'Remote (home-based), linked to Nairobi', countries: 'No nationality restriction stated on the platform listing.',
+  region: 'global', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['climate', 'wash'],
+  close: '2026-11-12T20:59:00Z', closeText: '12 Nov 2026 (no time stated on the platform listing)',
+  url: 'https://careers.un.org/jobSearchDescription/287558?language=en',
+  via: 'https://unvacancies.org/jobs/senior-urban-and-territorial-planner-consultant-t-287558', check: 'platform', checked: '2026-11-04', added: '2026-11-04', foreign: false
+},
+{
+  id: 'j28', type: 'job',
+  title: 'Consultant, Regional Administrative Data for Counter-Trafficking (home-based with travel)',
+  issuer: 'IOM Regional Data Hub for East, Horn and Southern Africa', issuerKind: 'UN agency', ref: '23768',
+  summary: 'Five-month consultancy to design and deliver a regional programme that helps East African governments use administrative data on migration, trafficking in persons and migrant smuggling, with travel to field locations. Requires a master\'s and seven years in migration, development and data management; applicants send a CV and a one-page costed workplan.',
+  amount: '', duration: '5 months (extension possible)',
+  location: 'Home-based with travel in East and Horn of Africa (linked to Nairobi)', countries: 'No nationality restriction stated; candidates within about three hours of East Africa Time are preferred.',
+  region: 'africa', country: '', remote: true, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['humanitarian', 'research', 'governance'],
+  close: '2026-11-12T20:59:00Z', closeText: '12 Nov 2026 (no time stated on the platform listing)',
+  url: 'https://fa-evlj-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/23768',
+  via: 'https://unvacancies.org/jobs/consultant-regional-administrative-data-for-counter-trafficking-OM-23768', check: 'platform', checked: '2026-11-04', added: '2026-11-04', foreign: false
+},
+{
+  id: 'j29', type: 'job',
+  title: 'Data Analysis Assistant (consultant), Data and Statistics Unit, Nairobi',
+  issuer: 'UN-Habitat, Knowledge and Innovation Branch', issuerKind: 'UN agency', ref: '287313',
+  summary: 'Six-month consultancy in Nairobi to calculate urban indicators from new surveys, compile and validate secondary data, and contribute data and a housing chapter to UN-Habitat\'s Urban 2030 work and the World Cities Report 2028. Requires five years as a data analyst; a degree in statistics, economics or urban planning is an asset.',
+  amount: '', duration: '6 months',
+  location: 'Nairobi, Kenya', countries: 'No nationality restriction stated on the platform listing.',
+  region: 'africa', country: 'Kenya', remote: false, open: 'worldwide',
+  bd: true, applicants: ['individual'], sectors: ['research'],
+  close: '2026-11-12T20:59:00Z', closeText: '12 Nov 2026 (no time stated on the platform listing)',
+  url: 'https://careers.un.org/jobSearchDescription/287313?language=en',
+  via: 'https://unvacancies.org/jobs/data-analysis-assistant-t-287313', check: 'platform', checked: '2026-11-04', added: '2026-11-04', foreign: false
 },
 /* ---------- Tenders, RFPs and EOIs ---------- */
 {
@@ -607,6 +698,32 @@ LISTINGS: [
   close: '2026-11-15T08:30:00Z', closeText: '15 Nov 2026, 2:30 pm (last submission)',
   url: 'https://tender.brac.net/',
   via: '', check: 'official', checked: '2026-11-03', added: '2026-11-03', foreign: false
+},
+{
+  id: 't6', type: 'tender',
+  title: 'RFP: consulting firm to develop Circular Bangladesh policy briefs',
+  issuer: 'UNDP Bangladesh', issuerKind: 'UN agency', ref: 'UNDP-BGD-01238',
+  summary: 'UNDP Bangladesh is hiring a consulting firm to prepare policy briefs on the circular economy in Bangladesh. Offers go through UNDP\'s online supplier portal; the solicitation documents there set out the scope, deliverables and evaluation.',
+  amount: '', duration: '',
+  location: 'Bangladesh', countries: 'Firms registered on UNGM (basic level); see the solicitation documents for eligibility.',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'worldwide',
+  bd: true, applicants: ['firm'], sectors: ['climate', 'economic', 'research'],
+  close: '2026-11-11T21:30:00Z', closeText: '11 Nov 2026, 17:30 (GMT-4)',
+  url: 'https://www.ungm.org/Public/Notice/320251',
+  via: '', check: 'official', checked: '2026-11-04', added: '2026-11-04', foreign: false
+},
+{
+  id: 't7', type: 'tender',
+  title: 'RFQ: renovation of an existing composting facility into a materials recovery facility (MRF)',
+  issuer: 'UNDP Bangladesh', issuerKind: 'UN agency', ref: 'UNDP-BGD-01237',
+  summary: 'A request for quotations for works to convert an existing composting facility into a materials recovery facility for solid waste. Quotations are submitted through UNDP\'s online supplier system following the solicitation document; the site and technical specifications are in the documents.',
+  amount: '', duration: '',
+  location: 'Bangladesh (site given in the solicitation documents)', countries: 'Not restricted on the notice; the works are in Bangladesh, so it suits contractors able to work there.',
+  region: 'asia', country: 'Bangladesh', remote: false, open: 'worldwide',
+  bd: true, applicants: ['firm'], sectors: ['wash', 'climate'],
+  close: '2026-11-10T10:30:00Z', closeText: '10 Nov 2026, 06:30 (GMT-4)',
+  url: 'https://www.ungm.org/Public/Notice/320252',
+  via: '', check: 'official', checked: '2026-11-04', added: '2026-11-04', foreign: false
 },
 /* ---------- Funding releases ---------- */
 {

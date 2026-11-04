@@ -20,6 +20,46 @@
 window.DF_NEWS = {
 NEWS: [
 {
+  id: 'n23', date: '2026-11-03', kind: 'Data',
+  title: 'Bangladesh: 92% of climate finance for energy since 2002 came as loans, study finds',
+  summary: 'A study presented by the research group Change Initiative at a national dialogue in Dhaka on 3 November found that of $2.54 billion in climate finance for Bangladesh\'s energy sector in 2002–2023, 92% came as loans and 8% as grants. The study notes that renewables supply about 1% of grid electricity and more than 60% of generation relies on imported fuel. Speakers called for more grant-based and local-currency finance for renewables and for financing smaller renewable energy service providers.',
+  why: 'The push for grants over loans in renewable energy is likely to feature in Bangladesh\'s positions at COP31 and in donor talks; NGOs and small renewable energy providers are named as under-financed.',
+  country: 'Bangladesh', region: 'South Asia', lender: '',
+  deal: null,
+  sources: [['The Business Standard: Bangladesh needs to shift climate financing from loans to grants: study (3 Nov 2026)', 'https://www.tbsnews.net/economy/bangladesh-needs-shift-climate-financing-loans-grants-study-1591666']],
+  trust: 'media'
+},
+{
+  id: 'n24', date: '2026-11-03', kind: 'Pipeline',
+  title: 'Nepal\'s cabinet clears $285 million ADB concessional loan and $20 million grant for roads',
+  summary: 'Nepal\'s Cabinet on 3 November approved taking $285 million in concessional lending and $20 million in grant assistance from the Asian Development Bank, both earmarked for road improvement, according to a report from Kathmandu. The report does not give the loan\'s interest rate or repayment terms.',
+  why: 'Road projects of this size usually bring design, supervision and safeguards consultancies once the financing agreement is signed.',
+  country: 'Nepal', region: 'South Asia', lender: 'ADB',
+  deal: {amount: 305, currency: 'USD', instrument: 'Concessional loan ($285m) and grant ($20m)', stage: 'Pipeline', project: 'Road improvement', agency: 'Government of Nepal'},
+  sources: [['MakaluKhabar: Cabinet approves $285 million ADB loan, recommends two ordinances (3 Nov 2026)', 'https://english.makalukhabar.com/cabinet-approves-285-million-adb-loan-recommends-two-ordinances/']],
+  trust: 'media'
+},
+{
+  id: 'n25', date: '2026-11-02', kind: 'Approval',
+  title: 'Zimbabwe launches $14.33 million Pandemic Fund grant for health security',
+  summary: 'Zimbabwe launched a three-year (2026–2028) country project financed by a $14.33 million grant from the Pandemic Fund, hosted by the World Bank, with partners adding $49 million and the government co-investing $91.8 million. The African Development Bank, FAO and UNICEF implement the grant with the ministries. Plans include five public health emergency operations centres, upgrades to 25 laboratories, training for more than 10,000 health and related workers, and community campaigns aiming to reach up to two million people.',
+  why: 'Laboratory upgrades, digital surveillance and large training programmes run through AfDB, FAO and UNICEF are likely to generate procurement and consultancy work.',
+  country: 'Zimbabwe', region: 'Africa', lender: 'Pandemic Fund',
+  deal: {amount: 14.33, currency: 'USD', instrument: 'Grant', stage: 'Approved', project: 'Pandemic Fund country project, Zimbabwe (2026–2028)', agency: 'Government of Zimbabwe, with AfDB, FAO and UNICEF'},
+  sources: [['allAfrica: Zimbabwe launches US$14.33 million Pandemic Fund country project to strengthen health security (2 Nov 2026)', 'https://allafrica.com/stories/202611030056.html']],
+  trust: 'media'
+},
+{
+  id: 'n26', date: '2026-10-28', kind: 'Pipeline',
+  title: 'Japan pledges two yen loans worth about $295.5 million to Bangladesh, and signs a ¥2.12 billion grant',
+  summary: 'During the Bangladeshi Prime Minister\'s official visit to Japan, Japan pledged two yen loans: 15.88 billion yen (about $100.8 million) for an investment environment improvement project and 30.68 billion yen (about $194.7 million) for the second phase of the Upazila Governance and Development Project, according to a press briefing in Tokyo on 28 October. The two governments also signed a grant agreement of up to 2.12 billion yen (about $13.44 million) for a coastal patrol vessel, plus memoranda of cooperation on economic relations, agriculture, skills and fisheries.',
+  why: 'Local governance programmes such as the Upazila Governance and Development Project typically hire capacity-building and monitoring consultants; loan agreements are still to be signed.',
+  country: 'Bangladesh', region: 'South Asia', lender: 'Japan (JICA)',
+  deal: {amount: 295.5, currency: 'USD', instrument: 'Yen loans (JPY 46.56 billion)', stage: 'Pipeline', project: 'Investment Environment Improvement Project; Upazila Governance and Development Project (Phase 2)', agency: 'Economic Relations Division'},
+  sources: [['The Daily Star: Six deals signed, Japan pledges two loan projects (29 Oct 2026)', 'https://www.thedailystar.net/news/bangladesh/diplomacy/news/bangladesh-japan-sign-6-deals-pledge-two-loan-projects-humaiun-kobir-4309966']],
+  trust: 'media'
+},
+{
   id: 'n18', date: '2026-11-01', kind: 'Signing',
   title: 'Egypt signs $1 billion World Bank development policy financing agreement',
   summary: 'Egypt and the World Bank signed the agreement for $1 billion in budget support, the second of three concessional development policy operations under the "Building Resilience, Opportunity, and Wealth for Egypt\'s Prosperity and Stability" programme approved by the Bank\'s board in May 2026. According to the government, the reforms target private-sector job creation, public finance management, protection for vulnerable groups and the shift to a green economy.',
