@@ -20,6 +20,349 @@
 window.DF_NEWS = {
 NEWS: [
 {
+  id: 'n27',
+  date: '2026-11-06',
+  kind: 'Approval',
+  title: 'World Bank approves $300 million for primary education in Bangladesh',
+  summary: 'The World Bank Board approved $300 million in IDA financing on 6 November for the Learning Enhancement and Acceleration in Primary Education Programme, which backs the government\'s Fifth Primary Education Development Programme (PEDP-5). It funds a foundational literacy and numeracy package, leadership training for headteachers in 90% of government primary schools, remedial support in the weakest districts and better pre-primary classes. The World Bank says about 26 million children from pre-primary to Grade 5 will benefit; the credit runs 25 years with a five-year grace period, according to the report.',
+  why: 'PEDP-5 runs through the Directorate of Primary Education; expect consultancies on teacher training, learning assessment, remedial learning and EMIS, and partnership openings for education NGOs in low-performing districts.',
+  country: 'Bangladesh',
+  region: 'South Asia',
+  lender: 'World Bank',
+  deal: {
+    amount: 300,
+    currency: 'USD',
+    instrument: 'IDA credit',
+    stage: 'Approved',
+    project: 'Learning Enhancement and Acceleration in Primary Education Programme (P512645)',
+    agency: 'Directorate of Primary Education',
+    countedIn: ''
+  },
+  sources: [
+      [
+        'The Business Standard: World Bank approves $300m to improve learning for 2.6 crore Bangladeshi children (6 Nov 2026)',
+        'https://www.tbsnews.net/bangladesh/education/world-bank-approves-300m-improve-learning-26-crore-bangladeshi-children-1595296'
+      ],
+      [
+        'Early Warning System: P512645 project record',
+        'https://ewsdata.rightsindevelopment.org/projects/p512645-learning-enhancement-and-acceleration-in-primary-e/'
+      ]
+    ],
+  trust: 'media'
+},
+{
+  id: 'n28',
+  date: '2026-11-04',
+  kind: 'Signing',
+  title: 'Bangladesh signs $140 million in additional World Bank financing for Chattogram water supply',
+  summary: 'The Economic Relations Division and the World Bank signed $140 million (SDR 102.3 million) in additional financing for the Chattogram Water Supply Improvement Project on 4 November. The money comes from IDA\'s Shorter Maturity Loan facility with a 12-year term and six-year grace period, according to the report. It restores funds after $140 million of the project\'s original $240 million was moved to its contingency emergency response component. Chattogram WASA implements the project, which runs to December 2030.',
+  why: 'Restored funding for Chattogram WASA works through 2030; water engineering firms and utility-management consultants should watch for new procurement under the project.',
+  country: 'Bangladesh',
+  region: 'South Asia',
+  lender: 'World Bank',
+  deal: {
+    amount: 140,
+    currency: 'USD',
+    instrument: 'IDA Shorter Maturity Loan (additional financing)',
+    stage: 'Signed',
+    project: 'Chattogram Water Supply Improvement Project (additional financing)',
+    agency: 'Chattogram WASA',
+    countedIn: ''
+  },
+  sources: [
+      [
+        'The Business Standard: World Bank provides additional $140m for Ctg water supply project (4 Nov 2026)',
+        'https://www.tbsnews.net/economy/world-bank-provides-additional-140m-ctg-water-supply-project-1593791'
+      ]
+    ],
+  trust: 'media'
+},
+{
+  id: 'n29',
+  date: '2026-11-08',
+  kind: 'Data',
+  title: 'Bangladesh\'s external debt nearly triples in a decade to $113 billion, World Bank data show',
+  summary: 'The Daily Star, citing the World Bank\'s International Debt Report 2026, reports that Bangladesh\'s external debt stock reached $113 billion at the end of 2025, up from about $38 billion in 2015. External debt equals 24% of gross national income and 210% of exports, against South Asian averages of 21% and 95%. Government external debt service was $4.9 billion last fiscal year and is projected to reach $7.6 billion by 2029.',
+  why: 'Rising repayments limit room for new borrowing and are likely to push the government and lenders towards concessional, grant and results-based finance, which shapes the projects and partner roles that come through.',
+  country: 'Bangladesh',
+  region: 'South Asia',
+  lender: 'World Bank',
+  deal: null,
+  sources: [
+      [
+        'The Daily Star: Foreign debt nearly triples in a decade',
+        'https://www.thedailystar.net/business/economy/news/foreign-debt-nearly-triples-decade-4317831'
+      ]
+    ],
+  trust: 'media'
+},
+{
+  id: 'n30',
+  date: '2026-11-06',
+  kind: 'Signing',
+  title: 'Sri Lanka signs $200 million in ADB loans for skills training and water-sector reform',
+  summary: 'Sri Lanka\'s Ministry of Finance and ADB signed two loans on 6 November: a $100 million results-based loan for the Skills Development System Transformation Program (2027–2031), approved by ADB on 29 September, and a $100 million policy-based loan for Subprogramme 2 of the Water Supply and Sanitation Reform Programme, split between concessional and regular resources. The skills programme will upgrade an automobile engineering institute, turn nine vocational centres into regional hubs and update 200 national competency standards.',
+  why: 'Expect consultancy work on competency standards, instructor training, e-learning and training information systems, and policy and tariff advice in the water sector.',
+  country: 'Sri Lanka',
+  region: 'South Asia',
+  lender: 'ADB',
+  deal: {
+    amount: 200,
+    currency: 'USD',
+    instrument: 'Loans (results-based $100m; policy-based $100m)',
+    stage: 'Signed',
+    project: 'Skills Development System Transformation Program; Water Supply and Sanitation Reform Programme, Subprogramme 2',
+    agency: 'Ministry of Finance, Planning and Economic Development',
+    countedIn: ''
+  },
+  sources: [
+      [
+        'OnLanka: Sri Lanka signs US$200 million ADB loans for skills and water reforms (6 Nov 2026)',
+        'https://www.onlanka.com/news/sri-lanka-signs-us200-million-adb-loans-for-skills-and-water-reforms.html'
+      ],
+      [
+        'Newswire: Sri Lanka signs USD 100 million loan agreement with ADB for skills development (6 Nov 2026)',
+        'https://www.newswire.lk/2026/11/06/sri-lanka-signs-usd-100-million-loan-agreement-with-adb-for-skills-development/'
+      ],
+      [
+        'ADB: ADB approves $100 million loan to boost skills development and jobs for youth in Sri Lanka',
+        'https://www.adb.org/news/adb-approves-100-million-loan-boost-skills-development-and-jobs-youth-sri-lanka'
+      ]
+    ],
+  trust: 'media'
+},
+{
+  id: 'n31',
+  date: '2026-11-04',
+  kind: 'Disbursement data',
+  title: 'Pakistan: development partners finance 40 ongoing energy projects, with about half of loans disbursed',
+  summary: 'A National Assembly committee was told on 4 November that the World Bank, ADB, AFD, KfW and JICA are financing 40 ongoing energy and transmission projects in Pakistan under 17 loan agreements, and that about 52% of the agreed loan amount has been disbursed, according to officials. Another 38 projects are proposed, with completion dates running to 2036. No total amount was reported.',
+  why: 'Slow disbursement and a long pipeline point to steady demand for transmission engineering, supervision and safeguards specialists in Pakistan\'s power sector.',
+  country: 'Pakistan',
+  region: 'South Asia',
+  lender: '',
+  deal: null,
+  sources: [
+      [
+        'The Nation: Int\'l development partners financing 40 ongoing energy projects, NA panel informed (5 Nov 2026)',
+        'https://www.nation.com.pk/05-Nov-2026/int-l-development-partners-financing-40-ongoing-energy-projects-na-panel-informed'
+      ]
+    ],
+  trust: 'media'
+},
+{
+  id: 'n32',
+  date: '2026-11-05',
+  kind: 'Data',
+  title: 'Developing countries\' external debt hits a record $9.4 trillion, World Bank says',
+  summary: 'The World Bank\'s International Debt Report 2026, released on 5 November, says developing countries\' external debt rose 5.5% to a record $9.4 trillion in 2025, with IDA-eligible countries\' debt up 8.1% to $1.3 trillion. IDA-eligible countries paid an average 8.2% on new loans from private creditors, the highest since 1989. From 2022 to 2025 developing countries paid $436 billion more in debt service than they received in new financing, although net long-term flows turned positive at $45 billion in 2025.',
+  why: 'High debt service squeezes health, education and social spending; demand for debt management, public financial management and revenue advisory work is likely to stay strong.',
+  country: '',
+  region: 'Global',
+  lender: 'World Bank',
+  deal: null,
+  sources: [
+      [
+        'World Bank: Developing Countries\' External Debt Surges to Record $9.4 Trillion (5 Nov 2026)',
+        'https://www.worldbank.org/en/news/press-release/2026/11/05/developing-countries-external-debt-surges-to-record-9-4-trillion'
+      ],
+      [
+        'The Irish Times: Debt of poorest countries hits record $9.4tn, World Bank reveals (6 Nov 2026)',
+        'https://www.irishtimes.com/business/2026/11/06/world-bank-record-debt-developing-nations-interest-rates-essential-investment-bonds/'
+      ]
+    ],
+  trust: 'official'
+},
+{
+  id: 'n33',
+  date: '2026-11-06',
+  kind: 'Approval',
+  title: 'World Bank approves $500 million more for climate resilience in northern Nigeria',
+  summary: 'The World Bank approved $500 million in additional financing for Nigeria\'s Agro-Climatic Resilience in Semi-Arid Landscapes (ACReSAL) project, which helps northern states restore degraded land and build climate resilience, according to a report on 6 November. Financing terms were not reported.',
+  why: 'ACReSAL works through federal and state project offices, so the top-up should mean more contracts for land restoration, watershed works, community grants and monitoring.',
+  country: 'Nigeria',
+  region: 'Africa',
+  lender: 'World Bank',
+  deal: {
+    amount: 500,
+    currency: 'USD',
+    instrument: 'Additional financing (terms not reported)',
+    stage: 'Approved',
+    project: 'Agro-Climatic Resilience in Semi-Arid Landscapes (ACReSAL)',
+    agency: '',
+    countedIn: ''
+  },
+  sources: [
+      [
+        'CNBC Africa: World Bank approves $500 million for Nigeria climate resilience project',
+        'https://www.cnbcafrica.com/2026/world-bank-approves-500-million-for-nigeria-climate-resilience-project'
+      ]
+    ],
+  trust: 'media'
+},
+{
+  id: 'n34',
+  date: '2026-11-04',
+  kind: 'Signing',
+  title: 'AfDB guarantee brings in $1.2 billion of commercial bank loans for Tanzania\'s Tabora–Kigoma railway',
+  summary: 'Tanzania closed a $1.2 billion commercial bank facility for the 411 km Tabora–Kigoma section of its standard gauge railway, announced on 4 November. Nine banks are lending; the AfDB arranged the deal and provides a partial credit guarantee of up to $800 million rather than lending directly. The facility is part of a $2.3 billion package, with about $1.1 billion still to come, according to the report.',
+  why: 'A sign of development banks using guarantees to draw in commercial lenders; with construction already contracted, remaining openings are mainly in supervision, safeguards and resettlement monitoring.',
+  country: 'Tanzania',
+  region: 'Africa',
+  lender: 'AfDB',
+  deal: {
+    amount: 1200,
+    currency: 'USD',
+    instrument: 'Commercial bank loans with AfDB partial credit guarantee (up to $800m)',
+    stage: 'Signed',
+    project: 'Standard Gauge Railway, Tabora–Kigoma section',
+    agency: 'Government of Tanzania',
+    countedIn: ''
+  },
+  sources: [
+      [
+        'The Rio Times: Tanzania signs US$1.2 billion for rail line (6 Nov 2026)',
+        'https://www.riotimesonline.com/tanzania-us-1-2-billion-sgr-railway-financing-2026/'
+      ]
+    ],
+  trust: 'media'
+},
+{
+  id: 'n35',
+  date: '2026-10-21',
+  dateText: 'Approved 21 Oct, announced 4 Nov 2026',
+  kind: 'Approval',
+  title: 'AfDB lends Tanzania $60 million to recapitalise its agricultural development bank',
+  summary: 'The AfDB Group announced on 4 November that it had approved a $60 million loan to Tanzania for the third phase of the Tanzania Agricultural Development Bank Equity Enhancement Project, to be invested as equity in the bank. The government adds $60 million from retained earnings. The AfDB says agriculture employs about 65% of Tanzania\'s workforce but gets about 12% of private-sector credit, and expects at least 30% of supported jobs to go to women and 30% to young people.',
+  why: 'More long-term agribusiness credit; look for technical assistance on climate-smart lending and women- and youth-led enterprise portfolios.',
+  country: 'Tanzania',
+  region: 'Africa',
+  lender: 'AfDB',
+  deal: {
+    amount: 60,
+    currency: 'USD',
+    instrument: 'Loan (invested as equity)',
+    stage: 'Approved',
+    project: 'TADB Equity Enhancement Project, Phase III',
+    agency: 'Tanzania Agricultural Development Bank',
+    countedIn: ''
+  },
+  sources: [
+      [
+        'allAfrica (AfDB release): African Development Bank Group commits $60 million to boost agricultural financing in Tanzania',
+        'https://allafrica.com/stories/202611050699.html'
+      ]
+    ],
+  trust: 'media'
+},
+{
+  id: 'n36',
+  date: '2026-11-05',
+  kind: 'Approval',
+  title: 'ADB approves $11.7 million grant to help the Marshall Islands absorb higher fuel and food costs',
+  summary: 'ADB approved an $11.7 million policy-based grant, including $6.7 million in additional funding, for Subprogram 1 of the Marshall Islands Public Sector Reform Program, to help the government cope with fuel and food costs driven up by the Middle East conflict. Linked reforms include a consumption tax, online customs processing and cutting subsidies to state-owned enterprises from an average 6.2% of GDP to 3% by 2028.',
+  why: 'Pacific budget support of this kind usually comes with tax, customs and state-enterprise reform assistance suited to public financial management consultants.',
+  country: 'Marshall Islands',
+  region: 'Pacific',
+  lender: 'ADB',
+  deal: {
+    amount: 11.7,
+    currency: 'USD',
+    instrument: 'Policy-based grant',
+    stage: 'Approved',
+    project: 'Public Sector Reform Program, Subprogram 1',
+    agency: 'Government of the Marshall Islands',
+    countedIn: ''
+  },
+  sources: [
+      [
+        'ADB: ADB approves $11.7 million for Marshall Islands as Middle East conflict raises costs',
+        'https://www.adb.org/news/adb-approves-11-7-million-marshall-islands-middle-east-conflict-raises-costs'
+      ]
+    ],
+  trust: 'official'
+},
+{
+  id: 'n37',
+  date: '2026-11-04',
+  kind: 'Policy',
+  title: 'ADB aims to put 30% of its operations into cross-border projects by 2030',
+  summary: 'ADB launched its operational approach for regional cooperation and integration at a conference in Manila, setting a target for 30% of its operations to support cross-border initiatives by 2030. Priorities include cross-border power, transport and digital links, trade facilitation, shared natural resources and disaster preparedness, with a plan to commit up to $10 billion to the ASEAN Power Grid. The approach works through regional programmes including SASEC, of which Bangladesh is a member.',
+  why: 'Expect more regional technical assistance and multi-country studies on power interconnection, trade facilitation and transport corridors, suited to firms with regional experience.',
+  country: '',
+  region: 'Asia-Pacific',
+  lender: 'ADB',
+  deal: null,
+  sources: [
+      [
+        'ADB: ADB targets nearly a third of its work for regional initiatives',
+        'https://www.adb.org/news/adb-targets-nearly-third-its-work-regional-initiatives'
+      ]
+    ],
+  trust: 'official'
+},
+{
+  id: 'n38',
+  date: '2026-11-05',
+  kind: 'Policy',
+  title: 'Education Cannot Wait raises $541.6 million towards its $600 million target for 2027–2030',
+  summary: 'At a financing conference in Geneva on 5 November, Education Cannot Wait received $405.8 million in new pledges which, with $135.8 million in earlier commitments, brings $541.6 million, or 90% of its $600 million target for its 2027–2030 strategic plan. Switzerland pledged CHF 35 million. ECW aims to reach 10 million crisis-affected children and to channel at least half of programme funding through national and local partners by 2030.',
+  why: 'The 50% localisation target means more ECW money going directly to national and local NGOs, including in crisis responses such as Bangladesh\'s Rohingya response.',
+  country: '',
+  region: 'Global',
+  lender: 'Education Cannot Wait',
+  deal: null,
+  sources: [
+      [
+        'Education Cannot Wait: Global solidarity delivers major boost as Hope Starts Here campaign approaches its US$600 million goal',
+        'https://www.educationcannotwait.org/news-stories/press-releases/global-solidarity-delivers-major-boost-education-cannot-wait-hope'
+      ],
+      [
+        'Geneva Solutions: UN-backed Geneva fund raises $400m for education in emergencies',
+        'https://genevasolutions.news/peace-humanitarian/un-backed-geneva-fund-raises-400m-for-education-in-emergencies'
+      ]
+    ],
+  trust: 'official'
+},
+{
+  id: 'n39',
+  date: '2026-11-05',
+  kind: 'Policy',
+  title: 'Canada\'s 2026 budget makes no mention of foreign aid',
+  summary: 'Canada\'s federal budget, tabled on 5 November, does not mention international assistance or development, according to a Canadian Press review reported by Global News, which said every budget since 2010 had done so. Aid groups said they expect the C$2.7 billion four-year cut announced last year to stand; the budget announced no new cuts.',
+  why: 'NGOs that rely on Global Affairs Canada funding get no new signal and should plan around the cut already announced.',
+  country: 'Canada',
+  region: 'Global',
+  lender: 'Canada',
+  deal: null,
+  sources: [
+      [
+        'Global News: Aid sector calls out omission of foreign aid in federal budget',
+        'https://globalnews.ca/news/12141139/budget-2026-foreign-aid'
+      ]
+    ],
+  trust: 'media'
+},
+{
+  id: 'n40',
+  date: '2026-11-04',
+  kind: 'Data',
+  title: 'UNEP: even tripling adaptation finance would meet only 20–29% of developing countries\' needs',
+  summary: 'UNEP\'s Adaptation Gap Report 2026, released on 4 November, puts international public adaptation finance to developing countries at $28.2–31.7 billion in 2024 and needs at about $305 billion a year by 2035. The COP30 call to at least triple adaptation finance by 2035 would mean $85–120 billion a year, which after inflation would cover only 20–29% of needs, according to the report as summarised by Argus Media.',
+  why: 'Adaptation money is the main finance fight at COP31; expect tight competition for adaptation grants and more blending with loans and private capital.',
+  country: '',
+  region: 'Global',
+  lender: 'UNEP',
+  deal: null,
+  sources: [
+      [
+        'Argus Media: Adaptation too slow as world set to breach 1.5°C: Unep (4 Nov 2026)',
+        'https://www.argusmedia.com/pt/news-and-insights/latest-market-news/2899890-adaptation-too-slow-as-world-set-to-breach-1.5degc-unep'
+      ]
+    ],
+  trust: 'media'
+},
+{
   id: 'n23', date: '2026-11-03', kind: 'Data',
   title: 'Bangladesh: 92% of climate finance for energy since 2002 came as loans, study finds',
   summary: 'A study presented by the research group Change Initiative at a national dialogue in Dhaka on 3 November found that of $2.54 billion in climate finance for Bangladesh\'s energy sector in 2002–2023, 92% came as loans and 8% as grants. The study notes that renewables supply about 1% of grid electricity and more than 60% of generation relies on imported fuel. Speakers called for more grant-based and local-currency finance for renewables and for financing smaller renewable energy service providers.',
@@ -291,6 +634,88 @@ NEWS: [
 ],
 
 ANALYSES: [
+{
+  id: 'a3',
+  date: '2026-11-08',
+  title: 'COP31 opens with climate finance short of the promises: what it means for NGOs and consultants',
+  standfirst: 'As climate talks open in Antalya, public climate budgets in rich countries are flat or falling, adaptation and loss-and-damage funds are far below need, and much of the gap is being filled with loans and guarantees while developing-country debt service sits at a record.',
+  keynums: [
+      ['$300bn', 'a year by 2035: the Baku climate finance goal [1][6]'],
+      ['$28–32bn', 'international public adaptation finance in 2024, against about $305bn a year needed by 2035 [3]'],
+      ['$516m', 'paid in to the loss-and-damage fund, against $2.8bn in funding requests [4]'],
+      ['$436bn', 'more paid by developing countries in debt service than received in new financing, 2022–2025 [7]']
+    ],
+  body: [
+      [
+        'The short version',
+        'COP31 runs from 9 to 20 November in Antalya, Türkiye, and developed countries are expected to show how they will reach the goal agreed at Baku of mobilising at least $300 billion a year in climate finance by 2035, within a wider $1.3 trillion target from all sources [6][1]. The numbers going into the talks are weak: adaptation finance covers a fraction of need [3], the loss-and-damage fund is small [4], and the EU has said it will make no new commitments at the summit [5]. Development banks are lending more for climate [8], but mostly as loans, at a time when developing countries are paying record sums to service debt [7].'
+      ],
+      [
+        'What happened',
+        'UNEP\'s Adaptation Gap Report 2026, released on 4 November, put international public adaptation finance at $28.2–31.7 billion in 2024, against needs of about $305 billion a year by 2035; even the tripling called for at COP30, to $85–120 billion a year, would cover only 20–29% of 2035 needs after inflation [3]. The Center for Global Development notes that the baseline for that tripling is unclear, and that if it means tripling the $40 billion target for 2025 the result is $120 billion a year [1]. An analysis by the Heinrich Böll Foundation says Germany\'s budgetary climate finance fell from €6.1 billion in 2024 to €4.7 billion in 2025, that developed countries provided and mobilised $136.7 billion in 2024 by OECD figures with only about a quarter for adaptation and more than two-thirds of public climate finance as loans, and that the loss-and-damage fund has $516 million paid in against $2.8 billion in requests [4]. The EU climate commissioner was reported as saying the bloc will make no new climate finance pledges at COP31; the EU and its member states provided €32.3 billion in public climate finance in 2025 [5]. The chair of the African Group of Negotiators argued that $300 billion should be treated as a floor, noting that Africa produces about 4% of global emissions but loses 2–5% of GDP a year to climate extremes [2].'
+      ],
+      [
+        'Where the money is coming from instead',
+        'Multilateral development banks reported a record $163 billion in climate finance in 2025, of which $103 billion went to low- and middle-income countries, including $35 billion for adaptation [8]. Much of this is lending: the World Bank\'s International Debt Report, released on 5 November, shows developing countries\' external debt at a record $9.4 trillion and IDA-eligible countries paying an average 8.2% on new private loans, the highest since 1989 [7]. Guarantees are a growing tool: this week an AfDB partial credit guarantee of up to $800 million helped Tanzania raise $1.2 billion from nine commercial banks for a railway [9]. Bilateral aid is under pressure too: Canada\'s 5 November budget did not mention foreign aid, and aid groups expect its C$2.7 billion cut to stand [10].'
+      ],
+      [
+        'What it means for NGOs, firms and consultants',
+        'Grant money for adaptation and loss and damage will stay scarce and competitive, so NGOs should expect more calls that ask for co-financing, private-sector partners or links to bank-financed projects [3][4]. For consulting firms, the growth is in work around development bank lending and guarantees: project preparation, safeguards, monitoring and climate-finance structuring, including debt-for-nature swaps and similar instruments [8][9]. Debt pressure [7] also keeps demand high for public financial management, climate budget tagging and revenue advice.'
+      ],
+      [
+        'DevFund\'s assessment',
+        'This is DevFund\'s view. The headline risk from Antalya is not a collapse of the $300 billion goal but a slow drift in which the target is met largely through loans and mobilised private money, while grant-based adaptation and loss-and-damage funds stay small [1][4][8]. For organisations working with vulnerable communities, the practical response is to build partnerships with the larger lenders\' projects and with national climate finance bodies rather than wait for new grant windows. Bangladeshi and other South Asian organisations should watch closely whether COP31 produces a clearer adaptation baseline, because that will decide how much grant money reaches climate-vulnerable countries in the next few years.'
+      ]
+    ],
+  watch: [
+      'Whether COP31 agrees a clear baseline and pathway for tripling adaptation finance',
+      'New pledges, or the lack of them, to the loss-and-damage fund and the Adaptation Fund',
+      'Development bank announcements in Antalya on climate lending, guarantees and debt-for-nature swaps',
+      'Donor budget decisions after Canada\'s, and the preparation of the Green Climate Fund\'s next replenishment'
+    ],
+  sources: [
+      [
+        'Center for Global Development: Implementing climate finance goals: where next for the UNFCCC and other multilateral processes (4 Nov 2026)',
+        'https://www.cgdev.org/blog/implementing-climate-finance-goals-where-next-unfccc-and-other-multilateral-processes'
+      ],
+      [
+        'Climate Home News: COP31 must deliver finance for Africa or there will be no implementation (4 Nov 2026)',
+        'https://www.climatechangenews.com/2026/11/04/cop31-must-deliver-finance-for-africa-or-there-will-be-no-implementation/'
+      ],
+      [
+        'Argus Media: Adaptation too slow as world set to breach 1.5°C: Unep (4 Nov 2026)',
+        'https://www.argusmedia.com/pt/news-and-insights/latest-market-news/2899890-adaptation-too-slow-as-world-set-to-breach-1.5degc-unep'
+      ],
+      [
+        'Heinrich Böll Stiftung: COP31: the sorry state of public climate finance will hamper needed ambition (29 Oct 2026)',
+        'https://www.boell.de/en/2026/10/29/cop31-antalya-sorry-state-public-climate-finance-will-hamper-needed-ambition'
+      ],
+      [
+        'OilPrice.com: EU rules out new climate finance pledges at COP31 (29 Oct 2026)',
+        'https://oilprice.com/Latest-Energy-News/World-News/EU-Rules-Out-New-Climate-Finance-Pledges-at-COP31.amp.html'
+      ],
+      [
+        'NewsMobile: COP31: seven major climate issues set to shape global talks in Türkiye (7 Nov 2026)',
+        'https://www.newsmobile.in/climate/cop31-seven-major-climate-issues-set-to-shape-global-talks-in-turkiye/'
+      ],
+      [
+        'World Bank: Developing countries\' external debt surges to record $9.4 trillion (5 Nov 2026)',
+        'https://www.worldbank.org/en/news/press-release/2026/11/05/developing-countries-external-debt-surges-to-record-9-4-trillion'
+      ],
+      [
+        'AIIB (on behalf of the MDBs): Multilateral development banks increase climate finance to record USD163 billion in 2025 (13 Jul 2026)',
+        'https://www.aiib.org/en/news-events/news/2026/multilateral-development-banks-increase-climate-finance-record-usd163-billion-2025-supporting-climate-resilient-sustainable-growth.html'
+      ],
+      [
+        'The Rio Times: Tanzania signs US$1.2 billion for rail line (6 Nov 2026)',
+        'https://www.riotimesonline.com/tanzania-us-1-2-billion-sgr-railway-financing-2026/'
+      ],
+      [
+        'Global News: Aid sector calls out omission of foreign aid in federal budget (7 Nov 2026)',
+        'https://globalnews.ca/news/12141139/budget-2026-foreign-aid'
+      ]
+    ]
+},
 {
   id: 'a2', date: '2026-11-02',
   title: 'Budget support, social protection and climate: where development money moved in late October 2026',
